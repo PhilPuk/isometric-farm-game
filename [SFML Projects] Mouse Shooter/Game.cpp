@@ -13,9 +13,6 @@ void Game::initVariables(sf::RenderWindow* window)
 {
     this->endGame = false;
     this->endApplication = false;
-
-    this->spawnTimerMax = 30.f;
-    this->spawnTimer = this->spawnTimerMax;
 }
 
 Game::Game(sf::RenderWindow* window)

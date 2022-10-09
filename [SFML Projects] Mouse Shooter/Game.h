@@ -18,9 +18,6 @@ private:
 	//TextureManager
 	TextureManager textures;
 
-	float spawnTimerMax;
-	float spawnTimer;
-
 	//End logic
 	bool endGame;
 	bool endApplication;
@@ -32,7 +29,6 @@ public:
 	virtual ~Game();
 
 	void CloseApplication();
-
 	void resetVariables();
 
 	//Accessors

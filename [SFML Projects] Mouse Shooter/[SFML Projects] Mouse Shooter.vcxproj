@@ -24,7 +24,7 @@
     <ProjectGuid>{45ef9f38-9f29-43d9-9db4-a4a3eba786d6}</ProjectGuid>
     <RootNamespace>SFMLProjectsMouseShooter</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Lights_Tracing_Bouncing of walls</ProjectName>
+    <ProjectName>SFML Template 2.0</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
