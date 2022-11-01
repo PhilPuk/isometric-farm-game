@@ -24,7 +24,7 @@
     <ProjectGuid>{45ef9f38-9f29-43d9-9db4-a4a3eba786d6}</ProjectGuid>
     <RootNamespace>SFMLProjectsMouseShooter</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>SFML Template 2.0</ProjectName>
+    <ProjectName>Gardenia</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -134,23 +134,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Crops.cpp" />
+    <ClCompile Include="Field.cpp" />
+    <ClCompile Include="FieldManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LightManager.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="Scenery.cpp" />
+    <ClCompile Include="Seed.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Tracing.cpp" />
+    <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Crops.h" />
+    <ClInclude Include="Field.h" />
+    <ClInclude Include="FieldManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="LightManager.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Mouse.h" />
+    <ClInclude Include="Scenery.h" />
+    <ClInclude Include="Seed.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Tracing.h" />
+    <ClInclude Include="UI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

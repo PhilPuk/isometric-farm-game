@@ -15,15 +15,37 @@ void Game::initVariables(sf::RenderWindow* window)
     this->endApplication = false;
 }
 
+void Game::initUI()
+{
+    this->ui = new UI(this->winSize);
+}
+
+void Game::initScenery()
+{
+    this->scenery = new Scenery();
+}
+
+void Game::initf_Manager()
+{
+    this->f_Manager = new FieldManager();
+}
+
 Game::Game(sf::RenderWindow* window)
 {
     this->initWindow(window);
     this->initVariables(window);
+    this->initUI();
+    this->initScenery();
+    this->initf_Manager();
 }
 
 Game::~Game()
 {
+    delete this->ui;
 
+    delete this->f_Manager;
+    
+    delete this->scenery;
 }
 
 void Game::CloseApplication()

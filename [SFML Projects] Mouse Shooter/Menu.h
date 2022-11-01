@@ -6,6 +6,7 @@
 #include"Mouse.h"
 #include"Game.h"
 
+
 class Menu
 {
 private:
@@ -22,6 +23,7 @@ private:
 	sf::Text Text_Title;
 	sf::Text Text_Menu_Options[3];
 	sf::Color Color_Menu;
+	sf::Color Color_Menu_Selected;
 	sf::Vector2f Vector_Menu_Pos;
 	float Spacing_Menu_Pos_Y;
 

@@ -4,6 +4,10 @@
 #include"time.h"
 
 #include"TextureManager.h"
+#include"UI.h"
+#include"Scenery.h"
+#include"Field.h"
+#include"FieldManager.h"
 
 class Game
 {
@@ -18,12 +22,24 @@ private:
 	//TextureManager
 	TextureManager textures;
 
+	//UI
+	UI* ui;
+
+	//Scenery
+	Scenery* scenery;
+
+	//FieldManager
+	FieldManager* f_Manager;
+
 	//End logic
 	bool endGame;
 	bool endApplication;
 
 	void initWindow(sf::RenderWindow* window);
 	void initVariables(sf::RenderWindow* window);
+	void initUI();
+	void initScenery();
+	void initf_Manager();
 public:
 	Game(sf::RenderWindow* window);
 	virtual ~Game();

@@ -7,10 +7,22 @@ void TextureManager::initVariables()
 
 void TextureManager::initLightTextures()
 {
-	if (!this->light.loadFromFile("Textures/bloom.png"))
-	{
-		std::cout << " - ERROR::TEXTUREMANAGER::INITLIGHTTEXTURES::Couldn't load texture: Textures/bloom.png\n";
-	}
+
+}
+
+void TextureManager::initSceneryTextures()
+{
+
+}
+
+void TextureManager::initCropTextures()
+{
+
+}
+
+void TextureManager::initSeedTextures()
+{
+
 }
 
 void TextureManager::initTextures()

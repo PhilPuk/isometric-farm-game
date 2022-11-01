@@ -12,8 +12,9 @@ void Menu::initVariables()
 	this->Framerate = 60;
 
 	//Texts
-	this->Application_Title = "TEMPLATE";
-	this->Color_Menu = sf::Color::White;
+	this->Application_Title = "Gardenia";
+	this->Color_Menu = sf::Color::Green;
+	this->Color_Menu_Selected = sf::Color(20, 100, 20, 255);
 		//Text Pos
 	this->Vector_Menu_Pos.x = 100.f;
 	this->Vector_Menu_Pos.y = static_cast<float>(this->videoMode.height) / 1.7f;
@@ -72,7 +73,7 @@ void Menu::initText()
 	this->Vector_Menu_Pos = tmp_saveVector;
 
 	//Sets first option to Navigation Index Color
-	this->Text_Menu_Options[this->Menu_Navigation_Index].setFillColor(sf::Color::Magenta);
+	this->Text_Menu_Options[this->Menu_Navigation_Index].setFillColor(this->Color_Menu_Selected);
 }
 
 void Menu::initGame()
@@ -201,7 +202,7 @@ void Menu::updateText()
 		for (int i = 0; i < 3; i++)
 		{
 			if (i == this->Menu_Navigation_Index)
-				this->Text_Menu_Options[i].setFillColor(sf::Color::Magenta);
+				this->Text_Menu_Options[i].setFillColor(this->Color_Menu_Selected);
 			else
 				this->Text_Menu_Options[i].setFillColor(this->Color_Menu);
 		}
