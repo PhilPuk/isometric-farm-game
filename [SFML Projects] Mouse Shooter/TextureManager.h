@@ -3,6 +3,9 @@
 #include<iostream>
 #include<vector>
 #include<map>
+#include<sstream>
+#include<stdio.h>
+#include<Windows.h>
 
 #include<SFML/Graphics.hpp>
 #include<SFML/System.hpp>
@@ -15,6 +18,8 @@ class TextureManager
 private:
 
 	void initVariables();
+	int getFileAmountOfFolder(std::string Path);
+	void initTexturesBaseLoop(std::string Path, int key, int size);
 	void initLightTextures();
 	void initSceneryTextures();
 	void initCropTextures();
@@ -24,14 +29,7 @@ public:
 	TextureManager();
 	virtual ~TextureManager();
 
-	//Maybe use function pointer to create reusable for loops to load in each texture
-	//Choose between these two methods
-
-	std::vector<sf::Texture> lights;
-	std::vector<sf::Texture> sceneries;
-	std::vector<sf::Texture> crops;
-	std::vector<sf::Texture> seeds;
-
-	std::map<std::string, std::vector<sf::Texture>> textures;
+	enum keys{lights = 0, sceneries, crops, seeds, fields};
+	std::map<int, std::vector<sf::Texture>> tex;
 };
 

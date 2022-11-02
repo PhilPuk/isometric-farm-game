@@ -22,12 +22,12 @@ void Game::initUI()
 
 void Game::initScenery()
 {
-    this->scenery = new Scenery();
+    //this->scenery = new Scenery();
 }
 
 void Game::initf_Manager()
 {
-    this->f_Manager = new FieldManager();
+    //this->f_Manager = new FieldManager();
 }
 
 Game::Game(sf::RenderWindow* window)
