@@ -22,7 +22,7 @@ void Game::initUI()
 
 void Game::initScenery()
 {
-    //this->scenery = new Scenery();
+    this->scenery = new Scenery(this->textures.tex[1], this->winSize);
 }
 
 void Game::initf_Manager()
@@ -107,6 +107,8 @@ void Game::update()
 void Game::render()
 {
     this->window->clear();
+
+    this->scenery->render(*this->window);
 
     this->window->display();
 }

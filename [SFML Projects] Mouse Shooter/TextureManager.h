@@ -30,6 +30,8 @@ public:
 	virtual ~TextureManager();
 
 	enum keys{lights = 0, sceneries, crops, seeds, fields};
+	//Keylist
+	//{lights = 0, sceneries, crops, seeds, fields}
 	std::map<int, std::vector<sf::Texture*>> tex;
 };
 

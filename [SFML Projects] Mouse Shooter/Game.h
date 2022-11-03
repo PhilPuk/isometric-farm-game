@@ -25,9 +25,6 @@ private:
 	//UI
 	UI* ui;
 
-	//Scenery
-	Scenery* scenery;
-
 	//FieldManager
 	FieldManager* f_Manager;
 
@@ -43,6 +40,9 @@ private:
 public:
 	Game(sf::RenderWindow* window);
 	virtual ~Game();
+
+	//Scenery
+	Scenery* scenery;
 
 	void CloseApplication();
 	void resetVariables();

@@ -236,6 +236,8 @@ void Menu::render()
 {
 	this->window->clear();
 
+	this->game->scenery->render(*this->window);
+
 	this->renderText();
 
 	this->window->display();

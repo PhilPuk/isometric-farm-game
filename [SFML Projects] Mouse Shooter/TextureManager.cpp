@@ -23,14 +23,14 @@ int TextureManager::getFileAmountOfFolder(std::string Path)
 
 void TextureManager::initTexturesBaseLoop(std::string Path, int key, int size)
 {
-	std::stringstream s;
+	std::stringstream completePath;
 	for (int i = 0; i < size; i++)
 	{
-		s << Path << i << ".png";
+		completePath << Path << i << ".png";
 		this->tex[key].push_back(new sf::Texture);
-		if (!this->tex[key][i]->loadFromFile(s.str()))
-			std::cout << " - ERROR::TEXTUREMANAGER::INITTEXTURES::Coulnd't load texture at: " << s.str() << "\n";
-		s.clear();
+		if (!this->tex[key][i]->loadFromFile(completePath.str()))
+			std::cout << " - ERROR::TEXTUREMANAGER::INITTEXTURES::Coulnd't load texture at: " << completePath.str() << "\n";
+		completePath.clear();
 	}
 }
 
@@ -82,6 +82,6 @@ TextureManager::~TextureManager()
 			this->tex[i].erase(this->tex[i].begin(), this->tex[i].end());
 		}
 		//Check for deletion
-		//std::cout << "TEXTUREMANAGER DESTRUCTOR SIZE OF VECTOR ARRAY IN MAP AT KEY: " << i << " SIZE: " << this->tex[i].size()<<"\n";
+		std::cout << "TEXTUREMANAGER DESTRUCTOR SIZE OF VECTOR ARRAY IN MAP AT KEY: " << i << " SIZE: " << this->tex[i].size()<<"\n";
 	}
 }
