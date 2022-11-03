@@ -4,8 +4,7 @@
 #include<vector>
 #include<map>
 #include<sstream>
-#include<stdio.h>
-#include<Windows.h>
+#include<filesystem>
 
 #include<SFML/Graphics.hpp>
 #include<SFML/System.hpp>
@@ -31,6 +30,6 @@ public:
 	virtual ~TextureManager();
 
 	enum keys{lights = 0, sceneries, crops, seeds, fields};
-	std::map<int, std::vector<sf::Texture>> tex;
+	std::map<int, std::vector<sf::Texture*>> tex;
 };
 

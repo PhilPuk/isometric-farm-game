@@ -5,12 +5,13 @@ void initVariables()
 
 }
 
+void Scenery::initVariables()
+{
+
+}
+
 void Scenery::initTextures(std::vector<sf::Texture>& t_Sceneries)
 {
-	for (int i = 0; i < (sizeof(SCENERIES_KEYS) / sizeof(SCENERIES_KEYS[0])); i++)
-	{
-		this->t_Sceneries[this->SCENERIES_KEYS[i]] = t_Sceneries[i];
-	}
 }
 
 Scenery::Scenery(std::vector<sf::Texture>& t_Sceneries)
@@ -25,16 +26,11 @@ Scenery::~Scenery()
 }
 //Accessors
 
-std::string Scenery::get_Scenery_Keys(int index)
-{
-	return this->SCENERIES_KEYS[index];
-}
-
 //Modifiers
 
-void Scenery::switchScenery(std::string& key)
+void Scenery::switchScenery(int& key)
 {
-	this->s_Scenery.setTexture(this->t_Sceneries[key]);
+	//this->s_Scenery.setTexture(this->t_Sceneries[key]);
 }
 
 

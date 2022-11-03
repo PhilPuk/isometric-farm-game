@@ -13,12 +13,13 @@
 class Scenery
 {
 private:
-	std::map<std::string, sf::Texture&> t_Sceneries;
+	//std::map<int, sf::Texture&> t_Sceneries;
 
 	sf::Sprite s_Scenery;
 
-	std::string SCENERIES_KEYS[2] = {"MENU", "FARM"};
-	std::string selectedScenery;
+	//std::string SCENERIES_KEYS[2] = {"MENU", "FARM"};
+	enum keys {MENU = 0, FARM};
+	int selectedScenery;
 
 	void initVariables();
 	void initTextures(std::vector<sf::Texture>& t_Sceneries);
@@ -28,13 +29,9 @@ public:
 
 	//Accessors
 
-		//Scenerylist :
-		//1. MENU.
-		//2. FARM.
-	std::string get_Scenery_Keys(int index);
-
 	//Modifiers
-	void switchScenery(std::string& key);
+
+	void switchScenery(int& key);
 
 	void update();
 
