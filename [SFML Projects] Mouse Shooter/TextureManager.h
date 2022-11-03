@@ -24,6 +24,7 @@ private:
 	void initSceneryTextures();
 	void initCropTextures();
 	void initSeedTextures();
+	void initFieldTextures();
 	void initTextures();
 public:
 	TextureManager();

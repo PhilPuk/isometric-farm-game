@@ -7,25 +7,17 @@ void TextureManager::initVariables()
 
 int TextureManager::getFileAmountOfFolder(std::string Path)
 {
-	int counter = 0;
-	WIN32_FIND_DATAA ffd;
-	HANDLE hFind = INVALID_HANDLE_VALUE;
+	auto dirIter = std::experimental::filesystem::directory_iterator(Path);
+	int fileCount = 0;
 
-	hFind = ::FindFirstFileA(Path.c_str(), &ffd);
-	//Iterating over the files in the directory
-	if (hFind != INVALID_HANDLE_VALUE)
+	for (auto& entry : dirIter)
 	{
-		do
-		{
-			counter++;
-		} while (::FindNextFileA(hFind, &ffd) == TRUE);
+    	if (entry.is_regular_file())
+    	{
+	        ++fileCount;
+	    }
 	}
-	else
-	{
-		std::cout << " - ERROR::TEXTUREMANAGER::GETFILEAMOUNTOFFOLDER::Couldn't find folder:" << Path << "\n";
-		return 0;
-	}
-	return counter;
+	return fileCount;
 }
 
 void TextureManager::initTexturesBaseLoop(std::string Path, int key, int size)
@@ -43,27 +35,38 @@ void TextureManager::initTexturesBaseLoop(std::string Path, int key, int size)
 
 void TextureManager::initLightTextures()
 {
-	std::cout<<"File amount of textures: "<<this->getFileAmountOfFolder("C:/Users/Phil/source/repos/[SFML Projects] SFML Template 1.0 - Kopie - Kopie/[SFML Projects] Mouse Shooter/Textures");
+	//Test for file count in directory function
+	//std::cout<<"File amount of textures: "<<this->getFileAmountOfFolder("Textures/bloom");
+
+	this->initTexturesBaseLoop("Textures/bloom/bloom", lights, this->getFileAmountOfFolder("Textures/bloom"));
 }
 
 void TextureManager::initSceneryTextures()
 {
-
+	this->initTexturesBaseLoop("Textures/Scenery/scenery", sceneries, this->getFileAmountOfFolder("Textures/Scenery"));
 }
 
 void TextureManager::initCropTextures()
 {
-
+	this->initTexturesBaseLoop("Textures/Crops/crop", crops, this->getFileAmountOfFolder("Textures/Crops"));
 }
 
 void TextureManager::initSeedTextures()
 {
+	this->initTexturesBaseLoop("Textures/Seeds/seed", seeds, this->getFileAmountOfFolder("Textures/Seeds"));
+}
 
+void TextureManager::initFieldTextures()
+{
+	this->initTexturesBaseLoop("Textures/Fields/field", fields, this->getFileAmountOfFolder("Textures/Fields"));
 }
 
 void TextureManager::initTextures()
 {
 	this->initLightTextures();
+	this->initSceneryTextures();
+	this->initCropTextures();
+	this->initSeedTextures();
 }
 
 TextureManager::TextureManager()
