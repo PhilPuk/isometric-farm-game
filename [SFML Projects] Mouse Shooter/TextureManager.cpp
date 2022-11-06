@@ -65,6 +65,7 @@ void TextureManager::initTextures()
 	this->initSceneryTextures();
 	this->initCropTextures();
 	this->initSeedTextures();
+	this->initFieldTextures();
 }
 
 TextureManager::TextureManager()
@@ -75,7 +76,7 @@ TextureManager::TextureManager()
 
 TextureManager::~TextureManager()
 {
-	for (int i = 0; i < fields; i++)
+	for (int i = 0; i < this->tex.size(); i++)
 	{
 		for (int j = 0; j < this->tex[i].size(); j++)
 		{

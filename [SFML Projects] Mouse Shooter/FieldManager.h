@@ -11,10 +11,10 @@ private:
 	std::vector<Field*> fields;
 
 	void initVariables();
-	void initTextures(sf::Texture& t_Field, sf::Texture& t_Crop);
-	void initBeginnerField();
+	void initTextures(sf::Texture* t_Field, sf::Texture* t_Crop);
+	void initBeginnerField(sf::Vector2u& winSize);
 public:
-	FieldManager(sf::Vector2u& winSize, sf::Texture& t_Field, sf::Texture& t_Crop);
+	FieldManager(sf::Vector2u& winSize, sf::Texture* t_Field, sf::Texture* t_Crop);
 	virtual~FieldManager();
 
 	void update();

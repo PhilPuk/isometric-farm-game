@@ -19,9 +19,6 @@ private:
 	//Events
 	sf::Event ev;
 
-	//TextureManager
-	TextureManager textures;
-
 	//UI
 	UI* ui;
 
@@ -43,6 +40,9 @@ public:
 
 	//Scenery
 	Scenery* scenery;
+
+	//TextureManager
+	TextureManager textures;
 
 	void CloseApplication();
 	void resetVariables();

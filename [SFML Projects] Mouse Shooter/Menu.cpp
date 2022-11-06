@@ -13,8 +13,8 @@ void Menu::initVariables()
 
 	//Texts
 	this->Application_Title = "Gardenia";
-	this->Color_Menu = sf::Color::Green;
-	this->Color_Menu_Selected = sf::Color(20, 100, 20, 255);
+	this->Color_Menu = sf::Color(255,255,100,255);
+	this->Color_Menu_Selected = sf::Color(255, 200, 10, 255);
 		//Text Pos
 	this->Vector_Menu_Pos.x = 100.f;
 	this->Vector_Menu_Pos.y = static_cast<float>(this->videoMode.height) / 1.7f;
@@ -43,7 +43,7 @@ void Menu::initFonts()
 void Menu::initText()
 {
 	//sets all texts content
-	this->Text_Title.setString("Mouse Shooter");
+	this->Text_Title.setString("Gardenia");
 		//Start
 	this->Text_Menu_Options[0].setString("Start");
 		//Options

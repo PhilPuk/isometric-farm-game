@@ -5,22 +5,26 @@ void FieldManager::initVariables()
 
 }
 
-void FieldManager::initTextures(sf::Texture& t_Field, sf::Texture& t_Crop)
+void FieldManager::initTextures(sf::Texture* t_Field, sf::Texture* t_Crop)
 {
-	this->t_Field = t_Field;
-	this->t_Crop = t_Crop;
+	this->t_Field = *t_Field;
+	this->t_Crop = *t_Crop;
 }
 
-void FieldManager::initBeginnerField()
+void FieldManager::initBeginnerField(sf::Vector2u& winSize)
 {
-	this->fields.push_back(new Field(this->t_Crop, this->t_Field, sf::Vector2f(900, 450)));
+	sf::Vector2f pos = {
+		static_cast<float>(winSize.x) / 1.4f,
+		static_cast<float>(winSize.y) / 1.35f
+	};
+	this->fields.push_back(new Field(this->t_Crop, this->t_Field, pos));
 }
 
-FieldManager::FieldManager(sf::Vector2u& winSize, sf::Texture& t_Field, sf::Texture& t_Crop)
+FieldManager::FieldManager(sf::Vector2u& winSize, sf::Texture* t_Field, sf::Texture* t_Crop)
 {
 	this->initVariables();
 	this->initTextures(t_Field, t_Crop);
-	this->initBeginnerField();
+	this->initBeginnerField(winSize);
 }
 
 FieldManager::~FieldManager()

@@ -27,7 +27,7 @@ void Game::initScenery()
 
 void Game::initf_Manager()
 {
-    //this->f_Manager = new FieldManager();
+    this->f_Manager = new FieldManager(this->winSize, this->textures.tex[4][0], this->textures.tex[2][0]);
 }
 
 Game::Game(sf::RenderWindow* window)
@@ -73,7 +73,6 @@ const bool& Game::getEndApplication() const
 void Game::run()
 {
     //Main loop of the game
-
     while (!endGame)
     {
         this->update();
@@ -102,6 +101,10 @@ void Game::pollEvents()
 void Game::update()
 {
     this->pollEvents();
+
+    this->scenery->update();
+
+    this->f_Manager->update();
 }
 
 void Game::render()
@@ -109,6 +112,8 @@ void Game::render()
     this->window->clear();
 
     this->scenery->render(*this->window);
+
+    this->f_Manager->render(*this->window);
 
     this->window->display();
 }

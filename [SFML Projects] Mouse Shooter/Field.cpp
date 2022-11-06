@@ -2,28 +2,35 @@
 
 void Field::initVariables()
 {
-	this->lvl = ONE;
-	this->currentCropAmount = lvl;
+
+	this->currentCropAmount = ONE;
 	this->FieldFilled = false;
 }
 
-void Field::initFirstCrop(sf::Texture t_Crop, sf::Vector2f pos)
+void Field::initField(sf::Texture& t_Field, sf::Vector2f pos)
 {
-	//Create first crop
-	this->crops.push_back(new Crops(t_Crop, pos, 0));
-}
+	sf::Vector2f scale = {
+		(static_cast<float>(ONE) / static_cast<float>(SIX))*2.f,
+		(static_cast<float>(ONE) / static_cast<float>(SIX))*2.f
+	};
 
-void Field::initField(sf::Texture t_Field, sf::Vector2f pos)
-{
 	this->s_Field.setTexture(t_Field);
+	this->s_Field.setScale(scale);
 	this->s_Field.setPosition(pos);
 }
 
-Field::Field(sf::Texture t_Crop, sf::Texture t_Field, sf::Vector2f pos)
+void Field::initFirstCrop(sf::Texture& t_Crop, sf::Vector2f pos)
+{
+	//Create first crop
+	this->crops.push_back(new Crops(t_Crop, pos, 0));
+	this->crops[0]->reScaleCrop(this->s_Field.getScale());
+}
+
+Field::Field(sf::Texture& t_Crop, sf::Texture& t_Field, sf::Vector2f pos)
 {
 	this->initVariables();
-	this->initFirstCrop(t_Crop, pos);
 	this->initField(t_Field, pos);
+	this->initFirstCrop(t_Crop, pos);
 }
 
 Field::~Field()

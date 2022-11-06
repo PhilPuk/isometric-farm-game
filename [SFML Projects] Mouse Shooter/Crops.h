@@ -29,6 +29,7 @@ public:
 	//Modifiers
 	void assignSeed(Seed* seed);
 	void removeSeed();
+	void reScaleCrop(sf::Vector2f scale);
 
 	void update();
 

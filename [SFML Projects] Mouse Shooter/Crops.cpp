@@ -51,6 +51,11 @@ void Crops::removeSeed()
 	}
 }
 
+void Crops::reScaleCrop(sf::Vector2f scale)
+{
+	this->s_crop.setScale(scale);
+}
+
 void Crops::update()
 {
 
