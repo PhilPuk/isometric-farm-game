@@ -5,14 +5,9 @@ void Scenery::initVariables()
 
 }
 
-void Scenery::initTextures(std::vector<sf::Texture*> t_Sceneries)
+void Scenery::initStartScenery(sf::Vector2u& winSize, std::vector<sf::Texture*> t_Sceneries)
 {
-	this->t_Sceneries = t_Sceneries;
-}
-
-void Scenery::initStartScenery(sf::Vector2u& winSize)
-{
-	this->s_Scenery.setTexture(*this->t_Sceneries[0]);
+	this->s_Scenery.setTexture(*t_Sceneries[0]);
 	//center origin
 	sf::FloatRect textRect = this->s_Scenery.getLocalBounds();
 	this->s_Scenery.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
@@ -24,24 +19,20 @@ Scenery::Scenery(std::vector<sf::Texture*> t_Sceneries, sf::Vector2u& winSize)
 {
 	this->initVariables();
 	this->initTextures(t_Sceneries);
-	this->initStartScenery(winSize);
+	this->initStartScenery(winSize, t_Sceneries);
 }
 
 Scenery::~Scenery()
 {
-	for (auto& i : this->t_Sceneries)
-	{
-		this->t_Sceneries.erase(this->t_Sceneries.begin(), this->t_Sceneries.end());
-	}
-	std::cout << "Size of scenery vector array: " << this->t_Sceneries.size()<<"\n";
+
 }
 //Accessors
 
 //Modifiers
 
-void Scenery::switchScenery(int& key)
+void Scenery::switchScenery(int& key, std::vector<sf::Texture*> textures)
 {
-	this->s_Scenery.setTexture(*this->t_Sceneries[key]);
+	this->s_Scenery.setTexture(*textures[key]);
 }
 
 

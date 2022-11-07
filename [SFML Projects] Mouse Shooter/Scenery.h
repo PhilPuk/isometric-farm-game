@@ -13,16 +13,13 @@
 class Scenery
 {
 private:
-	//std::map<int, sf::Texture&> t_Sceneries;
-	std::vector<sf::Texture*> t_Sceneries;
 	sf::Sprite s_Scenery;
 
 
 	int selectedScenery;
 
 	void initVariables();
-	void initTextures(std::vector<sf::Texture*> t_Sceneries);
-	void initStartScenery(sf::Vector2u& winSize);
+	void initStartScenery(sf::Vector2u& winSize, std::vector<sf::Texture*> t_Sceneries);
 public:
 	Scenery(std::vector<sf::Texture*> t_Sceneries, sf::Vector2u& winSize);
 	virtual ~Scenery();
@@ -33,7 +30,7 @@ public:
 
 		//{MENU = 0, FARM};
 	enum keys { MENU = 0, FARM };
-	void switchScenery(int& key);
+	void switchScenery(int& key, std::vector<sf::Texture*> textures);
 
 	void update();
 
