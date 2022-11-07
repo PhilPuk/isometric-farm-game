@@ -17,7 +17,7 @@ void Game::initVariables(sf::RenderWindow* window)
 
 void Game::initUI()
 {
-    this->ui = new UI(this->winSize);
+    this->ui = new UI(this->winSize, this->textures.tex[5]);
 }
 
 void Game::initScenery()
@@ -105,6 +105,8 @@ void Game::update()
     this->scenery->update();
 
     this->f_Manager->update();
+
+    this->ui->update();
 }
 
 void Game::render()
@@ -112,6 +114,8 @@ void Game::render()
     this->window->clear();
 
     this->scenery->render(*this->window);
+
+    this->ui->render(*this->window);
 
     this->f_Manager->render(*this->window);
 

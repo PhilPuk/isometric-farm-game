@@ -7,159 +7,114 @@
     <Filter Include="Graphics">
       <UniqueIdentifier>{50b0f4fd-8d8a-4938-94c7-390dbdf58996}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics\Graphics Header">
-      <UniqueIdentifier>{4e6783d4-0fcd-4c9f-9b04-ec23384f7225}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Graphics\Graphics Source">
-      <UniqueIdentifier>{2b9c8345-46f8-43b7-8a41-6e2739c2b18d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\Engine Header">
-      <UniqueIdentifier>{79f4aac1-7217-48a8-ae34-7d768fb8f5b9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\Engine Source">
-      <UniqueIdentifier>{60060867-d759-4067-b2f4-57fec86ffe4e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Main">
       <UniqueIdentifier>{39a6d27b-ac72-42b2-a47a-797ab2406fda}</UniqueIdentifier>
     </Filter>
     <Filter Include="UI">
       <UniqueIdentifier>{6e5c1f07-8857-4184-92fd-bb0f0f449f1b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI\UI Header">
-      <UniqueIdentifier>{216254af-5c37-4627-bc64-21cd49d7a1df}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\UI Source">
-      <UniqueIdentifier>{b60ecfd6-e380-41f3-846b-08e696cf5ce4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Crops">
       <UniqueIdentifier>{9595d56e-b3c4-4d12-bb6e-adbad2ef494b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Crops\Crops Header">
-      <UniqueIdentifier>{812377e4-f4c4-4447-ac49-511af0eccec2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Crops\Crops Source">
-      <UniqueIdentifier>{0d84395c-72e3-402a-b75f-addff05aa2a5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Seed">
       <UniqueIdentifier>{0e1f49c5-93aa-424b-9ac4-f9679ee40af2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Seed\Seed Source">
-      <UniqueIdentifier>{849c726f-d958-4587-bab7-ce134e12f599}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Seed\Sead Header">
-      <UniqueIdentifier>{1a7ba1f1-7fd4-4559-abe4-1270d1b6b547}</UniqueIdentifier>
-    </Filter>
     <Filter Include="FieldManager">
       <UniqueIdentifier>{841dd81a-9c67-45f1-ad04-1caf323c6874}</UniqueIdentifier>
     </Filter>
-    <Filter Include="FieldManager\Field">
-      <UniqueIdentifier>{c14c493f-a8f2-4a43-9d07-b5da4a8bcf04}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FieldManager\Field\Field Header">
-      <UniqueIdentifier>{63cc9099-da48-4410-8d23-b437a1ec92f6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FieldManager\Field\Field Source">
-      <UniqueIdentifier>{820b15e9-ab5e-4572-b373-4149195cca45}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FieldManager\FieldManager Source">
-      <UniqueIdentifier>{392c2fe1-29e9-40c2-ab0b-f7ede1c2f8d9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FieldManager\FieldManager Header">
-      <UniqueIdentifier>{bba318a4-9e1d-4442-946c-9bbe2b90e807}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Scenery">
       <UniqueIdentifier>{8e27a8dd-2789-49cc-9d8e-89adbf0506ff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scenery\Scenery Header">
-      <UniqueIdentifier>{06ea0730-8bb8-4845-923b-b5d1062b4e27}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scenery\Scenery Source">
-      <UniqueIdentifier>{8b16cd20-8571-46d2-9f6f-2848f1b75d08}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Main</Filter>
     </ClCompile>
-    <ClCompile Include="Mouse.cpp">
-      <Filter>Engine\Engine Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Engine\Engine Source</Filter>
+    <ClCompile Include="Crops.cpp">
+      <Filter>Crops</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
-      <Filter>Engine\Engine Source</Filter>
+      <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Light.cpp">
-      <Filter>Graphics\Graphics Source</Filter>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="LightManager.cpp">
-      <Filter>Graphics\Graphics Source</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureManager.cpp">
-      <Filter>Graphics\Graphics Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Tracing.cpp">
-      <Filter>Graphics\Graphics Source</Filter>
-    </ClCompile>
-    <ClCompile Include="UI.cpp">
-      <Filter>UI\UI Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Crops.cpp">
-      <Filter>Crops\Crops Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Seed.cpp">
-      <Filter>Seed\Seed Source</Filter>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Field.cpp">
-      <Filter>FieldManager\Field\Field Source</Filter>
+      <Filter>FieldManager</Filter>
     </ClCompile>
     <ClCompile Include="FieldManager.cpp">
-      <Filter>FieldManager\FieldManager Source</Filter>
+      <Filter>FieldManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="LightManager.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Tracing.cpp">
+      <Filter>Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Scenery.cpp">
-      <Filter>Scenery\Scenery Source</Filter>
+      <Filter>Scenery</Filter>
+    </ClCompile>
+    <ClCompile Include="Seed.cpp">
+      <Filter>Seed</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Navigation.cpp">
+      <Filter>Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Crops.h">
+      <Filter>Crops</Filter>
+    </ClInclude>
     <ClInclude Include="Game.h">
-      <Filter>Engine\Engine Header</Filter>
+      <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
-      <Filter>Engine\Engine Header</Filter>
+      <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Mouse.h">
-      <Filter>Engine\Engine Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Light.h">
-      <Filter>Graphics\Graphics Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Tracing.h">
-      <Filter>Graphics\Graphics Header</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Graphics\Graphics Header</Filter>
-    </ClInclude>
-    <ClInclude Include="LightManager.h">
-      <Filter>Graphics\Graphics Header</Filter>
-    </ClInclude>
-    <ClInclude Include="UI.h">
-      <Filter>UI\UI Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Crops.h">
-      <Filter>Crops\Crops Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Seed.h">
-      <Filter>Seed\Sead Header</Filter>
+      <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Field.h">
-      <Filter>FieldManager\Field\Field Header</Filter>
+      <Filter>FieldManager</Filter>
     </ClInclude>
     <ClInclude Include="FieldManager.h">
-      <Filter>FieldManager\FieldManager Header</Filter>
+      <Filter>FieldManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="LightManager.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Tracing.h">
+      <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Scenery.h">
-      <Filter>Scenery\Scenery Header</Filter>
+      <Filter>Scenery</Filter>
+    </ClInclude>
+    <ClInclude Include="Seed.h">
+      <Filter>Seed</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Navigation.h">
+      <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

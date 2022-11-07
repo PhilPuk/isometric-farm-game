@@ -2,61 +2,70 @@
 
 void TextureManager::initVariables()
 {
-
 }
 
 int TextureManager::getFileAmountOfFolder(std::string Path)
 {
 	auto dirIter = std::filesystem::directory_iterator(Path);
 	int fileCount = 0;
-
+	
 	for (auto& entry : dirIter)
 	{
     	if (entry.is_regular_file())
     	{
 	        ++fileCount;
+			//std::cout << entry.path() << "\n";
 	    }
 	}
 	std::cout << " - INITCHECK::TEXTUREMANAGER::GETFILEAMOUNTOFFOLDER::Files loaded: " << fileCount << " at: " << Path << "\n";
 	return fileCount;
 }
 
-void TextureManager::initTexturesBaseLoop(std::string Path, int key, int size)
+void TextureManager::AutoTextureLoader(std::string Path, int key)
 {
-	std::stringstream completePath;
-	for (int i = 0; i < size; i++)
+	auto dirIter = std::filesystem::directory_iterator(Path);
+	int fileCount = 0;
+
+	for (auto& entry : dirIter)
 	{
-		completePath << Path << i << ".png";
-		this->tex[key].push_back(new sf::Texture);
-		if (!this->tex[key][i]->loadFromFile(completePath.str()))
-			std::cout << " - ERROR::TEXTUREMANAGER::INITTEXTURES::Coulnd't load texture at: " << completePath.str() << "\n";
-		completePath.clear();
+		if (entry.is_regular_file())
+		{
+			this->tex[key].push_back(new sf::Texture);
+			this->tex[key][fileCount]->loadFromFile(entry.path().string());
+			++fileCount;
+		}
 	}
+	std::cout << " - INITCHECK::TEXTUREMANAGER::GETFILEAMOUNTOFFOLDER::Files loaded: " << fileCount << " at: " << Path << "\n";
 }
 
 void TextureManager::initLightTextures()
 {
-	this->initTexturesBaseLoop("Textures/blooms/bloom", lights, this->getFileAmountOfFolder("Textures/blooms"));
+	this->AutoTextureLoader("Textures/blooms", lights);
 }
 
 void TextureManager::initSceneryTextures()
 {
-	this->initTexturesBaseLoop("Textures/scenery/scenery", sceneries, this->getFileAmountOfFolder("Textures/scenery"));
+	this->AutoTextureLoader("Textures/scenery", sceneries);
 }
 
 void TextureManager::initCropTextures()
 {
-	this->initTexturesBaseLoop("Textures/crops/crop", crops, this->getFileAmountOfFolder("Textures/crops"));
+	this->AutoTextureLoader("Textures/crops", crops);
 }
 
 void TextureManager::initSeedTextures()
 {
-	this->initTexturesBaseLoop("Textures/seeds/seed", seeds, this->getFileAmountOfFolder("Textures/seeds"));
+	this->AutoTextureLoader("Textures/seeds", seeds);
 }
 
 void TextureManager::initFieldTextures()
 {
-	this->initTexturesBaseLoop("Textures/fields/field", fields, this->getFileAmountOfFolder("Textures/fields"));
+	this->AutoTextureLoader("Textures/fields", fields);
+}
+
+void TextureManager::initUITextures()
+{
+	this->AutoTextureLoader("Textures/ui", ui);
 }
 
 void TextureManager::initTextures()
@@ -66,6 +75,7 @@ void TextureManager::initTextures()
 	this->initCropTextures();
 	this->initSeedTextures();
 	this->initFieldTextures();
+	this->initUITextures();
 }
 
 TextureManager::TextureManager()

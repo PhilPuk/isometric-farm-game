@@ -144,6 +144,7 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="Navigation.cpp" />
     <ClCompile Include="Scenery.cpp" />
     <ClCompile Include="Seed.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="LightManager.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Mouse.h" />
+    <ClInclude Include="Navigation.h" />
     <ClInclude Include="Scenery.h" />
     <ClInclude Include="Seed.h" />
     <ClInclude Include="TextureManager.h" />
