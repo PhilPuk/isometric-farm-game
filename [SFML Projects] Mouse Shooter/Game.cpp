@@ -112,7 +112,7 @@ void Game::update()
 void Game::render()
 {
     this->window->clear();
-    //test
+    
     this->scenery->render(*this->window);
 
     this->ui->render(*this->window);
