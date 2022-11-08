@@ -7,46 +7,63 @@ void UI::initVariables(sf::Vector2u winSize)
 	this->buildActive = false;
 }
 
-void UI::initSprites(sf::Vector2u winSize, std::vector<sf::Texture*> textures)
+void UI::initSprites(sf::Vector2u winSize, std::map<int, std::vector<sf::Textures*>>& t_Map, enum keys)
 { 
-	//Get filepath to jump to next key
-	for(auto&i : keys)
+	int keyFromString = 0;
+	for(int i = ui ; i < shop_icons; i++)
 	{
-		for(int j = 0; j < textures.size(); j++)
+		for(int j = 0; j < t_Map[i].size(); j++)
 		{
-			this->Layers[i].push_back(new sf::Sprite);
-			this->Layers.[i][j].setTexture(*textures[j]);
+			this->Layers[this->keys[keyFromString]].push_back(new sf::Sprite s_crop);
+			this->Layers[this->keys[keyFromString]][j].setTexture(t_Map[i][j]);
 		}
+		keyFromString++;
 	}
-	for (int i = 0; i < textures.size(); i++)
-	{
-		this->baseLayer.push_back(new sf::Sprite);
-		this->baseLayer[i]->setTexture(*textures[i]);
-	}
-	//Bottom Bar
-	this->baseLayer[0]->setPosition(0.f, static_cast<float>(winSize.y) - this->baseLayer[0]->getGlobalBounds().height);
-	//Shop icon
-	this->baseLayer[1]->scale(0.3f, 0.3f);
-	this->baseLayer[1]->setPosition(20.f, static_cast<float>(winSize.y) - this->baseLayer[0]->getGlobalBounds().height * 0.86f );
-	//Build icon
-	this->baseLayer[2]->scale(0.3f, 0.3f);
-	this->baseLayer[2]->setPosition(20.f * 2 + this->baseLayer[1]->getGlobalBounds().width, static_cast<float>(winSize.y) - this->baseLayer[0]->getGlobalBounds().height * 0.86f);
+	//Bottom layer
+	this->Layers["base"][0]->setPosition(0.f, static_cast<float>(winSize.y) - this->baseLayer[0]->getGlobalBounds().height);
+	//Shop Icon
+	this->Layers["shop"][0]->scale(0.3f, 0.3f);
+	this->Layers["shop"][0]->setPosition(20.f, static_cast<float>(winSize.y) - this->baseLayer[0]->getGlobalBounds().height * 0.86f);
+	//Build Icon
+	this->Layers["building"][0]->scale(0.3f, 0.3f);
+	this->Layers["building"][0]->setPosition(20.f * 2 + this->baseLayer[1]->getGlobalBounds().width, static_cast<float>(winSize.y) - this->baseLayer[0]->getGlobalBounds().height * 0.86f);
+	// //Bottom Bar
+	// this->baseLayer[0]->setPosition(0.f, static_cast<float>(winSize.y) - this->baseLayer[0]->getGlobalBounds().height);
+	// //Shop icon
+	// this->baseLayer[1]->scale(0.3f, 0.3f);
+	// this->baseLayer[1]->setPosition(20.f, static_cast<float>(winSize.y) - this->baseLayer[0]->getGlobalBounds().height * 0.86f );
+	// //Build icon
+	// this->baseLayer[2]->scale(0.3f, 0.3f);
+	// this->baseLayer[2]->setPosition(20.f * 2 + this->baseLayer[1]->getGlobalBounds().width, static_cast<float>(winSize.y) - this->baseLayer[0]->getGlobalBounds().height * 0.86f);
 }
 
-UI::UI(sf::Vector2u winSize, std::vector<sf::Texture*> textures)
+UI::UI(sf::Vector2u winSize, std::map<int, std::vector<sf::Textures*>>& t_Map, enum keys)
 {
 	this->initVariables(winSize);
-	this->initSprites(winSize, textures);
+	this->initSprites(winSize, t_Map, keys);
 }
 
 UI::~UI()
 {
-	for (auto& i : baseLayer)
-	{
-		this->baseLayer.erase(this->baseLayer.begin(), this->baseLayer.end());
-	}
+	// for (auto& i : baseLayer)
+	// {
+	// 	this->baseLayer.erase(this->baseLayer.begin(), this->baseLayer.end());
+	// }
 
-	std::cout << "Size of UI baseLayer vector array: " << this->baseLayer.size() << "\n";
+	for(auto& i : keys)
+	{
+		for(auto&j : this->Layers[i])
+		{
+			this->Layers[i].erase(this->Layers[i].begin(), this->Layers[i].end());
+		}
+	}
+	 std::cout << "Size of UI baseLayer vector array: " << this->Layers.size() << "\n";
+}
+
+void UI::updateNavigation()
+{
+	
+	nav.update();
 }
 
 void UI::update()
@@ -56,9 +73,12 @@ void UI::update()
 
 void UI::renderBaseLayer(sf::RenderTarget& target)
 {
-	for (auto& i : baseLayer)
+	for(auto& i : keys)
 	{
-		target.draw(*i);
+		for(auto&j : this->Layers[i])
+		{
+			target.draw(this->Layers[i][j]);
+		}
 	}
 }
 

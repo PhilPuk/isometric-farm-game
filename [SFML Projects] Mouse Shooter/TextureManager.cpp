@@ -56,7 +56,6 @@ void TextureManager::initCropTextures()
 void TextureManager::initSeedTextures()
 {
 	this->AutoTextureLoader("Textures/seeds/onField", seeds);
-	this->AutoTextureLoader("Textures/seeds/icon", seeds_icon);
 }
 
 void TextureManager::initFieldTextures()
@@ -66,7 +65,12 @@ void TextureManager::initFieldTextures()
 
 void TextureManager::initUITextures()
 {
+	//Base layer stuff
 	this->AutoTextureLoader("Textures/ui", ui);
+	//Shop layer --> Seed icons
+	this->AutoTextureLoader("Textures/ui/seeds_icons", seeds_icon);
+	//Build layer
+	this->AutoTextureLoader("Textures/ui/build_icons", build_icon);
 }
 
 void TextureManager::initTextures()

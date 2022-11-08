@@ -17,6 +17,10 @@ public:
 	Navigation();
 	virtual~Navigation();
 
+	//Accessors
+	const bool& getMouseClicked() const;
+	const bool& getMouseHo
+	
 	void update();
 
 	void render(sf::RenderTarget& target);
