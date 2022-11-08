@@ -19,7 +19,7 @@ public:
 
 	//Accessors
 	const bool& getMouseClicked() const;
-	const bool& getMouseHo
+	const bool& getMouseHoverOnButton() const;
 	
 	void update();
 

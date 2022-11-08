@@ -2,7 +2,7 @@
 
 #include<iostream>
 #include<vector>
-#include<map> 
+#include<map>
 
 #include<SFML/Graphics.hpp>
 #include<SFML/System.hpp>
@@ -10,13 +10,14 @@
 #include<SFML/Audio.hpp>
 #include<SFML/Network.hpp>
 
+#include"TextureManager.h"
 #include"Navigation.h"
 
 class UI
 {
 private:
 	std::map<std::string, std::vector<sf::Sprite*>> Layers;
-	std::string keys[] = {"base", "shop", "building"};
+	std::string keys[3] = {"base", "shop", "building"};
 
 	Navigation nav;
 
@@ -26,9 +27,9 @@ private:
 	bool buildActive;
 
 	void initVariables(sf::Vector2u winSize);
-	void initSprites(sf::Vector2u winSize, std::map<int, std::vector<sf::Textures*>>& t_Map, enum keys);
+	void initSprites(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
 public:
-	UI(sf::Vector2u winSize, std::map<int, std::vector<sf::Textures*>>& t_Map, enum keys);
+	UI(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
 	virtual ~UI();
 
 	template<class T>

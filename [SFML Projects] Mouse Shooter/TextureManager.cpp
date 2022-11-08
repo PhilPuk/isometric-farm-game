@@ -70,7 +70,7 @@ void TextureManager::initUITextures()
 	//Shop layer --> Seed icons
 	this->AutoTextureLoader("Textures/ui/seeds_icons", seeds_icon);
 	//Build layer
-	this->AutoTextureLoader("Textures/ui/build_icons", build_icon);
+	//this->AutoTextureLoader("Textures/ui/build_icons", build_icon);
 }
 
 void TextureManager::initTextures()

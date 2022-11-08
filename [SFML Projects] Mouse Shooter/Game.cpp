@@ -17,7 +17,7 @@ void Game::initVariables(sf::RenderWindow* window)
 
 void Game::initUI()
 {
-    this->ui = new UI(this->winSize, this->textures.tex, this->textures.keys);
+    this->ui = new UI(this->winSize, this->textures.tex);
 }
 
 void Game::initScenery()

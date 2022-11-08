@@ -17,7 +17,7 @@ Navigation::~Navigation()
 
 const bool& Navigation::getMouseClicked() const
 {
-    return this->sf::MouseButtonEvent::isButtonPressed(sf::Mouse::left);
+    return sf::Mouse::isButtonPressed(sf::Mouse::Left);
 }
 
 void Navigation::update()
