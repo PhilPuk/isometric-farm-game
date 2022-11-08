@@ -2,6 +2,7 @@
 
 #include<iostream>
 #include<vector>
+#include<map>
 
 #include<SFML/Graphics.hpp>
 #include<SFML/System.hpp>
@@ -12,7 +13,8 @@
 class UI
 {
 private:
-	std::vector<sf::Sprite*> baseLayer;
+	std::map<std::string, std::vector<sf::Sprite*>> Layers;
+	std::string keys[] = {"base", "shop", "building"};
 
 	//Bools for activating modes
 	bool baseUIActive;

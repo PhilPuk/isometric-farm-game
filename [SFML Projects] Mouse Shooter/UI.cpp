@@ -8,7 +8,16 @@ void UI::initVariables(sf::Vector2u winSize)
 }
 
 void UI::initSprites(sf::Vector2u winSize, std::vector<sf::Texture*> textures)
-{
+{ 
+	//Get filepath to jump to next key
+	for(auto&i : keys)
+	{
+		for(int j = 0; j < textures.size(); j++)
+		{
+			this->Layers[i].push_back(new sf::Sprite);
+			this->Layers.[i][j].setTexture(*textures[j]);
+		}
+	}
 	for (int i = 0; i < textures.size(); i++)
 	{
 		this->baseLayer.push_back(new sf::Sprite);

@@ -48,7 +48,7 @@ Light::Light(sf::Texture& texture, sf::Vector2f* scale, sf::Vector2f& pos, bool 
 	this->initVariables();
 	this->initSprite(texture, scale, pos, CenterOrigin);
 	this->initCenter(scale, pos, CenterOrigin);
-}
+}   
 
 Light::~Light()
 {
