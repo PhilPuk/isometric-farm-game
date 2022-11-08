@@ -14,6 +14,11 @@ class UI
 private:
 	std::vector<sf::Sprite*> baseLayer;
 
+	//Bools for activating modes
+	bool baseUIActive;
+	bool shopActive;
+	bool buildActive;
+
 	void initVariables(sf::Vector2u winSize);
 	void initSprites(sf::Vector2u winSize, std::vector<sf::Texture*> textures);
 public:

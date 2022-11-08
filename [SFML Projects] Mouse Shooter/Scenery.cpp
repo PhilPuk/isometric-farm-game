@@ -18,7 +18,6 @@ void Scenery::initStartScenery(sf::Vector2u& winSize, std::vector<sf::Texture*> 
 Scenery::Scenery(std::vector<sf::Texture*> t_Sceneries, sf::Vector2u& winSize)
 {
 	this->initVariables();
-	this->initTextures(t_Sceneries);
 	this->initStartScenery(winSize, t_Sceneries);
 }
 

@@ -2,7 +2,9 @@
 
 void UI::initVariables(sf::Vector2u winSize)
 {
-
+	this->baseUIActive = true;
+	this->shopActive = false;
+	this->buildActive = false;
 }
 
 void UI::initSprites(sf::Vector2u winSize, std::vector<sf::Texture*> textures)
