@@ -27,7 +27,7 @@ void UI::initMainUIPos(sf::Vector2u winSize)
 {
 	//Init positions of main ui parts
 	//
-	//Bottom layer
+	//Bottom bar
 	this->Layers["base"][0]->setPosition(0.f, static_cast<float>(winSize.y) - this->Layers["base"][0]->getGlobalBounds().height);
 	//
 	//Shop Icon
@@ -37,6 +37,19 @@ void UI::initMainUIPos(sf::Vector2u winSize)
 	//Build Icon
 	this->Layers["building"][0]->scale(0.3f, 0.3f);
 	this->Layers["building"][0]->setPosition(20.f * 2 + this->Layers["shop"][0]->getGlobalBounds().width, static_cast<float>(winSize.y) - this->Layers["base"][0]->getGlobalBounds().height * 0.86f);
+}
+
+void initPopBox(sf::Vector2u winSize)
+{
+	this->s_popBox.setPosition(this->shop)
+}
+
+void initShop(sf::Vector2u winSize)
+{
+
+}
+void initBuilding(sf::Vector2u winSize)
+{
 
 }
 
@@ -45,6 +58,8 @@ UI::UI(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
 	this->initVariables(winSize);
 	this->initSprites(winSize, t_Map);
 	this->initMainUIPos(winSize);
+	this->initShop(winSize);
+	this->initBuilding(winSize);
 }
 
 UI::~UI()
@@ -57,6 +72,11 @@ UI::~UI()
 		}
 	}
 	std::cout << "Size of UI baseLayer vector array after deleting: " << this->Layers.size() << "\n";
+}
+
+const std::string& UI::getKey(int index)
+{
+	return this->keys[index];
 }
 
 const bool& UI::getbaseUIActive() const
@@ -72,9 +92,39 @@ const bool& UI::getBuildActive() const
 	return this->buildActive;
 }
 
+const sf::FloatRect& UI::getRectofMapElement(std::string& key, int index)
+{
+	return this->Layers[key][index].getGlobalBounds();
+}
+
+
+void UI::activateShop()
+{
+	this->shopActive = true;
+	this->buildActive = false;
+	this->baseUIActive = false;
+}
+void UI::activateBuilding()
+{
+	this->shopActive = false;
+	this->buildActive = true;
+	this->baseUIActive = false;
+}
+
+void UI::updatePopBoxPos()
+{
+	if(!this->baseUIActive)
+	{
+		if(this->shopActive)
+		this->s_popBox.setPosition(this->Layers["shop"][0].getPosition().x, this->Layers["shop"][0].getPosition().y - this->s_popBox.getGlobalBounds().height);
+		else
+		this->s_popBox.setPosition(this->Layers["building"][0].getPosition().x, this->Layers["building"][0].getPosition().y - this->s_popBox.getGlobalBounds().height);
+	}
+}
+
 void UI::update()
 {
-
+	this->updatePopBoxPos();
 }
 
 void UI::renderLoop(sf::RenderTarget& target, std::string& key)
@@ -91,13 +141,21 @@ void UI::renderBaseLayer(sf::RenderTarget& target)
 	this->renderLoop(target, this->keys[0]);
 }
 
+void UI::renderPopBox(sf::RenderTarget& target)
+{
+	target.draw(this->s_popBox);
+}
+
 void UI::renderShopLayer(sf::RenderTarget& target)
 {
 	//Shop Icon
 	target.draw(*this->Layers["shop"][0]);
 
 	if(this->shopActive)
+	{
+		target.draw(this->s_popBox);
 		this->renderLoop(target, this->keys[1]);
+	}
 }
 
 void UI::renderBuildingLayer(sf::RenderTarget& target)
@@ -106,12 +164,16 @@ void UI::renderBuildingLayer(sf::RenderTarget& target)
 	target.draw(*this->Layers["building"][0]);
 
 	if (this->buildActive)
+	{
+		target.draw(this->s_popBox);
 		this->renderLoop(target, this->keys[2]);
+	}
 }
 
 void UI::render(sf::RenderTarget& target)
 {
 	this->renderBaseLayer(target);
+	this->renderPopBox(target);
 	this->renderShopLayer(target);
 	this->renderBuildingLayer(target);
 }

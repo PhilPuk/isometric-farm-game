@@ -1,6 +1,8 @@
 #pragma once
 
 #include<iostream>
+#include<map>
+#include<vector>
 
 #include<SFML/Graphics.hpp>
 #include<SFML/System.hpp>
@@ -20,8 +22,8 @@ public:
 
 	//Accessors
 	
-
-	void update(Mouse& mouse);
+	bool CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos);
+	void update(Mouse& mouse, std::map<std::string, std::vector<sf::Sprite*>>& ui_objects);
 
 	void render(sf::RenderTarget& target);
 };
