@@ -8,6 +8,8 @@
 #include"Scenery.h"
 #include"Field.h"
 #include"FieldManager.h"
+#include"Mouse.h"
+#include"Navigation.h"
 
 class Game
 {
@@ -18,6 +20,12 @@ private:
 
 	//Events
 	sf::Event ev;
+
+	//User Mouse
+	Mouse mouse;
+
+	//User navigation system
+	Navigation nav;
 
 	//UI
 	UI* ui;

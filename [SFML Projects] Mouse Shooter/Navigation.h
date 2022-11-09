@@ -8,20 +8,20 @@
 #include<SFML/Audio.hpp>
 #include<SFML/Network.hpp>
 
+#include"Mouse.h"
+
 class Navigation
 {
 private:
-
 	void initVariables();
 public:
 	Navigation();
 	virtual~Navigation();
 
 	//Accessors
-	const bool& getMouseClicked() const;
-	const bool& getMouseHoverOnButton() const;
 	
-	void update();
+
+	void update(Mouse& mouse);
 
 	void render(sf::RenderTarget& target);
 };

@@ -21,6 +21,11 @@ const sf::Vector2f Mouse::getMousePosView() const
 	return this->mousePosView;
 }
 
+const bool& Mouse::getMouseLeftClicked() const
+{
+	return sf::Mouse::isButtonPressed(sf::Mouse::Left);
+}
+
 //Functions
 	//Update
 void Mouse::updateMousePositions(sf::RenderWindow& window, bool debug)

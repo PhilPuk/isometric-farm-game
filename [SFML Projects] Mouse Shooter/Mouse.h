@@ -12,12 +12,9 @@
 class Mouse
 {
 private:
-	//Private functions
-
 	//Mouse variables
 	sf::Vector2i mousePosWindow;
 	sf::Vector2f mousePosView;
-
 public:
 	//Constructor / Destrucotr
 	Mouse();
@@ -26,9 +23,7 @@ public:
 	//Accessors
 	const sf::Vector2i getMousePosWindow() const;
 	const sf::Vector2f getMousePosView() const;
-
-	//Modifiers
-
+	const bool& getMouseLeftClicked() const;
 
 	//Functions
 		//Update

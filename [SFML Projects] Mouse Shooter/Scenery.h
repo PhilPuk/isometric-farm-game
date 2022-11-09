@@ -19,9 +19,9 @@ private:
 	int selectedScenery;
 
 	void initVariables();
-	void initStartScenery(sf::Vector2u& winSize, std::vector<sf::Texture*> t_Sceneries);
+	void initStartScenery(sf::Vector2u& winSize, std::vector<sf::Texture*>& t_Sceneries);
 public:
-	Scenery(std::vector<sf::Texture*> t_Sceneries, sf::Vector2u& winSize);
+	Scenery(std::vector<sf::Texture*>& t_Sceneries, sf::Vector2u& winSize);
 	virtual ~Scenery();
 
 	//Accessors
@@ -30,7 +30,7 @@ public:
 
 		//{MENU = 0, FARM};
 	enum keys { MENU = 0, FARM };
-	void switchScenery(int& key, std::vector<sf::Texture*> textures);
+	void switchScenery(int& key, std::vector<sf::Texture*>& textures);
 
 	void update();
 

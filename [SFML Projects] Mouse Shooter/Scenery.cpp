@@ -5,7 +5,7 @@ void Scenery::initVariables()
 
 }
 
-void Scenery::initStartScenery(sf::Vector2u& winSize, std::vector<sf::Texture*> t_Sceneries)
+void Scenery::initStartScenery(sf::Vector2u& winSize, std::vector<sf::Texture*>& t_Sceneries)
 {
 	this->s_Scenery.setTexture(*t_Sceneries[0]);
 	//center origin
@@ -15,7 +15,7 @@ void Scenery::initStartScenery(sf::Vector2u& winSize, std::vector<sf::Texture*> 
 	this->s_Scenery.setPosition(sf::Vector2f(static_cast<int>(winSize.x) / 2.f, static_cast<int>(winSize.y) / 2.f));
 }
 
-Scenery::Scenery(std::vector<sf::Texture*> t_Sceneries, sf::Vector2u& winSize)
+Scenery::Scenery(std::vector<sf::Texture*>& t_Sceneries, sf::Vector2u& winSize)
 {
 	this->initVariables();
 	this->initStartScenery(winSize, t_Sceneries);
@@ -29,7 +29,7 @@ Scenery::~Scenery()
 
 //Modifiers
 
-void Scenery::switchScenery(int& key, std::vector<sf::Texture*> textures)
+void Scenery::switchScenery(int& key, std::vector<sf::Texture*>& textures)
 {
 	this->s_Scenery.setTexture(*textures[key]);
 }

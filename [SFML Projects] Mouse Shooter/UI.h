@@ -11,15 +11,12 @@
 #include<SFML/Network.hpp>
 
 #include"TextureManager.h"
-#include"Navigation.h"
 
 class UI
 {
 private:
 	std::map<std::string, std::vector<sf::Sprite*>> Layers;
 	std::string keys[3] = {"base", "shop", "building"};
-
-	Navigation nav;
 
 	//Bools for activating modes
 	bool baseUIActive;
@@ -28,23 +25,21 @@ private:
 
 	void initVariables(sf::Vector2u winSize);
 	void initSprites(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
+	void initMainUIPos(sf::Vector2u winSize);
 public:
 	UI(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
 	virtual ~UI();
 
-	template<class T>
-		void centerOrigin(T x);
+	//Accessors
+	const bool& getbaseUIActive() const;
+	const bool& getShopActive() const;
+	const bool& getBuildActive() const;
 	
-	void updateNavigation();
 	void update();
 
+	void renderLoop(sf::RenderTarget& target, std::string& key);
 	void renderBaseLayer(sf::RenderTarget& target);
+	void renderShopLayer(sf::RenderTarget& target);
+	void renderBuildingLayer(sf::RenderTarget& target);
 	void render(sf::RenderTarget& target);
 };
-
-template<class T>
-inline void UI::centerOrigin(T x)
-{
-	sf::FloatRect rect = x.getLocalBounds();
-	x.setOrigin(rect.left + rect.width / 2.0f, rect.top + rect.height / 2.0f);
-}

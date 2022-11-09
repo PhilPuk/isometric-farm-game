@@ -102,6 +102,10 @@ void Game::update()
 {
     this->pollEvents();
 
+    this->mouse.updateMousePositions(*this->window, false);
+
+    this->nav.update(this->mouse);
+
     this->scenery->update();
 
     this->f_Manager->update();
