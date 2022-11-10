@@ -11,17 +11,15 @@
 #include<SFML/Network.hpp>
 
 #include"TextureManager.h"
+#include"shop_ui.h"
+#include"building_ui.h"
+#include"baseLayer.h"
 
-//Maybe split into seperate classes
-//Shop class included in ui
-//Building class included in ui
-//Gives better overview
-//maybe change it to one base class that everyone inherit from
+//Create base ui class for all ui layers and inherit it in all of them.
 
 class UI
 {
 private:
-	std::map<std::string, std::vector<sf::Sprite*>> Layers;
 	std::string keys[3] = {"base", "shop", "building"};
 
 	//Bools for activating modes
@@ -36,23 +34,28 @@ private:
 	void initSprites(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
 	void initMainUIPos(sf::Vector2u winSize);
 	void initPopBox(sf::Vector2u winSize);
-	void initShop(sf::Vector2u winSize);
-	void initBuilding(sf::Vector2u winSize);
+	void initBaseLayer(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
+	void initShop(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
+	void initBuilding(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
 public:
 	UI(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
 	virtual ~UI();
 
+	//Shop UI Class.
+	Shop_UI shop;
+	//Building UI Class.
+	Building_UI build;
 
 	//Accessors
 
-	//Key list { base = 0, shop = 1, building = 2};
+	//Key list { base = 0, shop = 1, building = 2}.
 	const std::string& getKey(int index);
 	const bool& getbaseUIActive() const;
 	const bool& getShopActive() const;
 	const bool& getBuildActive() const;
-	const sf::FloatRect& getRectofMapElement(std::string& key, int index);
 
 	//Modifiers
+
 	void activateShop();
 	void activateBuilding();
 	

@@ -15,12 +15,12 @@
 class Shop_UI
 {
 private:
-    std::vector<sf::Sprites*> s_Shop;
+    std::vector<sf::Sprite*> s_Shop;
     void initVariables();
     void initCreateSprites(std::vector<sf::Texture*> textures);
-    void initSpritePositions(sf::Vector2u& winSize, , sf::Vector2f bottom_bar_Pos);
+    void initSpritePositions(sf::Vector2u& winSize, sf::Vector2f bottom_bar_Pos);
 public:
-    Shop_UI(sf::Vector2u& winSize, std::vector<sf::Texture*> textures, , sf::Vector2f bottom_bar_Pos);
+    Shop_UI(sf::Vector2u& winSize, std::vector<sf::Texture*> textures, sf::Vector2f bottom_bar_Pos);
     virtual~Shop_UI();
 
     void update();

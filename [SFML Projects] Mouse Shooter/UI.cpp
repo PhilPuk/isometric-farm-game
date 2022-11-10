@@ -29,26 +29,24 @@ void UI::initMainUIPos(sf::Vector2u winSize)
 	//
 	//Bottom bar
 	this->Layers["base"][0]->setPosition(0.f, static_cast<float>(winSize.y) - this->Layers["base"][0]->getGlobalBounds().height);
-	//
-	//Shop Icon
-	this->Layers["shop"][0]->scale(0.3f, 0.3f);
-	this->Layers["shop"][0]->setPosition(20.f, static_cast<float>(winSize.y) - this->Layers["base"][0]->getGlobalBounds().height * 0.86f);
-	//
-	//Build Icon
-	this->Layers["building"][0]->scale(0.3f, 0.3f);
-	this->Layers["building"][0]->setPosition(20.f * 2 + this->Layers["shop"][0]->getGlobalBounds().width, static_cast<float>(winSize.y) - this->Layers["base"][0]->getGlobalBounds().height * 0.86f);
+
+}
+
+void initBaseLayer(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
+{
+
 }
 
 void initPopBox(sf::Vector2u winSize)
 {
-	this->s_popBox.setPosition(this->shop)
+	//this->s_popBox.setPosition(this->shop)
 }
 
-void initShop(sf::Vector2u winSize)
+void initShop(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
 {
-
+	//this->shop = new Shop_UI(winSize, t_Map, )
 }
-void initBuilding(sf::Vector2u winSize)
+void initBuilding(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
 {
 
 }
@@ -92,12 +90,6 @@ const bool& UI::getBuildActive() const
 	return this->buildActive;
 }
 
-const sf::FloatRect& UI::getRectofMapElement(std::string& key, int index)
-{
-	return this->Layers[key][index].getGlobalBounds();
-}
-
-
 void UI::activateShop()
 {
 	this->shopActive = true;
@@ -113,13 +105,13 @@ void UI::activateBuilding()
 
 void UI::updatePopBoxPos()
 {
-	if(!this->baseUIActive)
-	{
-		if(this->shopActive)
-		this->s_popBox.setPosition(this->Layers["shop"][0].getPosition().x, this->Layers["shop"][0].getPosition().y - this->s_popBox.getGlobalBounds().height);
-		else
-		this->s_popBox.setPosition(this->Layers["building"][0].getPosition().x, this->Layers["building"][0].getPosition().y - this->s_popBox.getGlobalBounds().height);
-	}
+	//if(!this->baseUIActive)
+	//{
+	//	if(this->shopActive)
+	//	this->s_popBox.setPosition(this->Layers["shop"][0].getPosition().x, this->Layers["shop"][0].getPosition().y - this->s_popBox.getGlobalBounds().height);
+	//	else
+	//	this->s_popBox.setPosition(this->Layers["building"][0].getPosition().x, this->Layers["building"][0].getPosition().y - this->s_popBox.getGlobalBounds().height);
+	//}
 }
 
 void UI::update()

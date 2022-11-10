@@ -135,6 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="building_ui.cpp" />
     <ClCompile Include="Crops.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="FieldManager.cpp" />
@@ -145,13 +146,17 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Navigation.cpp" />
+    <ClCompile Include="baseLayer.cpp" />
     <ClCompile Include="Scenery.cpp" />
     <ClCompile Include="Seed.cpp" />
+    <ClCompile Include="shop_ui.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Tracing.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="baseLayer.h" />
+    <ClInclude Include="building_ui.h" />
     <ClInclude Include="Crops.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="FieldManager.h" />
@@ -163,6 +168,7 @@
     <ClInclude Include="Navigation.h" />
     <ClInclude Include="Scenery.h" />
     <ClInclude Include="Seed.h" />
+    <ClInclude Include="shop_ui.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Tracing.h" />
     <ClInclude Include="UI.h" />

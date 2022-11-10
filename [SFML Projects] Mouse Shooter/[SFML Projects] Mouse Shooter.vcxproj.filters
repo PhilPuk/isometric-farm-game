@@ -72,6 +72,15 @@
     <ClCompile Include="Navigation.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="building_ui.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="shop_ui.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="baseLayer.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Crops.h">
@@ -115,6 +124,15 @@
     </ClInclude>
     <ClInclude Include="Navigation.h">
       <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="shop_ui.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="building_ui.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="baseLayer.h">
+      <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
