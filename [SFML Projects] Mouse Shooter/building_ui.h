@@ -11,12 +11,13 @@
 #include<SFML/Network.hpp>
 
 #include"TextureManager.h"
+#include"baseLayer.h"
 
-class Building_UI
+class Building_UI : private baseLayer
 {
 private:
     std::vector<sf::Sprite*> s_Building;
-    void initVariables();
+   // void initVariables();
     void initCreateSprites(std::vector<sf::Texture*> textures);
     void initSpritePositions(sf::Vector2u& winSize, sf::Vector2f bottom_bar_Pos);
 public:
@@ -27,5 +28,6 @@ public:
 
     void renderShopButton(sf::RenderTarget& target);
     void renderItems(sf::RenderTarget& target, bool& buildingActivated);
-    void render(sf::RenderTarget& target, bool& buildingActivated);
+    //void render(sf::RenderTarget& target, bool& buildingActivated);
+    
 };

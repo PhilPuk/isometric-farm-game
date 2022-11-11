@@ -11,8 +11,9 @@
 #include<SFML/Network.hpp>
 
 #include"TextureManager.h"
+#include"baseLayer.h"
 
-class Shop_UI
+class Shop_UI : private baseLayer
 {
 private:
     std::vector<sf::Sprite*> s_Shop;

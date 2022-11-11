@@ -34,7 +34,7 @@ Building_UI::~Building_UI()
 
 void Building_UI::update()
 {
-
+    initVariables
 }
 
 void Building_UI::renderShopButton(sf::RenderTarget& target)
@@ -48,8 +48,8 @@ void Building_UI::renderItems(sf::RenderTarget& target, bool& buildingActivated)
         for(auto& i : this->s_Building)
             target.draw(*i);
 }
-void Building_UI::render(sf::RenderTarget& target, bool& buildingActivated)
-{
-    this->renderShopButton(target);
-    this->renderItems(target, buildingActivated);
-}
+//void Building_UI::render(sf::RenderTarget& target, bool& buildingActivated)
+//{
+//    this->renderShopButton(target);
+//    this->renderItems(target, buildingActivated);
+//}

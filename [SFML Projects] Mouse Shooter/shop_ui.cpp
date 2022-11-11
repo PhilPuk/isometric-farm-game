@@ -4,6 +4,7 @@ void Shop_UI::initVariables()
 {
 
 }
+
 void Shop_UI::initCreateSprites(std::vector<sf::Texture*> textures)
 {
     for(int i = 0; i < textures.size(); i++)
