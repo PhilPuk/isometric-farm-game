@@ -15,7 +15,9 @@
 #include"building_ui.h"
 #include"baseLayer.h"
 
-//Create base ui class for all ui layers and inherit it in all of them.
+//Fix base ui abstraction class for inheritance.
+//google: overwrite functions, keyword abstract, keyword virtual
+//bzw. altem projekt inheritance abschauen!
 
 class UI
 {

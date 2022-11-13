@@ -4,6 +4,7 @@ void Building_UI::initVariables()
 {
 
 }
+
 void Building_UI::initCreateSprites(std::vector<sf::Texture*> textures)
 {
     for(int i = 0; i < textures.size(); i++)
@@ -34,7 +35,7 @@ Building_UI::~Building_UI()
 
 void Building_UI::update()
 {
-    initVariables
+    
 }
 
 void Building_UI::renderShopButton(sf::RenderTarget& target)

@@ -15,7 +15,7 @@ class baseLayer abstract
 private:
 	std::vector<sf::Sprite*> sprites;
 
-	virtual void initVariables();
+	virtual void initVariables() abstract;
 	virtual void initCreateSprites(std::vector<sf::Texture*> textures);
 	virtual void initSpritePositions(sf::Vector2u& winSize, sf::Vector2f bottom_bar_Pos);
 public:
