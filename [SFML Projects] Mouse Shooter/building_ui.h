@@ -13,7 +13,7 @@
 #include"TextureManager.h"
 #include"baseLayer.h"
 
-class Building_UI : private baseLayer
+class Building_UI : virtual private baseLayer
 {
 private:
     std::vector<sf::Sprite*> s_Building;

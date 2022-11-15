@@ -13,16 +13,20 @@
 class baseLayer abstract
 {
 private:
-	std::vector<sf::Sprite*> sprites;
+
 
 	virtual void initVariables() abstract;
 	virtual void initCreateSprites(std::vector<sf::Texture*> textures);
-	virtual void initSpritePositions(sf::Vector2u& winSize, sf::Vector2f bottom_bar_Pos);
+	virtual void initSpritePositions(sf::Vector2u& winSize, sf::Vector2f Pos, sf::Vector2f scale);
 public:
-	baseLayer(sf::Vector2u& winSize, std::vector<sf::Texture*> textures, sf::Vector2f bottom_bar_Pos);
+	baseLayer(sf::Vector2u& winSize, std::vector<sf::Texture*> textures, sf::Vector2f Pos, sf::Vector2f scale);
 	virtual~baseLayer();
+
+	virtual std::vector<sf::Sprite*> sprites;
 
 	virtual void update();
 
+	virtual void renderBaseIcon(sf::RenderTarget& target);
+	virtual void renderItems(sf::RenderTarget& target);
 	virtual void render(sf::RenderTarget& target, bool& Activated);
 };

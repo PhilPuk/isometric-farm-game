@@ -1,29 +1,23 @@
 #pragma once
 
-#include<iostream>
-#include<vector>
-#include<map>
-
-#include<SFML/Graphics.hpp>
-#include<SFML/System.hpp>
-#include<SFML/Window.hpp>
-#include<SFML/Audio.hpp>
-#include<SFML/Network.hpp>
-
 #include"TextureManager.h"
 #include"shop_ui.h"
 #include"building_ui.h"
 #include"baseLayer.h"
+#include"base.h"
+#include"Navigation.h"
 
-//Fix base ui abstraction class for inheritance.
-//google: overwrite functions, keyword abstract, keyword virtual
-//bzw. altem projekt inheritance abschauen!
+//To-do.
+//Move popBox into base ui.
+//add modifiers to switch positions on the activated layer.
 
 class UI
 {
 private:
 	std::string keys[3] = {"base", "shop", "building"};
 
+	//Navigation
+	Navigation nav;
 	//Bools for activating modes
 	bool baseUIActive;
 	bool shopActive;
@@ -33,9 +27,6 @@ private:
 	sf::Sprite s_popBox;
 
 	void initVariables(sf::Vector2u winSize);
-	void initSprites(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
-	void initMainUIPos(sf::Vector2u winSize);
-	void initPopBox(sf::Vector2u winSize);
 	void initBaseLayer(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
 	void initShop(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
 	void initBuilding(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
@@ -43,10 +34,13 @@ public:
 	UI(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
 	virtual ~UI();
 
+	//Base UI Class.
+	Base_UI* base;
+
 	//Shop UI Class.
-	Shop_UI shop;
+	Shop_UI* shop;
 	//Building UI Class.
-	Building_UI build;
+	Building_UI* build;
 
 	//Accessors
 
@@ -61,13 +55,8 @@ public:
 	void activateShop();
 	void activateBuilding();
 	
-	void updatePopBoxPos();
+	void updateNavigation();
 	void update();
 
-	void renderLoop(sf::RenderTarget& target, std::string& key);
-	void renderBaseLayer(sf::RenderTarget& target);
-	void renderPopBox(sf::RenderTarget& target);
-	void renderShopLayer(sf::RenderTarget& target);
-	void renderBuildingLayer(sf::RenderTarget& target);
 	void render(sf::RenderTarget& target);
 };
