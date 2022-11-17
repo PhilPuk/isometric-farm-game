@@ -13,8 +13,6 @@
 class baseLayer abstract
 {
 private:
-
-
 	virtual void initVariables() abstract;
 	virtual void initCreateSprites(std::vector<sf::Texture*> textures);
 	virtual void initSpritePositions(sf::Vector2u& winSize, sf::Vector2f Pos, sf::Vector2f scale);

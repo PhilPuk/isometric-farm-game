@@ -11,6 +11,10 @@
 //Move popBox into base ui.
 //add modifiers to switch positions on the activated layer.
 
+//Notes:
+//baseLayer is the abstract class.
+//Shop, building and base inherit of it.
+
 class UI
 {
 private:

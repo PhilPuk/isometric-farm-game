@@ -73,7 +73,7 @@ void UI::updateNavigation()
 	for(auto& i : this->shop->sprites)
 	{
 		if(this->nav.CheckForObjectClicked(i.getGlobalBounds()))
-		this->base->
+		this->base->ActivateClickOnEffect();
 	}
 }
 

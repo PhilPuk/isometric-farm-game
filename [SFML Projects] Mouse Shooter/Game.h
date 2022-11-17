@@ -11,6 +11,10 @@
 #include"Mouse.h"
 #include"Navigation.h"
 
+//Create effect class
+//used for ui 
+//Example: click on effect / hover on effect
+
 class Game
 {
 private:
