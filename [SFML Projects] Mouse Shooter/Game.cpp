@@ -110,7 +110,7 @@ void Game::update()
 
     this->f_Manager->update();
 
-    this->ui->update();
+    this->ui->update(mouse);
 }
 
 void Game::render()

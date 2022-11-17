@@ -7,30 +7,33 @@ void UI::initVariables(sf::Vector2u winSize)
 	this->buildActive = false;
 }
 
-void initShop(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
+void UI::initBase(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
+{
+	this->base = new Base_UI(t_Map[TextureManager::ui], winSize);
+}
+
+void UI::initShop(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
 {
 	//this->shop = new Shop_UI(winSize, t_Map, )
-	this->shop = new Shop_UI(winSize, t_Map[Texturemanager::shop_icons]);
+	this->shop = new Shop_UI(winSize, t_Map[TextureManager::shop_icons], sf::Vector2f(0.f,0.f));
 }
-void initBuilding(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
+void UI::initBuilding(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
 {
-	this->build = new building_UI(winSize, t_Map[TextureManager::building_icons]);
+	this->build = new Building_UI(winSize, t_Map[TextureManager::build_icons], this->base->sprites[0]->getPosition());
 }
 
 UI::UI(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
 {
 	this->initVariables(winSize);
-	this->initSprites(winSize, t_Map);
-	this->initMainUIPos(winSize);
-	this->initBaseLayer(winSize, t_Map);
-	this->initShop(winSize);
-	this->initBuilding(winSize);
+	this->initBase(winSize, t_Map);
+	this->initShop(winSize, t_Map);
+	this->initBuilding(winSize, t_Map);
 }
 
 UI::~UI()
 {
 	delete this->shop;
-	delete this->building;
+	delete this->build;
 	delete this->base;
 }
 
@@ -65,26 +68,27 @@ void UI::activateBuilding()
 	this->baseUIActive = false;
 }
 
-void UI::updateNavigation()
+void UI::updateNavigation(Mouse& mouse)
 {
-	this->nav.update();
+	//this->nav.update();
 
 	//Check clicked ui icons
-	for(auto& i : this->shop->sprites)
+	for (size_t i = 0; i < this->shop->sprites.size(); i++)
 	{
-		if(this->nav.CheckForObjectClicked(i.getGlobalBounds()))
-		this->base->ActivateClickOnEffect();
+		sf::FloatRect s = this->shop->sprites[i]->getGlobalBounds();
+		if (this->nav.CheckForObjectClicked(mouse, s))
+			this->base->ActivateClickOnEffect(i);
 	}
 }
 
-void UI::update()
+void UI::update(Mouse& mouse)
 {
-	this->updateNavigation();
+	this->updateNavigation(mouse);
 }
 
 void UI::render(sf::RenderTarget& target)
 {
-	this->base->render(target);
-	this->shop->render(target);
-	this->building->render(target);
+	this->base->render(target, this->baseUIActive);
+	this->shop->render(target, this->shopActive);
+	this->build->render(target, this->buildActive);
 }

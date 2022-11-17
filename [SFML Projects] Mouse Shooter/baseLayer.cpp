@@ -39,13 +39,13 @@ void baseLayer::update()
 }
 
 //Renders base icon only.
-virutal void baseLayer::renderBaseIcon(sf::RenderTarget& target)
+void baseLayer::renderBaseIcon(sf::RenderTarget& target)
 {
     target.draw(*this->sprites[0]);
 }
 
 //Renders all sprites in the container.
-virtual void baseLayer::renderItems(sf::RenderTarget& target)
+void baseLayer::renderItems(sf::RenderTarget& target)
 {
     for(auto& i : this->sprites)
     {

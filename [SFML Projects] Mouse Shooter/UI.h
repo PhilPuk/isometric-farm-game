@@ -3,9 +3,10 @@
 #include"TextureManager.h"
 #include"shop_ui.h"
 #include"building_ui.h"
-#include"baseLayer.h"
 #include"base.h"
+#include"baseLayer.h"
 #include"Navigation.h"
+#include"Mouse.h"
 
 //To-do.
 //Move popBox into base ui.
@@ -31,7 +32,7 @@ private:
 	sf::Sprite s_popBox;
 
 	void initVariables(sf::Vector2u winSize);
-	void initBaseLayer(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
+	void initBase(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
 	void initShop(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
 	void initBuilding(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
 public:
@@ -40,7 +41,6 @@ public:
 
 	//Base UI Class.
 	Base_UI* base;
-
 	//Shop UI Class.
 	Shop_UI* shop;
 	//Building UI Class.
@@ -59,8 +59,8 @@ public:
 	void activateShop();
 	void activateBuilding();
 	
-	void updateNavigation();
-	void update();
+	void updateNavigation(Mouse& mouse);
+	void update(Mouse& mouse);
 
 	void render(sf::RenderTarget& target);
 };

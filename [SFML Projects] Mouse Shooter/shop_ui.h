@@ -13,7 +13,7 @@
 #include"TextureManager.h"
 #include"baseLayer.h"
 
-class Shop_UI : virtual private baseLayer
+class Shop_UI :  public baseLayer
 {
 private:
     void initVariables();

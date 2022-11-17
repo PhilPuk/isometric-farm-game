@@ -81,6 +81,9 @@
     <ClCompile Include="baseLayer.cpp">
       <Filter>UI</Filter>
     </ClCompile>
+    <ClCompile Include="base.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Crops.h">
@@ -132,6 +135,9 @@
       <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="baseLayer.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="base.h">
       <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>

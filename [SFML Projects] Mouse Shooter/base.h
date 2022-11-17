@@ -12,17 +12,18 @@
 
 #include"baseLayer.h"
 
-class Base_UI : virtual private baseLayer
+class Base_UI : public baseLayer
 {
 private:
     //Sprite that contains the shop items and building options
     //Is switched over the bools of each class
     sf::Sprite s_popBox;
 
+    void initCreateSprites(std::vector<sf::Texture*> textures);
     void initSpritePositions(sf::Vector2u winSize);
-    void initPopBox(sf::Vector2f winSize);
+    void initPopBox(sf::Vector2u winSize);
 public:
-    Base_UI(std::vector<sf::Texture*>& textures, sf::Vector2u winSize, sf::Vector2f shop_icon_pos);
+    Base_UI(std::vector<sf::Texture*>& textures, sf::Vector2u winSize);
     virtual~Base_UI();
 
     //Modifiers
@@ -34,4 +35,4 @@ public:
     void ActivateClickOnEffect(int index);
 
     void update();
-}
+};

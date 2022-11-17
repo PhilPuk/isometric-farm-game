@@ -23,7 +23,7 @@ public:
 	//Accessors
 	
 	bool CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos);
-	void update(Mouse& mouse, std::map<std::string, std::vector<sf::Sprite*>>& ui_objects);
+	void update(Mouse& mouse);
 
 	void render(sf::RenderTarget& target);
 };

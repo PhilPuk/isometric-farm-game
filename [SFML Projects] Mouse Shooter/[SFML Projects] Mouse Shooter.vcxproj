@@ -135,6 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="base.cpp" />
     <ClCompile Include="building_ui.cpp" />
     <ClCompile Include="Crops.cpp" />
     <ClCompile Include="Field.cpp" />
@@ -155,6 +156,7 @@
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="base.h" />
     <ClInclude Include="baseLayer.h" />
     <ClInclude Include="building_ui.h" />
     <ClInclude Include="Crops.h" />
