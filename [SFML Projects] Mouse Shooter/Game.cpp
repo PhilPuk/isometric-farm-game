@@ -22,12 +22,21 @@ void Game::initUI()
 
 void Game::initScenery()
 {
-    this->scenery = new Scenery(this->textures.tex[1], this->winSize);
+    this->scenery = new Scenery
+    (
+        this->textures.tex[TextureManager::sceneries],
+        this->winSize
+    );
 }
 
 void Game::initf_Manager()
 {
-    this->f_Manager = new FieldManager(this->winSize, this->textures.tex[4][0], this->textures.tex[2][0]);
+    this->f_Manager = new FieldManager
+    (
+        this->winSize,
+        this->textures.tex[TextureManager::fields][0],
+        this->textures.tex[TextureManager::crops][0]
+    );
 }
 
 Game::Game(sf::RenderWindow* window)

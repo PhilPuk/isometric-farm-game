@@ -19,7 +19,7 @@ private:
     //Is switched over the bools of each class
     sf::Sprite s_popBox;
 
-    void initCreateSprites(std::vector<sf::Texture*> textures);
+    void initCreateSprites(std::vector<sf::Texture*> textures) override;
     void initSpritePositions(sf::Vector2u winSize);
     void initPopBox(sf::Vector2u winSize);
 public:

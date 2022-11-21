@@ -12,6 +12,7 @@ void Shop_UI::initCreateSprites(std::vector<sf::Texture*> textures)
         this->sprites.push_back(new sf::Sprite);
         this->sprites[i]->setTexture(*textures[i]);
     }
+    std::cout << "Size of shop sprites: " << this->sprites.size() << "\n";
 }
 void Shop_UI::initSpritePositions(sf::Vector2u& winSize, sf::Vector2f bottom_bar_Pos)
 {

@@ -12,6 +12,7 @@ void Building_UI::initCreateSprites(std::vector<sf::Texture*> textures)
         this->sprites.push_back(new sf::Sprite);
         this->sprites[i]->setTexture(*textures[i]);
     }
+    std::cout << "Size of building sprites: " << this->sprites.size() << "\n";
 }
 
 void Building_UI::initSpritePositions(sf::Vector2u& winSize, sf::Vector2f bottom_bar_Pos)
@@ -25,6 +26,7 @@ Building_UI::Building_UI(sf::Vector2u& winSize, std::vector<sf::Texture*> textur
     this->initCreateSprites(textures);
     this->initSpritePositions(winSize, bottom_bar_Pos);
 }
+
 Building_UI::~Building_UI()
 {
     for(auto& i : this->sprites)

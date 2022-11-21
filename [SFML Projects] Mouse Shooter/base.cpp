@@ -7,11 +7,12 @@ void Base_UI::initCreateSprites(std::vector<sf::Texture*> textures)
         this->sprites.push_back(new sf::Sprite);
         this->sprites[i]->setTexture(*textures[i]);
     }
+    std::cout << "Size of base sprites: " << this->sprites.size() << "\n";
 }
 
 void Base_UI::initSpritePositions(sf::Vector2u winSize)
 {
-    //Bar on the bottom of the screen
+    ////Bar on the bottom of the screen
     this->sprites[0]->setPosition(0.f, winSize.y - this->sprites[0]->getGlobalBounds().height);
 }
 
@@ -23,7 +24,7 @@ void Base_UI::initPopBox(sf::Vector2u winSize)
 
 Base_UI::Base_UI(std::vector<sf::Texture*>& textures, sf::Vector2u winSize)
 {
-    initCreateSprites(textures);
+    this->initCreateSprites(textures);
     this->initSpritePositions(winSize);
     this->initPopBox(winSize);
 }
@@ -38,9 +39,9 @@ void Base_UI::setPopBoxXPos(float& x)
         this->s_popBox.setPosition(x, this->s_popBox.getPosition().y);
 }
 
-void ActivateClickOnEffect(int index)
+void Base_UI::ActivateClickOnEffect(int index)
 {
-    
+
 }
 
 void Base_UI::update()

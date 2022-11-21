@@ -68,7 +68,7 @@ void TextureManager::initUITextures()
 	//Base layer stuff
 	this->AutoTextureLoader("Textures/ui", ui);
 	//Shop layer --> Seed icons
-	this->AutoTextureLoader("Textures/ui/shop", seeds);
+	this->AutoTextureLoader("Textures/ui/shop", shop_icons);
 	//Build layer
 	this->AutoTextureLoader("Textures/ui/building", build_icons);
 }

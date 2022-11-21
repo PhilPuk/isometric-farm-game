@@ -14,12 +14,12 @@ void UI::initBase(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>
 
 void UI::initShop(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
 {
-	//this->shop = new Shop_UI(winSize, t_Map, )
 	this->shop = new Shop_UI(winSize, t_Map[TextureManager::shop_icons], sf::Vector2f(0.f,0.f));
 }
 void UI::initBuilding(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
 {
-	this->build = new Building_UI(winSize, t_Map[TextureManager::build_icons], this->base->sprites[0]->getPosition());
+	/*this->base->sprites[0]->getPosition()*/
+	this->build = new Building_UI(winSize, t_Map[TextureManager::build_icons], sf::Vector2f(0.f,0.f));
 }
 
 UI::UI(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
@@ -61,6 +61,7 @@ void UI::activateShop()
 	this->buildActive = false;
 	this->baseUIActive = false;
 }
+
 void UI::activateBuilding()
 {
 	this->shopActive = false;
