@@ -45,7 +45,7 @@ void baseLayer::update()
 //Renders base icon only.
 void baseLayer::renderBaseIcon(sf::RenderTarget& target)
 {
-    //target.draw(*this->sprites[0]);
+    target.draw(*this->sprites[0]);
 }
 
 //Renders all sprites in the container.

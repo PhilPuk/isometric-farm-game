@@ -8,7 +8,6 @@
 #include<SFML/Audio.hpp>
 #include<SFML/Network.hpp>
 
-
 class Mouse
 {
 private:

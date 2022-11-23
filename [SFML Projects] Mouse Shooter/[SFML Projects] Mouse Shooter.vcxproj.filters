@@ -25,6 +25,21 @@
     <Filter Include="Scenery">
       <UniqueIdentifier>{8e27a8dd-2789-49cc-9d8e-89adbf0506ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI\Shop">
+      <UniqueIdentifier>{01045253-7735-4e35-938d-8fab4a21bde6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Base">
+      <UniqueIdentifier>{fb68a42b-91c8-4841-9b89-de412c28d5ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Building">
+      <UniqueIdentifier>{a6d77d7f-a627-48f4-83e8-4ce4be2c47ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Main">
+      <UniqueIdentifier>{e991db79-6377-4c60-a74b-a3ae647fa548}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Abstract">
+      <UniqueIdentifier>{4ad202bc-b5d2-4af0-82a5-3be0891cf86a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -34,9 +49,6 @@
       <Filter>Crops</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Mouse.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Menu.cpp">
@@ -66,23 +78,26 @@
     <ClCompile Include="Seed.cpp">
       <Filter>Seed</Filter>
     </ClCompile>
-    <ClCompile Include="UI.cpp">
-      <Filter>UI</Filter>
-    </ClCompile>
     <ClCompile Include="Navigation.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="building_ui.cpp">
-      <Filter>UI</Filter>
-    </ClCompile>
-    <ClCompile Include="shop_ui.cpp">
-      <Filter>UI</Filter>
-    </ClCompile>
-    <ClCompile Include="baseLayer.cpp">
-      <Filter>UI</Filter>
+    <ClCompile Include="..\..\PhilPuk\-SFML-Projects-2D-Anxiety-Shooter\[SFML Projects] Mouse Shooter\Mouse.cpp">
+      <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="base.cpp">
-      <Filter>UI</Filter>
+      <Filter>UI\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="building_ui.cpp">
+      <Filter>UI\Building</Filter>
+    </ClCompile>
+    <ClCompile Include="shop_ui.cpp">
+      <Filter>UI\Shop</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>UI\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="baseLayer.cpp">
+      <Filter>UI\Abstract</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -93,9 +108,6 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Mouse.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Field.h">
@@ -122,23 +134,26 @@
     <ClInclude Include="Seed.h">
       <Filter>Seed</Filter>
     </ClInclude>
-    <ClInclude Include="UI.h">
-      <Filter>UI</Filter>
-    </ClInclude>
     <ClInclude Include="Navigation.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="shop_ui.h">
-      <Filter>UI</Filter>
-    </ClInclude>
-    <ClInclude Include="building_ui.h">
-      <Filter>UI</Filter>
-    </ClInclude>
-    <ClInclude Include="baseLayer.h">
-      <Filter>UI</Filter>
+    <ClInclude Include="..\..\PhilPuk\-SFML-Projects-2D-Anxiety-Shooter\[SFML Projects] Mouse Shooter\Mouse.h">
+      <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="base.h">
-      <Filter>UI</Filter>
+      <Filter>UI\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="building_ui.h">
+      <Filter>UI\Building</Filter>
+    </ClInclude>
+    <ClInclude Include="shop_ui.h">
+      <Filter>UI\Shop</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>UI\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="baseLayer.h">
+      <Filter>UI\Abstract</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

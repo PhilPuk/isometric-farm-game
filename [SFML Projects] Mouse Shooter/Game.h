@@ -22,6 +22,12 @@ private:
 	sf::RenderWindow* window;
 	sf::Vector2u winSize;
 
+	//TextureManager
+	TextureManager textures;
+
+	//UI
+	UI* ui;
+
 	//Events
 	sf::Event ev;
 
@@ -30,9 +36,6 @@ private:
 
 	//User navigation system
 	Navigation nav;
-
-	//UI
-	UI* ui;
 
 	//FieldManager
 	FieldManager* f_Manager;
@@ -52,9 +55,6 @@ public:
 
 	//Scenery
 	Scenery* scenery;
-
-	//TextureManager
-	TextureManager textures;
 
 	void CloseApplication();
 	void resetVariables();

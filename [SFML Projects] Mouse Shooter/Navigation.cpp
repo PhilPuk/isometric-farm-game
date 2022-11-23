@@ -20,7 +20,7 @@ bool Navigation::CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos)
 {
     if(mouse.getMouseLeftClicked())
     {
-        if(pos.contains(mouse.getMousePosView()));
+        if(pos.contains(mouse.getMousePosView()))
         return true;
     }
     return false;

@@ -23,5 +23,5 @@ public:
     Shop_UI(sf::Vector2u& winSize, std::vector<sf::Texture*> textures, sf::Vector2f bottom_bar_Pos);
     virtual~Shop_UI();
 
-    virtual void update();
+    void update();
 };

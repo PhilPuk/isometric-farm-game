@@ -78,7 +78,7 @@ void UI::updateNavigation(Mouse& mouse)
 	{
 		sf::FloatRect s = this->shop->sprites[i]->getGlobalBounds();
 		if (this->nav.CheckForObjectClicked(mouse, s))
-			this->base->ActivateClickOnEffect(i);
+			this->base->ActivateClickOnEffect(static_cast<int>(i));
 	}
 }
 

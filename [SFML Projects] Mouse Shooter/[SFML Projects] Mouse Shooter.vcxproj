@@ -135,6 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\PhilPuk\-SFML-Projects-2D-Anxiety-Shooter\[SFML Projects] Mouse Shooter\Mouse.cpp" />
     <ClCompile Include="base.cpp" />
     <ClCompile Include="building_ui.cpp" />
     <ClCompile Include="Crops.cpp" />
@@ -145,7 +146,6 @@
     <ClCompile Include="LightManager.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Navigation.cpp" />
     <ClCompile Include="baseLayer.cpp" />
     <ClCompile Include="Scenery.cpp" />
@@ -156,6 +156,7 @@
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\PhilPuk\-SFML-Projects-2D-Anxiety-Shooter\[SFML Projects] Mouse Shooter\Mouse.h" />
     <ClInclude Include="base.h" />
     <ClInclude Include="baseLayer.h" />
     <ClInclude Include="building_ui.h" />
@@ -166,7 +167,6 @@
     <ClInclude Include="Light.h" />
     <ClInclude Include="LightManager.h" />
     <ClInclude Include="Menu.h" />
-    <ClInclude Include="Mouse.h" />
     <ClInclude Include="Navigation.h" />
     <ClInclude Include="Scenery.h" />
     <ClInclude Include="Seed.h" />
