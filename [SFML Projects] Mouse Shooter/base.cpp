@@ -39,6 +39,11 @@ void Base_UI::setPopBoxXPos(float& x)
         this->s_popBox.setPosition(x, this->s_popBox.getPosition().y);
 }
 
+void Base_UI::setPopBoxYPos(float& y)
+{
+    this->s_popBox.setPosition(this->s_popBox.getPosition().x, y);
+}
+
 void Base_UI::ActivateClickOnEffect(int index)
 {
 
@@ -47,4 +52,9 @@ void Base_UI::ActivateClickOnEffect(int index)
 void Base_UI::update()
 {
     
+}
+
+void Base_UI::renderPopBox(sf::RenderTarget& target)
+{
+    target.draw(this->s_popBox);   
 }

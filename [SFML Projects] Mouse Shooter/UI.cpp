@@ -28,6 +28,10 @@ UI::UI(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
 	this->initBase(winSize, t_Map);
 	this->initShop(winSize, t_Map);
 	this->initBuilding(winSize, t_Map);
+
+	//Init pop box first position at shop button location
+	this->base->setPopBoxXPos(this->shop->sprites[0].getPosition().x);
+	this->base->setPopBoxYPos(this->shop->sprites[0].getPosition().y);
 }
 
 UI::~UI()
@@ -55,11 +59,22 @@ const bool& UI::getBuildActive() const
 	return this->buildActive;
 }
 
+void UI::activateBase()
+{
+	this->shopActive = false;
+	this->buildActive = false;
+	this->baseUIActive = true;
+
+	//Deactivated activated labels
+}
+
 void UI::activateShop()
 {
 	this->shopActive = true;
 	this->buildActive = false;
 	this->baseUIActive = false;
+
+	//New sprite or background that goes to the position of the activated label
 }
 
 void UI::activateBuilding()
@@ -69,22 +84,9 @@ void UI::activateBuilding()
 	this->baseUIActive = false;
 }
 
-void UI::updateNavigation(Mouse& mouse)
-{
-	//this->nav.update();
-
-	//Check clicked ui icons
-	for (size_t i = 0; i < this->shop->sprites.size(); i++)
-	{
-		sf::FloatRect s = this->shop->sprites[i]->getGlobalBounds();
-		if (this->nav.CheckForObjectClicked(mouse, s))
-			this->base->ActivateClickOnEffect(static_cast<int>(i));
-	}
-}
-
 void UI::update(Mouse& mouse)
 {
-	this->updateNavigation(mouse);
+	
 }
 
 void UI::render(sf::RenderTarget& target)

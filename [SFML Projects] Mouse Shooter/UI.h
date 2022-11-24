@@ -5,7 +5,6 @@
 #include"building_ui.h"
 #include"base.h"
 #include"baseLayer.h"
-#include"Navigation.h"
 #include"Mouse.h"
 
 //To-do.
@@ -21,8 +20,6 @@ class UI
 private:
 	std::string keys[3] = {"base", "shop", "building"};
 
-	//Navigation
-	Navigation nav;
 	//Bools for activating modes
 	bool baseUIActive;
 	bool shopActive;
@@ -56,10 +53,10 @@ public:
 
 	//Modifiers
 
+	void activateBase();
 	void activateShop();
 	void activateBuilding();
 	
-	void updateNavigation(Mouse& mouse);
 	void update(Mouse& mouse);
 
 	void render(sf::RenderTarget& target);

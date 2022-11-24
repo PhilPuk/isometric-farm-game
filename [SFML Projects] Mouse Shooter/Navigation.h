@@ -11,6 +11,7 @@
 #include<SFML/Network.hpp>
 
 #include"Mouse.h"
+#include"UI.h"
 
 class Navigation
 {
@@ -23,7 +24,10 @@ public:
 	//Accessors
 	
 	bool CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos);
-	void update(Mouse& mouse);
+	int updateUIBaseLoop(std::vector<sf::Sprites*>& objects);
+	void updateMainIconsClicked(UI& ui);
+	void updateUI(UI& ui);
+	void update(Mouse& mouse, UI& ui);
 
 	void render(sf::RenderTarget& target);
 };

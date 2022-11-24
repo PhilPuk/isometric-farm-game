@@ -31,8 +31,13 @@ public:
     //Chage x position of the popBox
     void setPopBoxXPos(float& x);
 
+    //Change y position of the popBox
+    void setPopBoxYPos(float& y);
+
     //Change Color for clicked on object
     void ActivateClickOnEffect(int index);
 
     void update();
+
+    void renderPopBox(sf::RenderTarget& target);
 };
