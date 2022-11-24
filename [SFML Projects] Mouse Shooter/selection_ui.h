@@ -11,7 +11,7 @@
 class Selection
 {
     private:
-    std::string[2] keys = {"circle", "square"};
+    std::string keys[2] = {"circle", "square"};
 
     sf::CircleShape circle;
     sf::RectangleShape square;

@@ -24,9 +24,9 @@ public:
 	//Accessors
 	
 	bool CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos);
-	int updateUIBaseLoop(std::vector<sf::Sprites*>& objects);
-	void updateMainIconsClicked(UI& ui);
-	void updateUI(UI& ui);
+	int updateUIBaseLoop(std::vector<sf::Sprite*>& objects, Mouse& mouse);
+	void updateMainIconsClicked(UI& ui, Mouse& mouse);
+	void updateUI(UI& ui, Mouse& mouse);
 	void update(Mouse& mouse, UI& ui);
 
 	void render(sf::RenderTarget& target);

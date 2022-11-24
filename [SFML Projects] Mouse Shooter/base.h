@@ -40,4 +40,6 @@ public:
     void update();
 
     void renderPopBox(sf::RenderTarget& target);
+
+    void render(sf::RenderTarget& target, bool& active);
 };

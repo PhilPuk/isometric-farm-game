@@ -30,8 +30,10 @@ UI::UI(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
 	this->initBuilding(winSize, t_Map);
 
 	//Init pop box first position at shop button location
-	this->base->setPopBoxXPos(this->shop->sprites[0].getPosition().x);
-	this->base->setPopBoxYPos(this->shop->sprites[0].getPosition().y);
+	float x = this->shop->sprites[0]->getPosition().x;
+	float y = this->shop->sprites[0]->getPosition().y;
+	this->base->setPopBoxXPos(x);
+	this->base->setPopBoxYPos(y);
 }
 
 UI::~UI()
@@ -89,17 +91,10 @@ void UI::update(Mouse& mouse)
 	
 }
 
-void renderPopBox(sf::RenderTarget& target)
-{
-	if(!this->baseUIActive)
-	this->base->renderPopBox(target);
-}
-
+//Render all UI Layers
 void UI::render(sf::RenderTarget& target)
 {
 	this->base->render(target, this->baseUIActive);
 	this->shop->render(target, this->shopActive);
 	this->build->render(target, this->buildActive);
-
-	this->renderPopBox(target);
 }

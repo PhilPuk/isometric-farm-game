@@ -113,7 +113,7 @@ void Game::update()
 
     this->mouse.updateMousePositions(*this->window, false);
 
-    this->nav.update(this->mouse);
+    this->nav.update(this->mouse, *this->ui);
 
     this->scenery->update();
 
