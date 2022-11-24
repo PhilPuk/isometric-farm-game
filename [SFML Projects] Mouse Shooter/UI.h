@@ -59,5 +59,6 @@ public:
 	
 	void update(Mouse& mouse);
 
+	void renderPopBox(sf::RenderTarget& target);
 	void render(sf::RenderTarget& target);
 };

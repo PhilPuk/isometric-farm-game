@@ -89,9 +89,17 @@ void UI::update(Mouse& mouse)
 	
 }
 
+void renderPopBox(sf::RenderTarget& target)
+{
+	if(!this->baseUIActive)
+	this->base->renderPopBox(target);
+}
+
 void UI::render(sf::RenderTarget& target)
 {
 	this->base->render(target, this->baseUIActive);
 	this->shop->render(target, this->shopActive);
 	this->build->render(target, this->buildActive);
+
+	this->renderPopBox(target);
 }
