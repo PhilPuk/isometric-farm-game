@@ -55,7 +55,7 @@ void TextureManager::initCropTextures()
 
 void TextureManager::initSeedTextures()
 {
-	this->AutoTextureLoader("Textures/seeds/onField", seeds);
+	//this->AutoTextureLoader("Textures/seeds/onField", seeds);
 }
 
 void TextureManager::initFieldTextures()

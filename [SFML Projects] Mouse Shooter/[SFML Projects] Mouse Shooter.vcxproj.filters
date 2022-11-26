@@ -84,9 +84,6 @@
     <ClCompile Include="Navigation.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PhilPuk\-SFML-Projects-2D-Anxiety-Shooter\[SFML Projects] Mouse Shooter\Mouse.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="base.cpp">
       <Filter>UI\Base</Filter>
     </ClCompile>
@@ -104,6 +101,9 @@
     </ClCompile>
     <ClCompile Include="selection_ui.cpp">
       <Filter>UI\Selection</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -143,9 +143,6 @@
     <ClInclude Include="Navigation.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PhilPuk\-SFML-Projects-2D-Anxiety-Shooter\[SFML Projects] Mouse Shooter\Mouse.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="base.h">
       <Filter>UI\Base</Filter>
     </ClInclude>
@@ -163,6 +160,9 @@
     </ClInclude>
     <ClInclude Include="selection_ui.h">
       <Filter>UI\Selection</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

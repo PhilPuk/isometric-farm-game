@@ -22,12 +22,21 @@ void UI::initBuilding(sf::Vector2u winSize, std::map<int, std::vector<sf::Textur
 	this->build = new Building_UI(winSize, t_Map[TextureManager::build_icons], sf::Vector2f(0.f,0.f));
 }
 
+void UI::initSizeOfSelections()
+{
+	//Size of cirlce
+	selected.changeRadiusOfCircle(this->shop->sprites[0]->getGlobalBounds().width / 2.f);
+	//Y pos of circle
+	selected.changePositionYOfSelection(this->shop->sprites[0]->getPosition().y);
+}
+
 UI::UI(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
 {
 	this->initVariables(winSize);
 	this->initBase(winSize, t_Map);
 	this->initShop(winSize, t_Map);
 	this->initBuilding(winSize, t_Map);
+	this->initSizeOfSelections();
 
 	//Init pop box first position at shop button location
 	float x = this->shop->sprites[0]->getPosition().x;
@@ -88,13 +97,14 @@ void UI::activateBuilding()
 
 void UI::update(Mouse& mouse)
 {
-	
+	this->selected.update();
 }
 
 //Render all UI Layers
 void UI::render(sf::RenderTarget& target)
 {
 	this->base->render(target, this->baseUIActive);
+	this->selected.render(target);
 	this->shop->render(target, this->shopActive);
 	this->build->render(target, this->buildActive);
 }

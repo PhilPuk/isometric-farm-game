@@ -42,24 +42,41 @@ int Navigation::updateUIBaseLoop(std::vector<sf::Sprite*>& objects, Mouse& mouse
 
 void Navigation::updateMainIconsClicked(UI& ui, Mouse& mouse)
 {
+    //To-do change so i can do both in one loop
+    //Repetition is bad!
+
     int tmpIndex;
     //Checks for click on shop Icon
     //If its already active, activated base instead of shop
     tmpIndex = this->updateUIBaseLoop(ui.shop->sprites, mouse);
     if(tmpIndex == 0)
-        if(ui.getShopActive())
+        if (ui.getShopActive())
+        {
+            ui.selected.deactivate();
             ui.activateBase();
+        }
         else
+        {
             ui.activateShop();
+            ui.selected.activate();
+            ui.selected.changePositionXOfSelection(ui.shop->sprites[0]->getPosition().x);
+        }
 
     //Checks for click on build Icon
     //If its already active, activated base instead of build
     tmpIndex = this->updateUIBaseLoop(ui.build->sprites, mouse);
     if(tmpIndex == 0)
-        if(ui.getBuildActive())
+        if (ui.getBuildActive())
+        {
+            ui.selected.deactivate();
             ui.activateBase();
+        }
         else
+        {
             ui.activateBuilding();
+            ui.selected.activate();
+            ui.selected.changePositionXOfSelection(ui.build->sprites[0]->getPosition().x);
+        }
 }
 
 void Navigation::updateUI(UI& ui, Mouse& mouse)

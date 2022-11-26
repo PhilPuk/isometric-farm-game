@@ -6,10 +6,7 @@
 #include"base.h"
 #include"baseLayer.h"
 #include"Mouse.h"
-
-//To-do.
-//Move popBox into base ui.
-//add modifiers to switch positions on the activated layer.
+#include"selection_ui.h"
 
 //Notes:
 //baseLayer is the abstract class.
@@ -25,17 +22,17 @@ private:
 	bool shopActive;
 	bool buildActive;
 
-	//Unter menu für building and shop stuff.
-	sf::Sprite s_popBox;
-
 	void initVariables(sf::Vector2u winSize);
 	void initBase(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
 	void initShop(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
 	void initBuilding(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
+	void initSizeOfSelections();
 public:
 	UI(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
 	virtual ~UI();
 
+	//Class for visual apperance of selected / clicked on items, icons whatever.
+	Selection selected;
 	//Base UI Class.
 	Base_UI* base;
 	//Shop UI Class.
@@ -59,6 +56,5 @@ public:
 	
 	void update(Mouse& mouse);
 
-	void renderPopBox(sf::RenderTarget& target);
 	void render(sf::RenderTarget& target);
 };
