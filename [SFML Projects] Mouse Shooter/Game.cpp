@@ -111,6 +111,8 @@ void Game::update()
 {
     this->pollEvents();
 
+    this->timer.update();
+
     this->mouse.updateMousePositions(*this->window, false);
 
     this->nav.update(this->mouse, *this->ui);

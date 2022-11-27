@@ -43,6 +43,21 @@
     <Filter Include="UI\Selection">
       <UniqueIdentifier>{da3c636c-0c8a-4d62-aaf9-21c1504ae2e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Game">
+      <UniqueIdentifier>{14d75e3f-fa2c-48ee-a8d1-4db7aed9cf3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Menu">
+      <UniqueIdentifier>{80a152c5-92f3-453f-bcad-424dd4adb5df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Mouse">
+      <UniqueIdentifier>{eb21d09a-dcc6-4ed7-9a81-6aa3a8e42944}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Navigation">
+      <UniqueIdentifier>{71f8cb1a-8103-4e47-b96f-603d0e321bad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Timer">
+      <UniqueIdentifier>{1c4867ff-54fb-477d-97f0-60aee6a1e7e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -50,12 +65,6 @@
     </ClCompile>
     <ClCompile Include="Crops.cpp">
       <Filter>Crops</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Field.cpp">
       <Filter>FieldManager</Filter>
@@ -81,9 +90,6 @@
     <ClCompile Include="Seed.cpp">
       <Filter>Seed</Filter>
     </ClCompile>
-    <ClCompile Include="Navigation.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="base.cpp">
       <Filter>UI\Base</Filter>
     </ClCompile>
@@ -102,19 +108,25 @@
     <ClCompile Include="selection_ui.cpp">
       <Filter>UI\Selection</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Engine\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Engine\Menu</Filter>
+    </ClCompile>
     <ClCompile Include="Mouse.cpp">
-      <Filter>Engine</Filter>
+      <Filter>Engine\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="Navigation.cpp">
+      <Filter>Engine\Navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Engine\Timer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Crops.h">
       <Filter>Crops</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Field.h">
       <Filter>FieldManager</Filter>
@@ -140,9 +152,6 @@
     <ClInclude Include="Seed.h">
       <Filter>Seed</Filter>
     </ClInclude>
-    <ClInclude Include="Navigation.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="base.h">
       <Filter>UI\Base</Filter>
     </ClInclude>
@@ -161,8 +170,20 @@
     <ClInclude Include="selection_ui.h">
       <Filter>UI\Selection</Filter>
     </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Engine\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Engine\Menu</Filter>
+    </ClInclude>
     <ClInclude Include="Mouse.h">
-      <Filter>Engine</Filter>
+      <Filter>Engine\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="Navigation.h">
+      <Filter>Engine\Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Engine\Timer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -10,10 +10,13 @@
 #include"FieldManager.h"
 #include"Mouse.h"
 #include"Navigation.h"
+#include"Timer.h"
 
-//Create effect class
-//used for ui 
-//Example: click on effect / hover on effect
+/*
+* Class Info:
+* Used as wrapper class for the whole game.
+* Only the menu is above this class.
+*/
 
 class Game
 {
@@ -24,6 +27,9 @@ private:
 
 	//TextureManager
 	TextureManager textures;
+
+	//Timer
+	Timer timer;
 
 	//UI
 	UI* ui;
