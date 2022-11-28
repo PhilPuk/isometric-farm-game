@@ -14,6 +14,7 @@ Timer::Timer()
 {
 	this->initVariables();
 }
+
 Timer::~Timer()
 {
 

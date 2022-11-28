@@ -12,10 +12,14 @@
 
 #include"Mouse.h"
 #include"UI.h"
+#include"Timer.h"
 
 class Navigation
 {
 private:
+	float mouse_click_puffer;
+	float mouse_click_goal;
+
 	void initVariables();
 public:
 	Navigation();
@@ -23,11 +27,11 @@ public:
 
 	//Accessors
 	
-	bool CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos);
-	int updateUIBaseLoop(std::vector<sf::Sprite*>& objects, Mouse& mouse);
-	void updateMainIconsClicked(UI& ui, Mouse& mouse);
-	void updateUI(UI& ui, Mouse& mouse);
-	void update(Mouse& mouse, UI& ui);
+	bool CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos, Timer& timer);
+	int updateUIBaseLoop(std::vector<sf::Sprite*>& objects, Mouse& mouse, Timer& timer);
+	void updateMainIconsClicked(UI& ui, Mouse& mouse, Timer& timer);
+	void updateUI(UI& ui, Mouse& mouse, Timer& timer);
+	void update(Mouse& mouse, UI& ui, Timer& timer);
 
 	void render(sf::RenderTarget& target);
 };

@@ -1,3 +1,5 @@
+#pragma once
+
 #include<iostream>
 #include<map>
 #include<vector>
@@ -54,5 +56,4 @@ public:
 	void updateTotalTime();
 	void updateTimer();
 	void update();
-
 };

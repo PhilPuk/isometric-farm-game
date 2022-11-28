@@ -15,6 +15,8 @@ private:
     const std::string keys[2] = {"circle", "square"};
     std::string activatedShape;
     
+    sf::Color color_selection;
+
     sf::CircleShape circle;
     sf::RectangleShape square;
 

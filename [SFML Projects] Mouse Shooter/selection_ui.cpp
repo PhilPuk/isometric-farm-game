@@ -4,18 +4,20 @@ void Selection::initVariables()
 {
 	this->Active = false;
 	this->activatedShape = this->keys[0];
+
+	this->color_selection = sf::Color(255, 0, 255, 110);
 }
 
 void Selection::initBaseCircle()
 {
 	this->circle.setRadius(10.f);
-	this->circle.setFillColor(sf::Color::Magenta);
+	this->circle.setFillColor(this->color_selection);
 }
 
 void Selection::initBaseSquare()
 {
 	this->square.setSize(sf::Vector2f(10.f, 10.f));
-	this->square.setFillColor(sf::Color::Magenta);
+	this->square.setFillColor(this->color_selection);
 }
 
 Selection::Selection()
