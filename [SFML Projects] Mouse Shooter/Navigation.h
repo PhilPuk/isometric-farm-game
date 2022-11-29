@@ -17,9 +17,7 @@
 class Navigation
 {
 private:
-	float mouse_click_puffer;
-	float mouse_click_goal;
-
+	typedef void(*func)(void);
 	void initVariables();
 public:
 	Navigation();
@@ -29,6 +27,7 @@ public:
 	
 	bool CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos, Timer& timer);
 	int updateUIBaseLoop(std::vector<sf::Sprite*>& objects, Mouse& mouse, Timer& timer);
+	void updateIconsClicked(UI& ui, Mouse& mouse, Timer& timer);
 	void updateMainIconsClicked(UI& ui, Mouse& mouse, Timer& timer);
 	void updateUI(UI& ui, Mouse& mouse, Timer& timer);
 	void update(Mouse& mouse, UI& ui, Timer& timer);

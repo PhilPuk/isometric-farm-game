@@ -2,8 +2,7 @@
 
 void Navigation::initVariables()
 {
-    this->mouse_click_goal = 0.f;
-    this->mouse_click_puffer = 30.f / 5.f;
+
 }
 
 Navigation::Navigation()
@@ -20,7 +19,7 @@ Navigation::~Navigation()
 bool Navigation::CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos, Timer& timer)
 {
     //Checks if total time of application is bigger the time the mouse should be available to be clicked again
-    if (timer.getTotalTime() >= this->mouse_click_goal)
+    if (timer.getTotalTime() >= mouse.get_Mouse_Click_Time_Reach())
     {
         //Checks if left mouse button is clicked
         if (mouse.getMouseLeftClicked())
@@ -29,7 +28,7 @@ bool Navigation::CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos, Timer& 
             if (pos.contains(mouse.getMousePosView()))
             {
                 //Sets the new timer when the mouse can be clicked again
-                this->mouse_click_goal = timer.getTotalTime() + this->mouse_click_puffer;
+                mouse.set_Mouse_Click_Time_Reach(timer.getTotalTime());
                 return true;
             }
         }
@@ -88,6 +87,11 @@ void Navigation::updateMainIconsClicked(UI& ui, Mouse& mouse, Timer& timer)
             ui.selected.activate();
             ui.selected.changePositionXOfSelection(ui.build->sprites[0]->getPosition().x);
         }
+}
+
+void Navigation::updateIconsClicked(UI& ui, Mouse& mouse, Timer& timer, )
+{
+
 }
 
 void Navigation::updateUI(UI& ui, Mouse& mouse, Timer& timer)
