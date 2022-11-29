@@ -28,15 +28,13 @@ public:
 	~Mouse();
 
 	//Modifiers
-	void set_Mouse_Click_Time_Reach(float& current_Application_Time);
+	void set_Mouse_Click_Time_Reach(float current_Application_Time);
 
 	//Accessors
 	const sf::Vector2i getMousePosWindow() const;
 	const sf::Vector2f getMousePosView() const;
 	const bool& getMouseLeftClicked() const;
-	//Returns the bool if the puffer from the last click is over.
-	const bool& getClickable() const;
-	const float& get_Mouse_Click_Time_Reach();
+	const float& get_Mouse_Click_Time_Reach() const;
 
 	//Functions
 		//Update

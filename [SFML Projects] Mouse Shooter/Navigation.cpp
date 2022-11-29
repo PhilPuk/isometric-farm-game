@@ -18,11 +18,11 @@ Navigation::~Navigation()
 
 bool Navigation::CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos, Timer& timer)
 {
-    //Checks if total time of application is bigger the time the mouse should be available to be clicked again
-    if (timer.getTotalTime() >= mouse.get_Mouse_Click_Time_Reach())
+    //Checks if left mouse button is clicked
+    if (mouse.getMouseLeftClicked())
     {
-        //Checks if left mouse button is clicked
-        if (mouse.getMouseLeftClicked())
+        //Checks if total time of application is bigger than the time the mouse should be available to be clicked again
+        if (timer.getTotalTime() >= mouse.get_Mouse_Click_Time_Reach())
         {
             //Checks if mouse is on the object
             if (pos.contains(mouse.getMousePosView()))
@@ -33,13 +33,15 @@ bool Navigation::CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos, Timer& 
             }
         }
     }
+    //Debug times
+    //std::cout << "Total time: " << timer.getTotalTime() << " - Mouse reach: " << mouse.get_Mouse_Click_Time_Reach()<<"\n";
     return false;
 }
 
 int Navigation::updateUIBaseLoop(std::vector<sf::Sprite*>& objects, Mouse& mouse, Timer& timer)
 {
     //Check each content if its clicked
-     //if one is clicked return and save the index of the clicked object
+    //if one is clicked return and save the index of the clicked object
     sf::FloatRect tmp;
     for (int i = 0; i < objects.size(); i++)
     {
@@ -89,7 +91,7 @@ void Navigation::updateMainIconsClicked(UI& ui, Mouse& mouse, Timer& timer)
         }
 }
 
-void Navigation::updateIconsClicked(UI& ui, Mouse& mouse, Timer& timer, )
+void Navigation::updateIconsClicked(UI& ui, Mouse& mouse, Timer& timer)
 {
 
 }

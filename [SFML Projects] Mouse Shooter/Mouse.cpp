@@ -18,9 +18,9 @@ Mouse::~Mouse()
 
 }
 
-void Mouse::set_Mouse_Click_Time_Reach(float& current_Application_Time)
+void Mouse::set_Mouse_Click_Time_Reach(float current_Application_Time)
 {
-	this->mouse_click_time_reach += current_Application_Time;
+	this->mouse_click_time_reach = current_Application_Time + this->mouse_click_puffer;
 }
 
 const sf::Vector2i Mouse::getMousePosWindow() const
@@ -38,7 +38,7 @@ const bool& Mouse::getMouseLeftClicked() const
 	return sf::Mouse::isButtonPressed(sf::Mouse::Left);
 }
 
-const float& Mouse::get_Mouse_Click_Time_Reach()
+const float& Mouse::get_Mouse_Click_Time_Reach() const
 {
 	return this->mouse_click_time_reach;
 }
