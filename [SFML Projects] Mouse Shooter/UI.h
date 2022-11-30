@@ -18,9 +18,9 @@ private:
 	std::string keys[3] = {"base", "shop", "building"};
 
 	//Bools for activating modes
-	bool baseUIActive;
-	bool shopActive;
-	bool buildActive;
+	static bool baseUIActive;
+	static bool shopActive;
+	static bool buildActive;
 
 	void initVariables(sf::Vector2u winSize);
 	void initBase(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
@@ -44,15 +44,15 @@ public:
 
 	//Key list { base = 0, shop = 1, building = 2}.
 	const std::string& getKey(int index);
-	const bool& getbaseUIActive() const;
-	const bool& getShopActive() const;
-	const bool& getBuildActive() const;
+	static const bool& getbaseUIActive();
+	static const bool& getShopActive();
+	static const bool& getBuildActive();
 
 	//Modifiers
 
-	void activateBase();
-	void activateShop();
-	void activateBuilding();
+	static void activateBase();
+	static void activateShop();
+	static void activateBuilding();
 	
 	void update(Mouse& mouse);
 

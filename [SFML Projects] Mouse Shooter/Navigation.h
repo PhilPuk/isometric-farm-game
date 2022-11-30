@@ -17,7 +17,6 @@
 class Navigation
 {
 private:
-	typedef void(*func)(void);
 	void initVariables();
 public:
 	Navigation();
@@ -27,7 +26,7 @@ public:
 	
 	bool CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos, Timer& timer);
 	int updateUIBaseLoop(std::vector<sf::Sprite*>& objects, Mouse& mouse, Timer& timer);
-	void updateIconsClicked(UI& ui, Mouse& mouse, Timer& timer);
+	void updateIconsClickedTemplate(UI& ui, Mouse& mouse, Timer& timer, float posX, void(&activate)(), const bool&(&getActive)(), std::vector<sf::Sprite*>& sprites);
 	void updateMainIconsClicked(UI& ui, Mouse& mouse, Timer& timer);
 	void updateUI(UI& ui, Mouse& mouse, Timer& timer);
 	void update(Mouse& mouse, UI& ui, Timer& timer);

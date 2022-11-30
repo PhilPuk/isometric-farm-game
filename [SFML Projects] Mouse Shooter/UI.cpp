@@ -1,10 +1,12 @@
 #include "UI.h"
 
+bool UI::baseUIActive = true;
+bool UI::shopActive = false;
+bool UI::buildActive = false;
+
 void UI::initVariables(sf::Vector2u winSize)
 {
-	this->baseUIActive = true;
-	this->shopActive = false;
-	this->buildActive = false;
+
 }
 
 void UI::initBase(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
@@ -57,42 +59,42 @@ const std::string& UI::getKey(int index)
 	return this->keys[index];
 }
 
-const bool& UI::getbaseUIActive() const
+const bool& UI::getbaseUIActive()
 {
-	return this->baseUIActive;
+	return UI::baseUIActive;
 }
-const bool& UI::getShopActive() const
+const bool& UI::getShopActive()
 {
-	return this->shopActive;
+	return UI::shopActive;
 }
-const bool& UI::getBuildActive() const
+const bool& UI::getBuildActive()
 {
-	return this->buildActive;
+	return UI::buildActive;
 }
 
 void UI::activateBase()
 {
-	this->shopActive = false;
-	this->buildActive = false;
-	this->baseUIActive = true;
+	UI::shopActive = false;
+	UI::buildActive = false;
+	UI::baseUIActive = true;
 
 	//Deactivated activated labels
 }
 
 void UI::activateShop()
 {
-	this->shopActive = true;
-	this->buildActive = false;
-	this->baseUIActive = false;
+	UI::shopActive = true;
+	UI::buildActive = false;
+	UI::baseUIActive = false;
 
 	//New sprite or background that goes to the position of the activated label
 }
 
 void UI::activateBuilding()
 {
-	this->shopActive = false;
-	this->buildActive = true;
-	this->baseUIActive = false;
+	UI::shopActive = false;
+	UI::buildActive = true;
+	UI::baseUIActive = false;
 }
 
 void UI::update(Mouse& mouse)
@@ -103,8 +105,8 @@ void UI::update(Mouse& mouse)
 //Render all UI Layers
 void UI::render(sf::RenderTarget& target)
 {
-	this->base->render(target, this->baseUIActive);
+	this->base->render(target, UI::baseUIActive);
 	this->selected.render(target);
-	this->shop->render(target, this->shopActive);
-	this->build->render(target, this->buildActive);
+	this->shop->render(target, UI::shopActive);
+	this->build->render(target, UI::buildActive);
 }

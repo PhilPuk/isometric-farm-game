@@ -52,48 +52,34 @@ int Navigation::updateUIBaseLoop(std::vector<sf::Sprite*>& objects, Mouse& mouse
     return -1;
 }
 
-void Navigation::updateMainIconsClicked(UI& ui, Mouse& mouse, Timer& timer)
-{
-    //To-do change so i can do both in one loop
-    //Repetition is bad!
 
+void Navigation::updateIconsClickedTemplate(UI& ui, Mouse& mouse, Timer& timer, float posX, void(&activate)(),  const bool&(& getActive)(), std::vector<sf::Sprite*>& sprites)
+{
     int tmpIndex;
     //Checks for click on shop Icon
     //If its already active, activated base instead of shop
-    tmpIndex = this->updateUIBaseLoop(ui.shop->sprites, mouse, timer);
+    tmpIndex = this->updateUIBaseLoop(sprites, mouse, timer);
     if (tmpIndex == 0)
-        if (ui.getShopActive())
+        if (getActive())
         {
             ui.selected.deactivate();
             ui.activateBase();
         }
         else
         {
-            ui.activateShop();
+            activate();
             ui.selected.activate();
-            ui.selected.changePositionXOfSelection(ui.shop->sprites[0]->getPosition().x);
-        }
-
-    //Checks for click on build Icon
-    //If its already active, activated base instead of build
-    tmpIndex = this->updateUIBaseLoop(ui.build->sprites, mouse, timer);
-    if (tmpIndex == 0)
-        if (ui.getBuildActive())
-        {
-            ui.selected.deactivate();
-            ui.activateBase();
-        }
-        else
-        {
-            ui.activateBuilding();
-            ui.selected.activate();
-            ui.selected.changePositionXOfSelection(ui.build->sprites[0]->getPosition().x);
+            ui.selected.changePositionXOfSelection(posX);
         }
 }
 
-void Navigation::updateIconsClicked(UI& ui, Mouse& mouse, Timer& timer)
+void Navigation::updateMainIconsClicked(UI& ui, Mouse& mouse, Timer& timer)
 {
+    //Check if shop icons are clicked
+    this->updateIconsClickedTemplate(ui, mouse, timer, ui.shop->sprites[0]->getPosition().x, ui.activateShop, ui.getShopActive, ui.shop->sprites);
 
+    //Check if building icons are clicked
+    this->updateIconsClickedTemplate(ui, mouse, timer, ui.build->sprites[0]->getPosition().x, ui.activateBuilding, ui.getBuildActive, ui.build->sprites);
 }
 
 void Navigation::updateUI(UI& ui, Mouse& mouse, Timer& timer)
