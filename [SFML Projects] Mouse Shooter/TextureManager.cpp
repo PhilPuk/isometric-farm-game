@@ -73,6 +73,11 @@ void TextureManager::initUITextures()
 	this->AutoTextureLoader("Textures/ui/building", build_icons);
 }
 
+void TextureManager::initPopBoxes()
+{
+	this->AutoTextureLoader("Textures/ui/popBox", popBoxes);
+}
+
 void TextureManager::initTextures()
 {
 	this->initLightTextures();
@@ -81,6 +86,7 @@ void TextureManager::initTextures()
 	this->initSeedTextures();
 	this->initFieldTextures();
 	this->initUITextures();
+	this->initPopBoxes();
 }
 
 TextureManager::TextureManager()

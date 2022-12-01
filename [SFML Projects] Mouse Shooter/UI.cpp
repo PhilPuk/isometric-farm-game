@@ -11,7 +11,7 @@ void UI::initVariables(sf::Vector2u winSize)
 
 void UI::initBase(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
 {
-	this->base = new Base_UI(t_Map[TextureManager::ui], winSize);
+	this->base = new Base_UI(t_Map[TextureManager::ui], t_Map[TextureManager::popBoxes], winSize);
 }
 
 void UI::initShop(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
@@ -39,12 +39,6 @@ UI::UI(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
 	this->initShop(winSize, t_Map);
 	this->initBuilding(winSize, t_Map);
 	this->initSizeOfSelections();
-
-	//Init pop box first position at shop button location
-	float x = this->shop->sprites[0]->getPosition().x;
-	float y = this->shop->sprites[0]->getPosition().y;
-	this->base->setPopBoxXPos(x);
-	this->base->setPopBoxYPos(y);
 }
 
 UI::~UI()

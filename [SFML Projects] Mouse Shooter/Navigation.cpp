@@ -53,7 +53,7 @@ int Navigation::updateUIBaseLoop(std::vector<sf::Sprite*>& objects, Mouse& mouse
 }
 
 
-void Navigation::updateIconsClickedTemplate(UI& ui, Mouse& mouse, Timer& timer, float posX, void(&activate)(),  const bool&(& getActive)(), std::vector<sf::Sprite*>& sprites)
+void Navigation::updateIconsClickedTemplate(UI& ui, Mouse& mouse, Timer& timer, sf::Vector2f pos, void(&activate)(),  const bool&(& getActive)(), std::vector<sf::Sprite*>& sprites)
 {
     int tmpIndex;
     //Checks for click on shop Icon
@@ -69,17 +69,19 @@ void Navigation::updateIconsClickedTemplate(UI& ui, Mouse& mouse, Timer& timer, 
         {
             activate();
             ui.selected.activate();
-            ui.selected.changePositionXOfSelection(posX);
+            ui.selected.changePositionXOfSelection(pos.x);
+            ui.base->setPopBoxXPos(pos.x);
+            ui.base->setPopBoxYPos(pos.y - ui.base->s_popBox.getGlobalBounds().height);
         }
 }
 
 void Navigation::updateMainIconsClicked(UI& ui, Mouse& mouse, Timer& timer)
 {
     //Check if shop icons are clicked
-    this->updateIconsClickedTemplate(ui, mouse, timer, ui.shop->sprites[0]->getPosition().x, ui.activateShop, ui.getShopActive, ui.shop->sprites);
+    this->updateIconsClickedTemplate(ui, mouse, timer, ui.shop->sprites[0]->getPosition(), ui.activateShop, ui.getShopActive, ui.shop->sprites);
 
     //Check if building icons are clicked
-    this->updateIconsClickedTemplate(ui, mouse, timer, ui.build->sprites[0]->getPosition().x, ui.activateBuilding, ui.getBuildActive, ui.build->sprites);
+    this->updateIconsClickedTemplate(ui, mouse, timer, ui.build->sprites[0]->getPosition(), ui.activateBuilding, ui.getBuildActive, ui.build->sprites);
 }
 
 void Navigation::updateUI(UI& ui, Mouse& mouse, Timer& timer)

@@ -15,24 +15,25 @@
 class Base_UI : public baseLayer
 {
 private:
+
+    void initCreateSprites(std::vector<sf::Texture*> textures) override;
+    void initSpritePositions(sf::Vector2u winSize);
+    void initPopBox(sf::Vector2u winSize, std::vector<sf::Texture*>& popBoxes);
+public:
+    Base_UI(std::vector<sf::Texture*>& baseTextures, std::vector<sf::Texture*>& popBoxes, sf::Vector2u winSize);
+    virtual~Base_UI();
+
     //Sprite that contains the shop items and building options
     //Is switched over the bools of each class
     sf::Sprite s_popBox;
 
-    void initCreateSprites(std::vector<sf::Texture*> textures) override;
-    void initSpritePositions(sf::Vector2u winSize);
-    void initPopBox(sf::Vector2u winSize);
-public:
-    Base_UI(std::vector<sf::Texture*>& textures, sf::Vector2u winSize);
-    virtual~Base_UI();
-
     //Modifiers
 
     //Chage x position of the popBox
-    void setPopBoxXPos(float& x);
+    void setPopBoxXPos(float x);
 
     //Change y position of the popBox
-    void setPopBoxYPos(float& y);
+    void setPopBoxYPos(float y);
 
     //Change Color for clicked on object
     void ActivateClickOnEffect(int index);
