@@ -38,6 +38,24 @@ bool Navigation::CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos, Timer& 
     return false;
 }
 
+void Navigation::updateShopItemsMoved(Mouse& mouse, Timer& timer, UI& ui, std::vector<sf::Texture*>& textures)
+{
+    sf::FloatRect tmp = ui.shop->sprites[1]->getGlobalBounds();
+    if (this->CheckForObjectClicked(mouse, tmp, timer))
+    {
+        ui.shop->SeedCloneActivated = true;
+        ui.shop->setSeedCloneTexture(*textures[1]);
+    }
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && ui.shop->SeedCloneActivated)
+    {
+        ui.shop->s_SeedClone.setPosition(mouse.getMousePosView().x - ui.shop->s_SeedClone.getGlobalBounds().width/2.f, mouse.getMousePosView().y - ui.shop->s_SeedClone.getGlobalBounds().height / 2.f);
+    }
+    else
+    {
+        ui.shop->SeedCloneActivated = false;
+    }
+}
+
 int Navigation::updateUIBaseLoop(std::vector<sf::Sprite*>& objects, Mouse& mouse, Timer& timer)
 {
     //Check each content if its clicked
@@ -89,8 +107,9 @@ void Navigation::updateUI(UI& ui, Mouse& mouse, Timer& timer)
     this->updateMainIconsClicked(ui, mouse, timer);
 
 }
-void Navigation::update(Mouse& mouse, UI& ui, Timer& timer)
+void Navigation::update(Mouse& mouse, UI& ui, Timer& timer, std::vector<sf::Texture*>& textures)
 {
+    this->updateShopItemsMoved(mouse, timer, ui, textures);
     this->updateUI(ui, mouse, timer);
 }
 

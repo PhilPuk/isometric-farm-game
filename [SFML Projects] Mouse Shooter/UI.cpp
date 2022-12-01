@@ -16,7 +16,7 @@ void UI::initBase(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>
 
 void UI::initShop(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
 {
-	this->shop = new Shop_UI(winSize, t_Map[TextureManager::shop_icons], sf::Vector2f(0.f,0.f));
+	this->shop = new Shop_UI(winSize, t_Map[TextureManager::shop_icons], sf::Vector2f(0.f,0.f), this->base->s_popBox.getGlobalBounds().height);
 }
 void UI::initBuilding(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
 {
@@ -102,5 +102,7 @@ void UI::render(sf::RenderTarget& target)
 	this->base->render(target, UI::baseUIActive);
 	this->selected.render(target);
 	this->shop->render(target, UI::shopActive);
+	if(this->shop->SeedCloneActivated)
+	target.draw(this->shop->s_SeedClone);
 	this->build->render(target, UI::buildActive);
 }

@@ -11,6 +11,7 @@
 #include<SFML/Network.hpp>
 
 #include"Mouse.h"
+#include"TextureManager.h"
 #include"UI.h"
 #include"Timer.h"
 
@@ -25,11 +26,12 @@ public:
 	//Accessors
 	
 	bool CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos, Timer& timer);
+	void updateShopItemsMoved(Mouse& mouse, Timer& timer, UI& ui, std::vector<sf::Texture*>& textures);
 	int updateUIBaseLoop(std::vector<sf::Sprite*>& objects, Mouse& mouse, Timer& timer);
 	void updateIconsClickedTemplate(UI& ui, Mouse& mouse, Timer& timer, sf::Vector2f pos, void(&activate)(), const bool&(&getActive)(), std::vector<sf::Sprite*>& sprites);
 	void updateMainIconsClicked(UI& ui, Mouse& mouse, Timer& timer);
 	void updateUI(UI& ui, Mouse& mouse, Timer& timer);
-	void update(Mouse& mouse, UI& ui, Timer& timer);
+	void update(Mouse& mouse, UI& ui, Timer& timer, std::vector<sf::Texture*>& textures);
 
 	void render(sf::RenderTarget& target);
 };
