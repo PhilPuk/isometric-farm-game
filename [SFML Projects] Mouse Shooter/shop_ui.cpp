@@ -20,7 +20,7 @@ void Shop_UI::initSpritePositions(sf::Vector2u& winSize, sf::Vector2f bottom_bar
 	this->sprites[0]->setPosition(20.f, static_cast<float>(winSize.y) - this->sprites[0]->getGlobalBounds().height * 1.2f);
 }
 
-void Shop_UI::initShopItems(sf::Vector2u& winSize, float popBoxHeight)
+void Shop_UI::initShopItems(sf::Vector2u& winSize, float popBoxHeight, float popBoxWidth)
 {
     float scale = 0.3f;
     float spacingX = 20.f;
@@ -30,7 +30,13 @@ void Shop_UI::initShopItems(sf::Vector2u& winSize, float popBoxHeight)
     for (int i = 1; i < this->sprites.size(); i++)
     {
         this->sprites[i]->scale(scale, scale);
-        this->sprites[i]->setPosition(posX * i, posY);
+        this->sprites[i]->setPosition(posX, posY);
+        posX += this->sprites[0]->getGlobalBounds().width;
+        if (posX >= popBoxWidth - this->sprites[0]->getGlobalBounds().width)
+        {
+            posX = this->sprites[0]->getPosition().x + spacingX;
+            posY += spacingX + this->sprites[1]->getGlobalBounds().height;
+        }
     }
 }
 
@@ -39,14 +45,13 @@ void Shop_UI::initSeedClone(sf::Vector2u& winSize)
     this->s_SeedClone.scale(0.3f, 0.3f);
     sf::FloatRect rect = this->s_SeedClone.getLocalBounds();
     this->s_SeedClone.setOrigin(rect.left + rect.width / 2.0f, rect.top + rect.height / 2.0f);
-
 }
 
-Shop_UI::Shop_UI(sf::Vector2u& winSize, std::vector<sf::Texture*> textures, sf::Vector2f bottom_bar_Pos, float popBoxHeight)
+Shop_UI::Shop_UI(sf::Vector2u& winSize, std::vector<sf::Texture*> textures, sf::Vector2f bottom_bar_Pos, float popBoxHeight, float popBoxWidth)
 {
     this->initCreateSprites(textures);
     this->initSpritePositions(winSize, bottom_bar_Pos);
-    this->initShopItems(winSize, popBoxHeight);
+    this->initShopItems(winSize, popBoxHeight, popBoxWidth);
     this->initSeedClone(winSize);
 }
 

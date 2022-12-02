@@ -27,6 +27,7 @@ bool Navigation::CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos, Timer& 
             //Checks if mouse is on the object
             if (pos.contains(mouse.getMousePosView()))
             {
+                mouse.set_Mouse_Held();
                 //Sets the new timer when the mouse can be clicked again
                 mouse.set_Mouse_Click_Time_Reach(timer.getTotalTime());
                 return true;
@@ -40,12 +41,20 @@ bool Navigation::CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos, Timer& 
 
 void Navigation::updateShopItemsMoved(Mouse& mouse, Timer& timer, UI& ui, std::vector<sf::Texture*>& textures)
 {
-    sf::FloatRect tmp = ui.shop->sprites[1]->getGlobalBounds();
-    if (this->CheckForObjectClicked(mouse, tmp, timer))
+    if (!ui.shop->SeedCloneActivated && ui.getShopActive())
     {
-        ui.shop->SeedCloneActivated = true;
-        ui.shop->setSeedCloneTexture(*textures[1]);
+        sf::FloatRect tmp;
+        for (int i = 1; i < ui.shop->sprites.size(); i++)
+        {
+            tmp = ui.shop->sprites[i]->getGlobalBounds();
+            if (this->CheckForObjectClicked(mouse, tmp, timer))
+            {
+                ui.shop->SeedCloneActivated = true;
+                ui.shop->setSeedCloneTexture(*textures[i]);
+            }
+        }
     }
+
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && ui.shop->SeedCloneActivated)
     {
         ui.shop->s_SeedClone.setPosition(mouse.getMousePosView().x - ui.shop->s_SeedClone.getGlobalBounds().width/2.f, mouse.getMousePosView().y - ui.shop->s_SeedClone.getGlobalBounds().height / 2.f);
@@ -56,33 +65,20 @@ void Navigation::updateShopItemsMoved(Mouse& mouse, Timer& timer, UI& ui, std::v
     }
 }
 
-int Navigation::updateUIBaseLoop(std::vector<sf::Sprite*>& objects, Mouse& mouse, Timer& timer)
+void Navigation::updateShopOrBuildPressedTemplate(UI& ui, Mouse& mouse, Timer& timer, sf::Vector2f pos, void(&activate)(),  const bool&(& getActive)(), sf::Sprite*& sprite)
 {
-    //Check each content if its clicked
-    //if one is clicked return and save the index of the clicked object
-    sf::FloatRect tmp;
-    for (int i = 0; i < objects.size(); i++)
-    {
-        tmp = objects[i]->getGlobalBounds();
-        if (this->CheckForObjectClicked(mouse, tmp, timer))
-            return i;
-    }
-    return -1;
-}
-
-
-void Navigation::updateIconsClickedTemplate(UI& ui, Mouse& mouse, Timer& timer, sf::Vector2f pos, void(&activate)(),  const bool&(& getActive)(), std::vector<sf::Sprite*>& sprites)
-{
-    int tmpIndex;
-    //Checks for click on shop Icon
-    //If its already active, activated base instead of shop
-    tmpIndex = this->updateUIBaseLoop(sprites, mouse, timer);
-    if (tmpIndex == 0)
+    //Get global bounds of the sprite
+    sf::FloatRect tmp = sprite->getGlobalBounds();
+    //Checks if the sprite is clicked
+    if (this->CheckForObjectClicked(mouse, tmp, timer))
+        //if its already activated deactivate it
         if (getActive())
         {
             ui.selected.deactivate();
             ui.activateBase();
         }
+        //if not activate it and set the popBox on the given pos
+        //plus set the selection pos on the clicked sprite
         else
         {
             activate();
@@ -93,18 +89,21 @@ void Navigation::updateIconsClickedTemplate(UI& ui, Mouse& mouse, Timer& timer, 
         }
 }
 
-void Navigation::updateMainIconsClicked(UI& ui, Mouse& mouse, Timer& timer)
+void Navigation::updateShopOrBuildPressed(UI& ui, Mouse& mouse, Timer& timer)
 {
-    //Check if shop icons are clicked
-    this->updateIconsClickedTemplate(ui, mouse, timer, ui.shop->sprites[0]->getPosition(), ui.activateShop, ui.getShopActive, ui.shop->sprites);
+    if (!mouse.getMouseHeld())
+    {
+        //Check if shop icons are clicked
+        this->updateShopOrBuildPressedTemplate(ui, mouse, timer, ui.shop->sprites[0]->getPosition(), ui.activateShop, ui.getShopActive, ui.shop->sprites[0]);
 
-    //Check if building icons are clicked
-    this->updateIconsClickedTemplate(ui, mouse, timer, ui.build->sprites[0]->getPosition(), ui.activateBuilding, ui.getBuildActive, ui.build->sprites);
+        //Check if building icons are clicked
+        this->updateShopOrBuildPressedTemplate(ui, mouse, timer, ui.build->sprites[0]->getPosition(), ui.activateBuilding, ui.getBuildActive, ui.build->sprites[0]);
+    }
 }
 
 void Navigation::updateUI(UI& ui, Mouse& mouse, Timer& timer)
 {
-    this->updateMainIconsClicked(ui, mouse, timer);
+    this->updateShopOrBuildPressed(ui, mouse, timer);
 
 }
 void Navigation::update(Mouse& mouse, UI& ui, Timer& timer, std::vector<sf::Texture*>& textures)

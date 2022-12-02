@@ -16,7 +16,7 @@ void UI::initBase(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>
 
 void UI::initShop(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
 {
-	this->shop = new Shop_UI(winSize, t_Map[TextureManager::shop_icons], sf::Vector2f(0.f,0.f), this->base->s_popBox.getGlobalBounds().height);
+	this->shop = new Shop_UI(winSize, t_Map[TextureManager::shop_icons], sf::Vector2f(0.f,0.f), this->base->s_popBox.getGlobalBounds().height, this->base->s_popBox.getGlobalBounds().width);
 }
 void UI::initBuilding(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
 {

@@ -113,7 +113,7 @@ void Game::update()
 
     this->timer.update();
 
-    this->mouse.updateMousePositions(*this->window, false);
+    this->mouse.update(*this->window, false);
 
     this->nav.update(this->mouse, *this->ui, this->timer, this->textures.tex[TextureManager::shop_icons]);
 
@@ -130,9 +130,9 @@ void Game::render()
     
     this->scenery->render(*this->window);
 
-    this->ui->render(*this->window);
-
     this->f_Manager->render(*this->window);
+
+    this->ui->render(*this->window);
 
     this->window->display();
 }
