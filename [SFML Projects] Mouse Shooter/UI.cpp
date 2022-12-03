@@ -9,16 +9,16 @@ void UI::initVariables(sf::Vector2u winSize)
 
 }
 
-void UI::initBase(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
+void UI::initBase(FileManagement& fileManager, sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font)
 {
 	this->base = new Base_UI(t_Map[TextureManager::ui], t_Map[TextureManager::popBoxes], winSize);
 }
 
-void UI::initShop(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
+void UI::initShop(FileManagement& fileManager, sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font)
 {
-	this->shop = new Shop_UI(winSize, t_Map[TextureManager::shop_icons], sf::Vector2f(0.f,0.f), this->base->s_popBox.getGlobalBounds().height, this->base->s_popBox.getGlobalBounds().width);
+	this->shop = new Shop_UI(fileManager, winSize, t_Map[TextureManager::shop_icons], sf::Vector2f(0.f,0.f), this->base->s_popBox.getGlobalBounds().height, this->base->s_popBox.getGlobalBounds().width, font);
 }
-void UI::initBuilding(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
+void UI::initBuilding(FileManagement& fileManager, sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font)
 {
 	/*this->base->sprites[0]->getPosition()*/
 	this->build = new Building_UI(winSize, t_Map[TextureManager::build_icons], sf::Vector2f(0.f,0.f));
@@ -32,12 +32,12 @@ void UI::initSizeOfSelections()
 	selected.changePositionYOfSelection(this->shop->sprites[0]->getPosition().y);
 }
 
-UI::UI(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map)
+UI::UI(FileManagement& fileManager, sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font)
 {
 	this->initVariables(winSize);
-	this->initBase(winSize, t_Map);
-	this->initShop(winSize, t_Map);
-	this->initBuilding(winSize, t_Map);
+	this->initBase(fileManager, winSize, t_Map, font);
+	this->initShop(fileManager, winSize, t_Map, font);
+	this->initBuilding(fileManager, winSize, t_Map, font);
 	this->initSizeOfSelections();
 }
 

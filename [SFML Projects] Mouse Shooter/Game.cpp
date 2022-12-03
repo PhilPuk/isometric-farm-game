@@ -15,9 +15,9 @@ void Game::initVariables(sf::RenderWindow* window)
     this->endApplication = false;
 }
 
-void Game::initUI()
+void Game::initUI(sf::Font& font)
 {
-    this->ui = new UI(this->winSize, this->textures.tex);
+    this->ui = new UI(this->fileManager, this->winSize, this->textures.tex, font);
 }
 
 void Game::initScenery()
@@ -39,11 +39,11 @@ void Game::initf_Manager()
     );
 }
 
-Game::Game(sf::RenderWindow* window)
+Game::Game(sf::RenderWindow* window, sf::Font& font)
 {
     this->initWindow(window);
     this->initVariables(window);
-    this->initUI();
+    this->initUI(font);
     this->initScenery();
     this->initf_Manager();
 }

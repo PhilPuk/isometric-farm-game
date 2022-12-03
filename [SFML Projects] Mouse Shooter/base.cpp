@@ -20,6 +20,7 @@ void Base_UI::initPopBox(sf::Vector2u winSize, std::vector<sf::Texture*>& popBox
 {
     //Pop bar box on init on shop button position
     this->s_popBox.setTexture(*popBoxes[0]);
+    this->s_popBox.scale(1.2f, 1.0f);
     this->s_popBox.setPosition(500.f, 900.f);
 }
 
@@ -32,9 +33,14 @@ Base_UI::Base_UI(std::vector<sf::Texture*>& textures, std::vector<sf::Texture*>&
 
 Base_UI::~Base_UI()
 {
-    for (auto& i : this->sprites)
+    for (auto& it : this->sprites)
     {
         this->sprites.erase(this->sprites.begin(), this->sprites.end());
+    }
+
+    for (auto& it : this->texts)
+    {
+        this->texts.erase(this->texts.begin(), this->texts.end());
     }
 }
 

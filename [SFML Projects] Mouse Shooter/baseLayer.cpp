@@ -57,10 +57,21 @@ void baseLayer::renderItems(sf::RenderTarget& target)
     }
 }
 
+void baseLayer::renderTexts(sf::RenderTarget& target)
+{
+    for (auto& it : this->texts)
+    {
+        target.draw(*it);
+    }
+}
+
 void baseLayer::render(sf::RenderTarget& target, bool& Activated)
 {
     if(!Activated)
     this->renderBaseIcon(target);
     else
-    this->renderItems(target);
+    {
+        this->renderItems(target);
+        this->renderTexts(target);
+    }
 }

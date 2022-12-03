@@ -11,6 +11,7 @@
 #include"Mouse.h"
 #include"Navigation.h"
 #include"Timer.h"
+#include"FileManagement.h"
 
 /*
 * Class Info:
@@ -24,6 +25,9 @@ private:
 	//Window
 	sf::RenderWindow* window;
 	sf::Vector2u winSize;
+
+	//FileManager
+	FileManagement fileManager;
 
 	//TextureManager
 	TextureManager textures;
@@ -52,11 +56,11 @@ private:
 
 	void initWindow(sf::RenderWindow* window);
 	void initVariables(sf::RenderWindow* window);
-	void initUI();
+	void initUI(sf::Font& font);
 	void initScenery();
 	void initf_Manager();
 public:
-	Game(sf::RenderWindow* window);
+	Game(sf::RenderWindow* window, sf::Font& font);
 	virtual ~Game();
 
 	//Scenery

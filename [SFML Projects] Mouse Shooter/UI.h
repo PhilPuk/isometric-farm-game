@@ -1,6 +1,7 @@
 #pragma once
 
 #include"TextureManager.h"
+#include"FieldManager.h"
 #include"shop_ui.h"
 #include"building_ui.h"
 #include"base.h"
@@ -23,12 +24,12 @@ private:
 	static bool buildActive;
 
 	void initVariables(sf::Vector2u winSize);
-	void initBase(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
-	void initShop(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
-	void initBuilding(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
+	void initBase(FileManagement& fileManager, sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font);
+	void initShop(FileManagement& fileManager, sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font);
+	void initBuilding(FileManagement& fileManager, sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font);
 	void initSizeOfSelections();
 public:
-	UI(sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map);
+	UI(FileManagement& fileManager,sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font);
 	virtual ~UI();
 
 	//Class for visual apperance of selected / clicked on items, icons whatever.

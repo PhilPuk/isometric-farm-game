@@ -33,6 +33,11 @@ Building_UI::~Building_UI()
     {
         this->sprites.erase(this->sprites.begin(), this->sprites.end());
     }
+
+    for (auto& it : this->texts)
+    {
+        this->texts.erase(this->texts.begin(), this->texts.end());
+    }
 }
 
 void Building_UI::update()

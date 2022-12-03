@@ -140,6 +140,7 @@
     <ClCompile Include="Crops.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="FieldManager.cpp" />
+    <ClCompile Include="FileManagement.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LightManager.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Crops.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="FieldManager.h" />
+    <ClInclude Include="FileManagement.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="LightManager.h" />

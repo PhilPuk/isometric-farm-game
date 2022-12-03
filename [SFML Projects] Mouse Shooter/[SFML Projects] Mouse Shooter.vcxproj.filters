@@ -58,6 +58,9 @@
     <Filter Include="Engine\Timer">
       <UniqueIdentifier>{1c4867ff-54fb-477d-97f0-60aee6a1e7e0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\FileManagement">
+      <UniqueIdentifier>{a7868043-a91b-4f0f-9417-0bd9bb4fd0f6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -123,6 +126,9 @@
     <ClCompile Include="Timer.cpp">
       <Filter>Engine\Timer</Filter>
     </ClCompile>
+    <ClCompile Include="FileManagement.cpp">
+      <Filter>Engine\FileManagement</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Crops.h">
@@ -184,6 +190,9 @@
     </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Engine\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManagement.h">
+      <Filter>Engine\FileManagement</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

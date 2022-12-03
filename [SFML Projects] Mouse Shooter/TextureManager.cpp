@@ -25,7 +25,6 @@ void TextureManager::AutoTextureLoader(std::string Path, int key)
 {
 	auto dirIter = std::filesystem::directory_iterator(Path);
 	int fileCount = 0;
-
 	for (auto& entry : dirIter)
 	{
 		if (entry.is_regular_file())
