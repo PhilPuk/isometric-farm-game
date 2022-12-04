@@ -39,6 +39,14 @@ bool Navigation::CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos, Timer& 
     return false;
 }
 
+
+bool Navigation::CheckForMouseOnObject(Mouse& mouse, sf::FloatRect object_bounds)
+{
+    if (object_bounds.contains(mouse.getMousePosView()))
+        return true;
+    return false;
+}
+
 void Navigation::updateShopItemsMoved(Mouse& mouse, Timer& timer, UI& ui, std::vector<sf::Texture*>& textures)
 {
     if (!ui.shop->SeedCloneActivated && ui.getShopActive())
@@ -101,14 +109,41 @@ void Navigation::updateShopOrBuildPressed(UI& ui, Mouse& mouse, Timer& timer)
     }
 }
 
+void Navigation::updateSeedHoverOnField(UI& ui, Mouse& mouse, Timer& timer, FieldManager& f_Manager)
+{
+    if (ui.shop->SeedCloneActivated)
+    {
+        //Loops through fields
+        for (int i = 0; i < f_Manager.fields.size(); i++)
+        {
+            //Loop through crops
+            for (int j = 0; j < f_Manager.fields[i]->crops.size(); j++)
+            {
+                //Check for intersection between mouse and the crop
+                if (this->CheckForMouseOnObject(mouse, f_Manager.fields[i]->crops[j]->s_crop.getGlobalBounds()))
+                {
+                    //Color Green
+                    if (f_Manager.fields[i]->crops[j]->s_crop.getColor() != sf::Color(100, 255, 100, 255))
+                        f_Manager.fields[i]->crops[j]->s_crop.setColor(sf::Color(100, 255, 100, 255));
+                }
+                else if (f_Manager.fields[i]->crops[j]->s_crop.getColor() != sf::Color(255, 255, 255, 255))
+                {
+                    f_Manager.fields[i]->crops[j]->s_crop.setColor(sf::Color(255, 255, 255, 255));
+                }
+            }
+        }
+    }
+}
+
 void Navigation::updateUI(UI& ui, Mouse& mouse, Timer& timer)
 {
     this->updateShopOrBuildPressed(ui, mouse, timer);
 
 }
-void Navigation::update(Mouse& mouse, UI& ui, Timer& timer, std::vector<sf::Texture*>& textures)
+void Navigation::update(Mouse& mouse, UI& ui, Timer& timer, std::vector<sf::Texture*>& textures, FieldManager& f_Manager)
 {
     this->updateShopItemsMoved(mouse, timer, ui, textures);
+    this->updateSeedHoverOnField(ui, mouse, timer, f_Manager);
     this->updateUI(ui, mouse, timer);
 }
 

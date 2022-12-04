@@ -13,7 +13,6 @@
 class Crops
 {
 private:
-	sf::Sprite s_crop;
 	//Evolution stage of plant on crop
 	enum Growth_Stage { SEED = 0, BABY, KID, TEEN, PARENT};
 	Seed* seed;
@@ -25,6 +24,8 @@ private:
 public:
 	Crops(sf::Texture& texture, sf::Vector2f pos, uint8_t PLACE_IN_FIELD);
 	virtual~ Crops();
+
+	sf::Sprite s_crop;
 
 	//Modifiers
 	void assignSeed(Seed* seed);
