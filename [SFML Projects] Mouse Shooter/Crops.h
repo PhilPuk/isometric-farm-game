@@ -18,6 +18,7 @@ private:
 	Seed* seed;
 	uint8_t PLACE_IN_FIELD;
 	bool hasSeed;
+	bool isMarked;
 
 	void initVariables(uint8_t PLACE_IN_FIELD);
 	void initSprite(sf::Texture& texture, sf::Vector2f pos);
@@ -31,6 +32,12 @@ public:
 	void assignSeed(Seed* seed);
 	void removeSeed();
 	void reScaleCrop(sf::Vector2f scale);
+	void setIsMarked();
+	void resetIsMarked();
+
+	//Accessors
+	const bool& getHasSeed() const;
+	const bool& getIsMarked() const;
 
 	void update();
 

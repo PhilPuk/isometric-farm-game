@@ -1,6 +1,7 @@
 #pragma once
 
 #include"Field.h"
+#include"Mouse.h"
 
 class FieldManager
 {
@@ -17,6 +18,11 @@ public:
 
 	std::vector<Field*> fields;
 
+	sf::Color color_GreenMark;
+	sf::Color color_RedMark;
+	sf::Color color_baseColor;
+
+	void updateMarking(int& i, int& j, Mouse& mouse, bool&(func)(Mouse&, sf::FloatRect));
 	void update();
 
 	void renderFields(sf::RenderTarget& target);

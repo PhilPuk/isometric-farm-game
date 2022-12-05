@@ -7,6 +7,7 @@ void Crops::initVariables(uint8_t PLACE_IN_FIELD)
 	this->PLACE_IN_FIELD = PLACE_IN_FIELD;
 
 	this->hasSeed = false;
+	this->isMarked = false;
 }
 
 void Crops::initSprite(sf::Texture& texture, sf::Vector2f pos)
@@ -54,6 +55,26 @@ void Crops::removeSeed()
 void Crops::reScaleCrop(sf::Vector2f scale)
 {
 	this->s_crop.setScale(scale);
+}
+
+void Crops::setIsMarked()
+{
+	this->isMarked = true;
+}
+
+void Crops::resetIsMarked()
+{
+	this->isMarked = false;
+}
+
+const bool& Crops::getHasSeed() const
+{
+	return this->hasSeed;
+}
+
+const bool& Crops::getIsMarked() const
+{
+	return this->isMarked;
 }
 
 void Crops::update()

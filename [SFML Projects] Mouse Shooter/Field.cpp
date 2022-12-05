@@ -2,7 +2,6 @@
 
 void Field::initVariables()
 {
-
 	this->currentCropAmount = ONE;
 	this->FieldFilled = false;
 }

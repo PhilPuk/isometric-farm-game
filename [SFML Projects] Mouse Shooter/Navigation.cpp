@@ -40,7 +40,7 @@ bool Navigation::CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos, Timer& 
 }
 
 
-bool Navigation::CheckForMouseOnObject(Mouse& mouse, sf::FloatRect object_bounds)
+const bool& Navigation::CheckForMouseOnObject(Mouse& mouse, sf::FloatRect object_bounds)
 {
     if (object_bounds.contains(mouse.getMousePosView()))
         return true;
@@ -119,17 +119,28 @@ void Navigation::updateSeedHoverOnField(UI& ui, Mouse& mouse, Timer& timer, Fiel
             //Loop through crops
             for (int j = 0; j < f_Manager.fields[i]->crops.size(); j++)
             {
-                //Check for intersection between mouse and the crop
-                if (this->CheckForMouseOnObject(mouse, f_Manager.fields[i]->crops[j]->s_crop.getGlobalBounds()))
-                {
-                    //Color Green
-                    if (f_Manager.fields[i]->crops[j]->s_crop.getColor() != sf::Color(100, 255, 100, 255))
-                        f_Manager.fields[i]->crops[j]->s_crop.setColor(sf::Color(100, 255, 100, 255));
-                }
-                else if (f_Manager.fields[i]->crops[j]->s_crop.getColor() != sf::Color(255, 255, 255, 255))
-                {
-                    f_Manager.fields[i]->crops[j]->s_crop.setColor(sf::Color(255, 255, 255, 255));
-                }
+                ////Check for intersection between mouse and the crop
+                //if (this->CheckForMouseOnObject(mouse, f_Manager.fields[i]->crops[j]->s_crop.getGlobalBounds()))
+                //{
+                //    //check if its already marked green
+                //    if (!f_Manager.fields[i]->crops[i]->getHasSeed())
+                //    {
+                //        if(!f_Manager.fields[i]->crops[i]->getIsMarked())
+                //        f_Manager.fields[i]->crops[j]->s_crop.setColor(f_Manager.color_GreenMark);
+                //    }
+                //    else // If it already got a seed mark red
+                //    {
+                //        f_Manager.fields[i]->crops[j]->s_crop.setColor(f_Manager.color_RedMark);
+                //    }
+                //    //Set that the crop is marked with a color
+                //    f_Manager.fields[i]->crops[j]->setIsMarked();
+                //}
+                //else if (f_Manager.fields[i]->crops[j]->s_crop.getColor() != f_Manager.color_baseColor)
+                //{
+                //    f_Manager.fields[i]->crops[j]->s_crop.setColor(f_Manager.color_baseColor);
+                //    f_Manager.fields[i]->crops[j]->resetIsMarked();
+                //}
+                f_Manager.updateMarking(i,j,mouse, this->CheckForMouseOnObject(mouse, f_Manager.fields[i]->crops[j]->s_crop.getGlobalBounds()))
             }
         }
     }
