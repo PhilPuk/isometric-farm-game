@@ -6,6 +6,8 @@ void FieldManager::initVariables()
 	this->color_GreenMark = sf::Color(100, 255, 100, 255);
 	this->color_RedMark = sf::Color(255, 100, 100, 255);
 	this->color_baseColor = sf::Color(255, 255, 255, 255);
+
+	this->anyCropisMarked = false;
 }
 
 void FieldManager::initTextures(sf::Texture* t_Field, sf::Texture* t_Crop)
@@ -39,7 +41,7 @@ FieldManager::~FieldManager()
 	std::cout << "Size of fields vector array: " << this->fields.size() << " - SHOULD BE 0!\n";
 }
 
-void FieldManager::updateMarking(int& i, int& j, Mouse& mouse, bool&(func)(Mouse&, sf::FloatRect))
+void FieldManager::updateMarking(int& i, int& j, Mouse& mouse, static const bool&(&func)(Mouse& mouse, sf::FloatRect object))
 {
 	//Check for intersection between mouse and the crop
 	if (func(mouse, this->fields[i]->crops[j]->s_crop.getGlobalBounds()))
@@ -56,6 +58,7 @@ void FieldManager::updateMarking(int& i, int& j, Mouse& mouse, bool&(func)(Mouse
 		}
 		//Set that the crop is marked with a color
 		this->fields[i]->crops[j]->setIsMarked();
+		this->anyCropisMarked = true;
 	}
 	else if (this->fields[i]->crops[j]->s_crop.getColor() != this->color_baseColor)
 	{

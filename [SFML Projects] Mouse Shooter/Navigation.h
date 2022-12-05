@@ -27,7 +27,7 @@ public:
 	//Accessors
 	
 	bool CheckForObjectClicked(Mouse& mouse, sf::FloatRect& pos, Timer& timer);
-	bool& CheckForMouseOnObject(Mouse& mouse, sf::FloatRect object_bounds);
+	static const bool& CheckForMouseOnObject(Mouse& mouse, sf::FloatRect object_bounds);
 
 	//Updating
 

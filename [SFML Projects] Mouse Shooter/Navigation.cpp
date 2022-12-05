@@ -111,36 +111,16 @@ void Navigation::updateShopOrBuildPressed(UI& ui, Mouse& mouse, Timer& timer)
 
 void Navigation::updateSeedHoverOnField(UI& ui, Mouse& mouse, Timer& timer, FieldManager& f_Manager)
 {
-    if (ui.shop->SeedCloneActivated)
+    if (ui.shop->SeedCloneActivated || f_Manager.anyCropisMarked)
     {
+        f_Manager.anyCropisMarked = false;
         //Loops through fields
         for (int i = 0; i < f_Manager.fields.size(); i++)
         {
             //Loop through crops
             for (int j = 0; j < f_Manager.fields[i]->crops.size(); j++)
             {
-                ////Check for intersection between mouse and the crop
-                //if (this->CheckForMouseOnObject(mouse, f_Manager.fields[i]->crops[j]->s_crop.getGlobalBounds()))
-                //{
-                //    //check if its already marked green
-                //    if (!f_Manager.fields[i]->crops[i]->getHasSeed())
-                //    {
-                //        if(!f_Manager.fields[i]->crops[i]->getIsMarked())
-                //        f_Manager.fields[i]->crops[j]->s_crop.setColor(f_Manager.color_GreenMark);
-                //    }
-                //    else // If it already got a seed mark red
-                //    {
-                //        f_Manager.fields[i]->crops[j]->s_crop.setColor(f_Manager.color_RedMark);
-                //    }
-                //    //Set that the crop is marked with a color
-                //    f_Manager.fields[i]->crops[j]->setIsMarked();
-                //}
-                //else if (f_Manager.fields[i]->crops[j]->s_crop.getColor() != f_Manager.color_baseColor)
-                //{
-                //    f_Manager.fields[i]->crops[j]->s_crop.setColor(f_Manager.color_baseColor);
-                //    f_Manager.fields[i]->crops[j]->resetIsMarked();
-                //}
-                f_Manager.updateMarking(i,j,mouse, this->CheckForMouseOnObject(mouse, f_Manager.fields[i]->crops[j]->s_crop.getGlobalBounds()))
+                f_Manager.updateMarking(i, j, mouse, this->CheckForMouseOnObject);
             }
         }
     }

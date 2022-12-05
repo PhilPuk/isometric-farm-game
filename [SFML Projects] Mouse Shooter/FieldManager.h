@@ -1,5 +1,7 @@
 #pragma once
 
+#include<stack>
+
 #include"Field.h"
 #include"Mouse.h"
 
@@ -16,13 +18,17 @@ public:
 	FieldManager(sf::Vector2u& winSize, sf::Texture* t_Field, sf::Texture* t_Crop);
 	virtual~FieldManager();
 
+	bool anyCropisMarked;
+
 	std::vector<Field*> fields;
 
 	sf::Color color_GreenMark;
 	sf::Color color_RedMark;
 	sf::Color color_baseColor;
 
-	void updateMarking(int& i, int& j, Mouse& mouse, bool&(func)(Mouse&, sf::FloatRect));
+	//Called in Navigation update!!!
+	void updateMarking(int& i, int& j, Mouse& mouse, static const bool&(&func)(Mouse& mouse, sf::FloatRect object));
+	
 	void update();
 
 	void renderFields(sf::RenderTarget& target);
