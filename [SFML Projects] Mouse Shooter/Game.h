@@ -5,6 +5,7 @@
 
 #include"TextureManager.h"
 #include"UI.h"
+#include"Shop_Engine.h"
 #include"Scenery.h"
 #include"Field.h"
 #include"FieldManager.h"
@@ -37,6 +38,9 @@ private:
 
 	//UI
 	UI* ui;
+
+	//Shop Engine
+	ShopEngine shop;
 
 	//Events
 	sf::Event ev;
