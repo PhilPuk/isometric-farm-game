@@ -18,7 +18,9 @@ class Shop_UI :  public baseLayer
 {
 private:
 
-    int prices[15] = {30,10,15,25,15,35,30,20,5,12,9,18,15,8,19};
+    float prices[15] = {30,10,15,25,15,35,30,20,5,12,9,18,15,8,19};
+
+    float bank;
 
     void initVariables();
     void initCreateSprites(std::vector<sf::Texture*> textures);
@@ -33,8 +35,13 @@ public:
     sf::Sprite s_SeedClone;
     bool SeedCloneActivated;
 
-    void setSeedCloneTexture(sf::Texture& texture);
+    //TO DO MOVE INTO SHOP ENGINE CLASS!!!    
+    //Modify the texture of the seed icon that can be moved around
+    // void setSeedCloneTexture(sf::Texture& texture);
+    // void reduceMoneyAfterBuy(float& reduce const);
 
+    //Get the amount of the money the player owns
+    const float& getMoneyInBank() const;
 
     void update();
 };

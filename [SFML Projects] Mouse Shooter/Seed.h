@@ -21,6 +21,8 @@ public:
 	Seed(sf::Texture& t_OnCrop, sf::Texture& t_Pic, sf::Vector2f pos);
 	virtual ~Seed();
 
+	void setOnCropTexture(sf::Texture& texture);
+
 	void renderIcon(sf::RenderTarget& target);
 	void renderOnCroop(sf::RenderTarget& target);
 };

@@ -91,6 +91,20 @@ void Shop_UI::setSeedCloneTexture(sf::Texture& texture)
     this->s_SeedClone.setTexture(texture);
 }
 
+
+void Shop_UI::reduceMoneyAfterBuy(float& reduce const)
+{
+    if(this->bank > reduce)
+    this->bank -= reduce;
+    else
+    std::cout<<" ERROR::SHOP"
+}
+
+const float& Shop_UI::getMoneyInBank() const
+{
+    return this->bank;
+}
+
 void Shop_UI::update()
 {
 

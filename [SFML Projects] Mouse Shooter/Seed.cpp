@@ -34,6 +34,12 @@ Seed::~Seed()
 
 }
 
+
+void Seed::setOnCropTexture(sf::Texture& texture)
+{
+	this->s_OnCrop.setTexture(texture);
+}
+
 void Seed::renderIcon(sf::RenderTarget& target)
 {
 	target.draw(this->cSh_Icon);

@@ -54,6 +54,7 @@ void TextureManager::initCropTextures()
 
 void TextureManager::initSeedTextures()
 {
+	//To-do: Create onCrop seed textures! just one to test first!
 	//this->AutoTextureLoader("Textures/seeds/onField", seeds);
 }
 
