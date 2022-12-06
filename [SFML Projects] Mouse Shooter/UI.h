@@ -8,6 +8,7 @@
 #include"baseLayer.h"
 #include"Mouse.h"
 #include"selection_ui.h"
+#include"Shop_Engine.h"
 
 //Notes:
 //baseLayer is the abstract class.
@@ -25,11 +26,11 @@ private:
 
 	void initVariables(sf::Vector2u winSize);
 	void initBase(FileManagement& fileManager, sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font);
-	void initShop(FileManagement& fileManager, sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font);
+	void initShop(FileManagement& fileManager, sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font, ShopEngine& shop_engine);
 	void initBuilding(FileManagement& fileManager, sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font);
 	void initSizeOfSelections();
 public:
-	UI(FileManagement& fileManager,sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font);
+	UI(FileManagement& fileManager,sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font, ShopEngine& shop_engine);
 	virtual ~UI();
 
 	//Class for visual apperance of selected / clicked on items, icons whatever.
@@ -55,7 +56,7 @@ public:
 	static void activateShop();
 	static void activateBuilding();
 	
-	void update(Mouse& mouse);
+	void update(Mouse& mouse, ShopEngine& shop_engine);
 
 	void render(sf::RenderTarget& target);
 };

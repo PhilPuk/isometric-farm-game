@@ -17,7 +17,7 @@ void Game::initVariables(sf::RenderWindow* window)
 
 void Game::initUI(sf::Font& font)
 {
-    this->ui = new UI(this->fileManager, this->winSize, this->textures.tex, font);
+    this->ui = new UI(this->fileManager, this->winSize, this->textures.tex, font, shop_e);
 }
 
 void Game::initScenery()
@@ -121,7 +121,7 @@ void Game::update()
 
     this->f_Manager->update();
 
-    this->ui->update(mouse);
+    this->ui->update(mouse, shop_e);
 }
 
 void Game::render()

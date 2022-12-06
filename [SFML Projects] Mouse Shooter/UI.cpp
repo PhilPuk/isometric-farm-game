@@ -14,7 +14,7 @@ void UI::initBase(FileManagement& fileManager, sf::Vector2u winSize, std::map<in
 	this->base = new Base_UI(t_Map[TextureManager::ui], t_Map[TextureManager::popBoxes], winSize);
 }
 
-void UI::initShop(FileManagement& fileManager, sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font)
+void UI::initShop(FileManagement& fileManager, sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font, ShopEngine& shop_engine)
 {
 	this->shop = new Shop_UI(fileManager, winSize, t_Map[TextureManager::shop_icons], sf::Vector2f(0.f,0.f), this->base->s_popBox.getGlobalBounds().height, this->base->s_popBox.getGlobalBounds().width, font);
 }
@@ -32,11 +32,11 @@ void UI::initSizeOfSelections()
 	selected.changePositionYOfSelection(this->shop->sprites[0]->getPosition().y);
 }
 
-UI::UI(FileManagement& fileManager, sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font)
+UI::UI(FileManagement& fileManager, sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font, ShopEngine& shop_engine)
 {
 	this->initVariables(winSize);
 	this->initBase(fileManager, winSize, t_Map, font);
-	this->initShop(fileManager, winSize, t_Map, font);
+	this->initShop(fileManager, winSize, t_Map, font, shop_engine);
 	this->initBuilding(fileManager, winSize, t_Map, font);
 	this->initSizeOfSelections();
 }
@@ -91,7 +91,7 @@ void UI::activateBuilding()
 	UI::baseUIActive = false;
 }
 
-void UI::update(Mouse& mouse)
+void UI::update(Mouse& mouse, ShopEngine& shop_engine)
 {
 	this->selected.update();
 }

@@ -2,7 +2,7 @@
 
 void Shop_UI::initVariables()
 {
-
+    this->lastBank = 100.f;
 }
 
 void Shop_UI::initCreateSprites(std::vector<sf::Texture*> textures)
@@ -27,10 +27,19 @@ void Shop_UI::initItemTexts(FileManagement& fileManager, sf::Vector2u& winSize, 
     base.setCharacterSize(12);
     base.setFillColor(sf::Color::Black);
 
+    //Bank text
+    this->text_bank = base;
+    std::stringstream s;
+    s << this->lastBank << "$";
+    this->text_bank.setString(s.str());
+    this->text_bank.setCharacterSize(32);
+    this->text_bank.setPosition(static_cast<float>(winSize.x) - text_bank.getGlobalBounds().width - 10.f, 10.f);
+
+
     int amount = fileManager.getAmountOfFilesInsideAFolder("C:/Users/Phil/source/repos/[SFML Projects] SFML Template 1.0 - Kopie - Kopie/[SFML Projects] Mouse Shooter/Textures/ui/shop");
     for (int i = 1; i < amount; i++)
     {
-        std::string x = fileManager.getNameOfFilesInsideAFolder("C:/Users/Phil/source/repos/[SFML Projects] SFML Template 1.0 - Kopie - Kopie/[SFML Projects] Mouse Shooter/Textures/ui/shop")[i] + " " + std::to_string(this->prices[i - 1]) + "$";
+        std::string x = fileManager.getNameOfFilesInsideAFolder("C:/Users/Phil/source/repos/[SFML Projects] SFML Template 1.0 - Kopie - Kopie/[SFML Projects] Mouse Shooter/Textures/ui/shop")[i] + " " + std::to_string((int)this->prices[i - 1]) + "$";
         base.setString(x);
         base.setPosition(this->sprites[i]->getPosition().x + (this->sprites[i]->getGlobalBounds().width - base.getGlobalBounds().width) / 2.f, this->sprites[i]->getPosition().y + this->sprites[i]->getGlobalBounds().height);
         this->texts.push_back(new sf::Text(base));
@@ -66,6 +75,7 @@ void Shop_UI::initSeedClone(sf::Vector2u& winSize)
 
 Shop_UI::Shop_UI(FileManagement& fileManager, sf::Vector2u& winSize, std::vector<sf::Texture*> textures, sf::Vector2f bottom_bar_Pos, float popBoxHeight, float popBoxWidth, sf::Font& font)
 {
+    this->initVariables();
     this->initCreateSprites(textures);
     this->initSpritePositions(winSize, bottom_bar_Pos);
     this->initShopItems(winSize, popBoxHeight, popBoxWidth);
@@ -92,20 +102,47 @@ void Shop_UI::setSeedCloneTexture(sf::Texture& texture)
 }
 
 
-void Shop_UI::reduceMoneyAfterBuy(float& reduce const)
+void Shop_UI::reduceMoneyAfterBuy(float& reduce)
 {
-    if(this->bank > reduce)
-    this->bank -= reduce;
+    if (this->lastBank >= reduce)
+        this->lastBank -= reduce;
     else
-    std::cout<<" ERROR::SHOP"
+        std::cout << " ERROR::SHOP_UI::REDUCEMONEYAFTERBUY::Not enough money to buy the item! Should not be handled by this assert!!!\n";
 }
 
 const float& Shop_UI::getMoneyInBank() const
 {
-    return this->bank;
+    return this->lastBank;
 }
 
-void Shop_UI::update()
+void Shop_UI::updateBank(float& bank)
 {
+    if (lastBank != bank)
+    {
+        this->lastBank = bank;
+        std::stringstream ss;
+        ss << bank << "$";
+        this->text_bank.setString(ss.str());
+    }
+}
 
+void Shop_UI::update(float& bank)
+{
+    this->updateBank(bank);
+}
+
+void Shop_UI::renderBankText(sf::RenderTarget& target)
+{
+    target.draw(this->text_bank);
+}
+
+void Shop_UI::render(sf::RenderTarget& target, bool& activated)
+{
+    this->renderBaseIcon(target);
+    if (activated)
+    {
+        this->renderItems(target);
+        this->renderTexts(target);
+    }
+    this->renderBankText(target);
 }

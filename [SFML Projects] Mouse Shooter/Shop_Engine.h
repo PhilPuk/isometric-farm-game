@@ -25,10 +25,10 @@ public:
     virtual ~ShopEngine();
 
     //Modifiers
-    void addMoneytoBank(float& amount const);
-    void reduceMoneyFromBank(float& amount const);
+    void addMoneytoBank(float& amount);
+    void reduceMoneyFromBank(float& amount);
 
     //Accessors
-    const bool& getMoneyFromBank() const;
+    const bool& getMoneyInBank() const;
     const float& getPriceOfSeed(int index) const;
-}
+};

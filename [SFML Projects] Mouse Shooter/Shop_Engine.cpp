@@ -10,29 +10,30 @@ ShopEngine::ShopEngine()
     this->initVariables();
 }
 
-virtual ShopEngine::~ShopEngine()
+ShopEngine::~ShopEngine()
 {
 
 }
 
 //Modifiers
-void ShopEngine::addMoneytoBank(float& amount const)
+void ShopEngine::addMoneytoBank(float& amount)
 {
     this->bank += amount;
 }
 
-void ShopEngine::reduceMoneyFromBank(float& amount const)
+void ShopEngine::reduceMoneyFromBank(float& amount)
 {
     this->bank -= amount;
 }
 
 //Accessors
-const bool& ShopEngine::getMoneyFromBank() const
+const bool& ShopEngine::getMoneyInBank() const
 {
     return this->bank;
 }
 
 const float& ShopEngine::getPriceOfSeed(int index) const
 {
-
+    //To-do
+    return 0;
 }

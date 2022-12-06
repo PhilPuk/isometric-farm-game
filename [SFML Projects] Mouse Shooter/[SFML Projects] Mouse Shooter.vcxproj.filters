@@ -61,6 +61,9 @@
     <Filter Include="Engine\FileManagement">
       <UniqueIdentifier>{a7868043-a91b-4f0f-9417-0bd9bb4fd0f6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Shop Engine">
+      <UniqueIdentifier>{b1468d1f-d772-4358-a3bb-0cc09b54da26}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -129,6 +132,9 @@
     <ClCompile Include="FileManagement.cpp">
       <Filter>Engine\FileManagement</Filter>
     </ClCompile>
+    <ClCompile Include="Shop_Engine.cpp">
+      <Filter>Engine\Shop Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Crops.h">
@@ -193,6 +199,9 @@
     </ClInclude>
     <ClInclude Include="FileManagement.h">
       <Filter>Engine\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="Shop_Engine.h">
+      <Filter>Engine\Shop Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

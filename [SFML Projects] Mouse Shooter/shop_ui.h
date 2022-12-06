@@ -3,6 +3,7 @@
 #include<iostream>
 #include<vector>
 #include<map>
+#include<sstream>
 
 #include<SFML/Graphics.hpp>
 #include<SFML/System.hpp>
@@ -17,10 +18,10 @@
 class Shop_UI :  public baseLayer
 {
 private:
-
+    sf::Text text_bank;
     float prices[15] = {30,10,15,25,15,35,30,20,5,12,9,18,15,8,19};
 
-    float bank;
+    float lastBank;
 
     void initVariables();
     void initCreateSprites(std::vector<sf::Texture*> textures);
@@ -37,11 +38,15 @@ public:
 
     //TO DO MOVE INTO SHOP ENGINE CLASS!!!    
     //Modify the texture of the seed icon that can be moved around
-    // void setSeedCloneTexture(sf::Texture& texture);
-    // void reduceMoneyAfterBuy(float& reduce const);
+     void setSeedCloneTexture(sf::Texture& texture);
+     void reduceMoneyAfterBuy(float& reduce);
 
     //Get the amount of the money the player owns
     const float& getMoneyInBank() const;
 
-    void update();
+    void updateBank(float& bank);
+    void update(float& bank);
+
+    void renderBankText(sf::RenderTarget& target);
+    void render(sf::RenderTarget& target, bool& activated);
 };

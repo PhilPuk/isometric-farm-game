@@ -40,7 +40,7 @@ private:
 	UI* ui;
 
 	//Shop Engine
-	ShopEngine shop;
+	ShopEngine shop_e;
 
 	//Events
 	sf::Event ev;
