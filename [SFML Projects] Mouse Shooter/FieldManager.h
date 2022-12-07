@@ -27,7 +27,7 @@ public:
 	sf::Color color_baseColor;
 
 	//Called in Navigation update!!!
-	void updateMarking(int& i, int& j, Mouse& mouse, static const bool&(&func)(Mouse& mouse, sf::FloatRect object));
+	void updateMarking(int& i, int& j, Mouse& mouse, static const bool&(&func)(Mouse& mouse, sf::FloatRect object),  ShopEngine& shop_e, int indexOfSeed);
 	
 	void update();
 

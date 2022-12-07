@@ -58,5 +58,6 @@ public:
 	
 	void update(Mouse& mouse, ShopEngine& shop_engine);
 
+	void renderSeedClone(sf::RenderTarget& target);
 	void render(sf::RenderTarget& target);
 };

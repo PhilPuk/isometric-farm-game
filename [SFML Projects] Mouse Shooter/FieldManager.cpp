@@ -41,19 +41,20 @@ FieldManager::~FieldManager()
 	std::cout << "Size of fields vector array: " << this->fields.size() << " - SHOULD BE 0!\n";
 }
 
-void FieldManager::updateMarking(int& i, int& j, Mouse& mouse, static const bool&(&func)(Mouse& mouse, sf::FloatRect object))
+void FieldManager::updateMarking(int& i, int& j, Mouse& mouse, static const bool&(&func)(Mouse& mouse, sf::FloatRect object), ShopEngine& shop_e, int indexOfSeed)
 {
 	//Check for intersection between mouse and the crop
 	if (func(mouse, this->fields[i]->crops[j]->s_crop.getGlobalBounds()))
 	{
-		//check if its already marked green
-		if (!this->fields[i]->crops[i]->getHasSeed())
+		//check if its already marked green and if enough money is in the bank
+		if (!this->fields[i]->crops[i]->getHasSeed() && shop_e.getBuyIsPossible(shop_e.getPriceOfSeed(indexOfSeed)))
 		{
 			if (!this->fields[i]->crops[i]->getIsMarked())
 				this->fields[i]->crops[j]->s_crop.setColor(this->color_GreenMark);
 		}
 		else // If it already got a seed mark red
 		{
+			if (!this->fields[i]->crops[i]->getIsMarked())
 			this->fields[i]->crops[j]->s_crop.setColor(this->color_RedMark);
 		}
 		//Set that the crop is marked with a color

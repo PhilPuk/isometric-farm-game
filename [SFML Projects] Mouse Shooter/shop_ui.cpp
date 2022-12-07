@@ -101,24 +101,12 @@ void Shop_UI::setSeedCloneTexture(sf::Texture& texture)
     this->s_SeedClone.setTexture(texture);
 }
 
-
-void Shop_UI::reduceMoneyAfterBuy(float& reduce)
+void Shop_UI::updateBankText(float& bank)
 {
-    if (this->lastBank >= reduce)
-        this->lastBank -= reduce;
-    else
-        std::cout << " ERROR::SHOP_UI::REDUCEMONEYAFTERBUY::Not enough money to buy the item! Should not be handled by this assert!!!\n";
-}
-
-const float& Shop_UI::getMoneyInBank() const
-{
-    return this->lastBank;
-}
-
-void Shop_UI::updateBank(float& bank)
-{
+    //Check if value has changed
     if (lastBank != bank)
     {
+        //Update the text
         this->lastBank = bank;
         std::stringstream ss;
         ss << bank << "$";
@@ -126,9 +114,9 @@ void Shop_UI::updateBank(float& bank)
     }
 }
 
-void Shop_UI::update(float& bank)
+void Shop_UI::update(ShopEngine& shop_e)
 {
-    this->updateBank(bank);
+    this->updateBank(shop_e.getMoneyInBank());
 }
 
 void Shop_UI::renderBankText(sf::RenderTarget& target)

@@ -94,6 +94,14 @@ void UI::activateBuilding()
 void UI::update(Mouse& mouse, ShopEngine& shop_engine)
 {
 	this->selected.update();
+	this->shop.update(shop_engine);
+}
+
+
+void UI::renderSeedClone(sf::RenderTarget& target)
+{
+	if(this->shop->SeedCloneActivated)
+	target.draw(this->shop->s_SeedClone);
 }
 
 //Render all UI Layers
@@ -102,7 +110,6 @@ void UI::render(sf::RenderTarget& target)
 	this->base->render(target, UI::baseUIActive);
 	this->selected.render(target);
 	this->shop->render(target, UI::shopActive);
-	if(this->shop->SeedCloneActivated)
-	target.draw(this->shop->s_SeedClone);
 	this->build->render(target, UI::buildActive);
+	this->renderSeedClone(target);
 }
