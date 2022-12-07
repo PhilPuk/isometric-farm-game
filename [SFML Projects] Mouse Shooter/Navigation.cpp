@@ -111,6 +111,8 @@ void Navigation::updateShopOrBuildPressed(UI& ui, Mouse& mouse, Timer& timer)
 
 void Navigation::updateSeedHoverOnField(UI& ui, Mouse& mouse, Timer& timer, FieldManager& f_Manager,  ShopEngine& shop_e)
 {
+    //TO-DO
+    //GET INDEX OF SEEDS TO BUY
     if (ui.shop->SeedCloneActivated || f_Manager.anyCropisMarked)
     {
         f_Manager.anyCropisMarked = false;
@@ -120,7 +122,7 @@ void Navigation::updateSeedHoverOnField(UI& ui, Mouse& mouse, Timer& timer, Fiel
             //Loop through crops
             for (int j = 0; j < f_Manager.fields[i]->crops.size(); j++)
             {
-                f_Manager.updateMarking(i, j, mouse, this->CheckForMouseOnObject, shop_e);
+                f_Manager.updateMarking(i, j, mouse, this->CheckForMouseOnObject, shop_e, 0);
             }
         }
     }
@@ -134,7 +136,7 @@ void Navigation::updateUI(UI& ui, Mouse& mouse, Timer& timer)
 void Navigation::update(Mouse& mouse, UI& ui, Timer& timer, std::vector<sf::Texture*>& textures, FieldManager& f_Manager, ShopEngine& shop_e)
 {
     this->updateShopItemsMoved(mouse, timer, ui, textures);
-    this->updateSeedHoverOnField(ui, mouse, timer, f_Manager);
+    this->updateSeedHoverOnField(ui, mouse, timer, f_Manager, shop_e);
     this->updateUI(ui, mouse, timer);
 }
 

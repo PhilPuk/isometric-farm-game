@@ -20,7 +20,7 @@ void Shop_UI::initSpritePositions(sf::Vector2u& winSize, sf::Vector2f bottom_bar
 	this->sprites[0]->setPosition(20.f, static_cast<float>(winSize.y) - this->sprites[0]->getGlobalBounds().height * 1.2f);
 }
 
-void Shop_UI::initItemTexts(FileManagement& fileManager, sf::Vector2u& winSize, sf::Font& font)
+void Shop_UI::initItemTexts(FileManagement& fileManager, sf::Vector2u& winSize, sf::Font& font, ShopEngine& shop_e)
 {
     sf::Text base;
     base.setFont(font);
@@ -39,7 +39,7 @@ void Shop_UI::initItemTexts(FileManagement& fileManager, sf::Vector2u& winSize, 
     int amount = fileManager.getAmountOfFilesInsideAFolder("C:/Users/Phil/source/repos/[SFML Projects] SFML Template 1.0 - Kopie - Kopie/[SFML Projects] Mouse Shooter/Textures/ui/shop");
     for (int i = 1; i < amount; i++)
     {
-        std::string x = fileManager.getNameOfFilesInsideAFolder("C:/Users/Phil/source/repos/[SFML Projects] SFML Template 1.0 - Kopie - Kopie/[SFML Projects] Mouse Shooter/Textures/ui/shop")[i] + " " + std::to_string((int)this->prices[i - 1]) + "$";
+        std::string x = fileManager.getNameOfFilesInsideAFolder("C:/Users/Phil/source/repos/[SFML Projects] SFML Template 1.0 - Kopie - Kopie/[SFML Projects] Mouse Shooter/Textures/ui/shop")[i] + " " + std::to_string((int)shop_e.getPriceOfSeed(i - 1)) + "$";
         base.setString(x);
         base.setPosition(this->sprites[i]->getPosition().x + (this->sprites[i]->getGlobalBounds().width - base.getGlobalBounds().width) / 2.f, this->sprites[i]->getPosition().y + this->sprites[i]->getGlobalBounds().height);
         this->texts.push_back(new sf::Text(base));
@@ -73,13 +73,13 @@ void Shop_UI::initSeedClone(sf::Vector2u& winSize)
     this->s_SeedClone.setOrigin(rect.left + rect.width / 2.0f, rect.top + rect.height / 2.0f);
 }
 
-Shop_UI::Shop_UI(FileManagement& fileManager, sf::Vector2u& winSize, std::vector<sf::Texture*> textures, sf::Vector2f bottom_bar_Pos, float popBoxHeight, float popBoxWidth, sf::Font& font)
+Shop_UI::Shop_UI(FileManagement& fileManager, sf::Vector2u& winSize, std::vector<sf::Texture*> textures, sf::Vector2f bottom_bar_Pos, float popBoxHeight, float popBoxWidth, sf::Font& font, ShopEngine& shop_e)
 {
     this->initVariables();
     this->initCreateSprites(textures);
     this->initSpritePositions(winSize, bottom_bar_Pos);
     this->initShopItems(winSize, popBoxHeight, popBoxWidth);
-    this->initItemTexts(fileManager, winSize, font);
+    this->initItemTexts(fileManager, winSize, font, shop_e);
     this->initSeedClone(winSize);
 }
 
@@ -116,7 +116,7 @@ void Shop_UI::updateBankText(float& bank)
 
 void Shop_UI::update(ShopEngine& shop_e)
 {
-    this->updateBank(shop_e.getMoneyInBank());
+    this->updateBankText(shop_e.bank);
 }
 
 void Shop_UI::renderBankText(sf::RenderTarget& target)

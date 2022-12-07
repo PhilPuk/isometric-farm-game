@@ -115,7 +115,7 @@ void Game::update()
 
     this->mouse.update(*this->window, false);
 
-    this->nav.update(this->mouse, *this->ui, this->timer, this->textures.tex[TextureManager::shop_icons], *this->f_Manager);
+    this->nav.update(this->mouse, *this->ui, this->timer, this->textures.tex[TextureManager::shop_icons], *this->f_Manager, this->shop_e);
 
     this->shop_e.update();
 

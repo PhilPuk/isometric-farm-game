@@ -2,7 +2,7 @@
 
 void ShopEngine::initVariables()
 {
-    this->bank = 0.f;
+    this->bank = 100.f;
 }
 
 ShopEngine::ShopEngine()
@@ -34,7 +34,7 @@ const bool& ShopEngine::getMoneyInBank() const
 
 const float& ShopEngine::getPriceOfSeed(int index) const
 {
-    return this->price[index];
+    return this->seed_prices[index];
 }
 
 const bool& ShopEngine::getBuyIsPossible(float price)

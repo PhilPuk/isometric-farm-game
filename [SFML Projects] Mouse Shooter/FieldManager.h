@@ -2,6 +2,7 @@
 
 #include<stack>
 
+#include"Shop_Engine.h"
 #include"Field.h"
 #include"Mouse.h"
 

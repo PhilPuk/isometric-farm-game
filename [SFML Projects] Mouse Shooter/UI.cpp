@@ -16,7 +16,7 @@ void UI::initBase(FileManagement& fileManager, sf::Vector2u winSize, std::map<in
 
 void UI::initShop(FileManagement& fileManager, sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font, ShopEngine& shop_engine)
 {
-	this->shop = new Shop_UI(fileManager, winSize, t_Map[TextureManager::shop_icons], sf::Vector2f(0.f,0.f), this->base->s_popBox.getGlobalBounds().height, this->base->s_popBox.getGlobalBounds().width, font);
+	this->shop = new Shop_UI(fileManager, winSize, t_Map[TextureManager::shop_icons], sf::Vector2f(0.f,0.f), this->base->s_popBox.getGlobalBounds().height, this->base->s_popBox.getGlobalBounds().width, font, shop_engine);
 }
 void UI::initBuilding(FileManagement& fileManager, sf::Vector2u winSize, std::map<int, std::vector<sf::Texture*>>& t_Map, sf::Font& font)
 {
@@ -94,7 +94,7 @@ void UI::activateBuilding()
 void UI::update(Mouse& mouse, ShopEngine& shop_engine)
 {
 	this->selected.update();
-	this->shop.update(shop_engine);
+	this->shop->update(shop_engine);
 }
 
 

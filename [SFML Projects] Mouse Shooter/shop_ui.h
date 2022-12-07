@@ -26,11 +26,11 @@ private:
     void initVariables();
     void initCreateSprites(std::vector<sf::Texture*> textures);
     void initSpritePositions(sf::Vector2u& winSize, sf::Vector2f bottom_bar_Pos);
-    void initItemTexts(FileManagement& fileManager, sf::Vector2u& winSize, sf::Font& font);
+    void initItemTexts(FileManagement& fileManager, sf::Vector2u& winSize, sf::Font& font, ShopEngine& shop_e);
     void initShopItems(sf::Vector2u& winSize, float popBoxHeight, float popBoxWidth);
     void initSeedClone(sf::Vector2u& winSize);
 public:
-    Shop_UI(FileManagement& fileManager, sf::Vector2u& winSize, std::vector<sf::Texture*> textures, sf::Vector2f bottom_bar_Pos, float popBoxHeight, float popBoxWidth, sf::Font& font);
+    Shop_UI(FileManagement& fileManager, sf::Vector2u& winSize, std::vector<sf::Texture*> textures, sf::Vector2f bottom_bar_Pos, float popBoxHeight, float popBoxWidth, sf::Font& font, ShopEngine& shop_e);
     virtual~Shop_UI();
 
     sf::Sprite s_SeedClone;
