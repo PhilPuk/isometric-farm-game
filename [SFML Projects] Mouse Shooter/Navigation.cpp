@@ -59,6 +59,7 @@ void Navigation::updateShopItemsMoved(Mouse& mouse, Timer& timer, UI& ui, std::v
             {
                 ui.shop->SeedCloneActivated = true;
                 ui.shop->setSeedCloneTexture(*textures[i]);
+                ui.shop->setSeedCloneIndex(i);
             }
         }
     }
@@ -70,6 +71,7 @@ void Navigation::updateShopItemsMoved(Mouse& mouse, Timer& timer, UI& ui, std::v
     else
     {
         ui.shop->SeedCloneActivated = false;
+        //ui.shop->setSeedCloneIndex(-1);
     }
 }
 
@@ -122,7 +124,7 @@ void Navigation::updateSeedHoverOnField(UI& ui, Mouse& mouse, Timer& timer, Fiel
             //Loop through crops
             for (int j = 0; j < f_Manager.fields[i]->crops.size(); j++)
             {
-                f_Manager.updateMarking(i, j, mouse, this->CheckForMouseOnObject, shop_e, 0);
+                f_Manager.updateMarking(i, j, mouse, this->CheckForMouseOnObject, shop_e, ui.shop->SeedCloneIndex);
             }
         }
     }

@@ -47,6 +47,7 @@ void FieldManager::updateMarking(int& i, int& j, Mouse& mouse, static const bool
 	if (func(mouse, this->fields[i]->crops[j]->s_crop.getGlobalBounds()))
 	{
 		//check if its already marked green and if enough money is in the bank
+		if (indexOfSeed < 0 || indexOfSeed >= 15)std::cout << "ERROR::FIELDMANAGER::UPDATEMARKING::indexOfSeed to big or small: " << indexOfSeed << "\n";
 		if (!this->fields[i]->crops[i]->getHasSeed() && shop_e.getBuyIsPossible(shop_e.getPriceOfSeed(indexOfSeed)))
 		{
 			if (!this->fields[i]->crops[i]->getIsMarked())

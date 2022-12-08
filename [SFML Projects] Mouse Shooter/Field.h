@@ -24,6 +24,7 @@ public:
 	void newCrop();
 	void updateUpgradedCropTexture(sf::Texture& texture);
 	void upgradeCrop();
+	void placeSeedOnCrop(int indexOfSeed);
 
 	void update();
 

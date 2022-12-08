@@ -151,6 +151,7 @@
     <ClCompile Include="baseLayer.cpp" />
     <ClCompile Include="Scenery.cpp" />
     <ClCompile Include="Seed.cpp" />
+    <ClCompile Include="SeedManager.cpp" />
     <ClCompile Include="selection_ui.cpp" />
     <ClCompile Include="Shop_Engine.cpp" />
     <ClCompile Include="shop_ui.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="Navigation.h" />
     <ClInclude Include="Scenery.h" />
     <ClInclude Include="Seed.h" />
+    <ClInclude Include="SeedManager.h" />
     <ClInclude Include="selection_ui.h" />
     <ClInclude Include="Shop_Engine.h" />
     <ClInclude Include="shop_ui.h" />

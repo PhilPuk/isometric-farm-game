@@ -35,10 +35,12 @@ public:
 
     sf::Sprite s_SeedClone;
     bool SeedCloneActivated;
+    int SeedCloneIndex;
 
     //TO DO MOVE INTO SHOP ENGINE CLASS!!!    
     //Modify the texture of the seed icon that can be moved around
-     void setSeedCloneTexture(sf::Texture& texture);
+    void setSeedCloneTexture(sf::Texture& texture);
+    void setSeedCloneIndex(int index);
 
     void updateBankText(float& bank);
     void update(ShopEngine& shop_e);

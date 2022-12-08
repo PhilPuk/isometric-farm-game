@@ -135,6 +135,9 @@
     <ClCompile Include="Shop_Engine.cpp">
       <Filter>Engine\Shop Engine</Filter>
     </ClCompile>
+    <ClCompile Include="SeedManager.cpp">
+      <Filter>Seed</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Crops.h">
@@ -202,6 +205,9 @@
     </ClInclude>
     <ClInclude Include="Shop_Engine.h">
       <Filter>Engine\Shop Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="SeedManager.h">
+      <Filter>Seed</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

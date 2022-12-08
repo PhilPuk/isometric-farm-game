@@ -34,6 +34,7 @@ const bool& ShopEngine::getMoneyInBank() const
 
 const float& ShopEngine::getPriceOfSeed(int index) const
 {
+    if(index < 0 || index > (sizeof(this->seed_prices) / sizeof(this->seed_prices[0]))) return -1;
     return this->seed_prices[index];
 }
 

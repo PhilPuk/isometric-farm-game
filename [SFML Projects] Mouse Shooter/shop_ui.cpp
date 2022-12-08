@@ -3,6 +3,7 @@
 void Shop_UI::initVariables()
 {
     this->lastBank = 100.f;
+    this->SeedCloneIndex = -1;
 }
 
 void Shop_UI::initCreateSprites(std::vector<sf::Texture*> textures)
@@ -99,6 +100,11 @@ Shop_UI::~Shop_UI()
 void Shop_UI::setSeedCloneTexture(sf::Texture& texture)
 {
     this->s_SeedClone.setTexture(texture);
+}
+
+void Shop_UI::setSeedCloneIndex(int index)
+{
+    this->SeedCloneIndex = index;
 }
 
 void Shop_UI::updateBankText(float& bank)
