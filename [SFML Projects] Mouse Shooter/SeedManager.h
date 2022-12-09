@@ -20,10 +20,14 @@ public:
 	SeedManager();
 	virtual ~SeedManager();
 
-	Seed createNewSeed(sf::Vector2f pos, int indexOfSeed);
+	//Contains all seeds that are on crops
+	std::vector<Seed*> seeds;
+
+	void createNewSeed(sf::Vector2f pos, int indexOfSeed, sf::Texture& t_OnCrop, sf::Texture& t_Icon);
 
 	void update(Timer& timer);
 
+	void renderSeeds(sf::RenderTarget& target);
 	void render(sf::RenderTarget& target);
 };
 

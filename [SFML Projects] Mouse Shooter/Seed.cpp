@@ -2,7 +2,8 @@
 
 void Seed::initVariables()
 {
-
+	this->startGrowthTime = 0.f;
+	this->growthTimeMax = 0.f;
 }
 
 void Seed::init_s_OnCrop(sf::Texture& t_OnCrop, sf::Vector2f pos)

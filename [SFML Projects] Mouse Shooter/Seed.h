@@ -13,6 +13,9 @@ private:
 	sf::Sprite s_OnCrop;
 	sf::CircleShape cSh_Icon;
 
+	float startGrowthTime;
+	float growthTimeMax;
+
 	void initVariables();
 	void init_s_OnCrop(sf::Texture& t_OnCrop, sf::Vector2f pos);
 	void init_cSh_Pic(sf::Texture& t_Pic, sf::Vector2f pos);
