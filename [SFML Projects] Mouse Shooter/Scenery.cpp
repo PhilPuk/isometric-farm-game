@@ -7,7 +7,7 @@ void Scenery::initVariables()
 
 void Scenery::initStartScenery(sf::Vector2u& winSize, std::vector<sf::Texture*>& t_Sceneries)
 {
-	this->s_Scenery.setTexture(*t_Sceneries[0]);
+	this->s_Scenery.setTexture(*t_Sceneries[1]);
 	//center origin
 	sf::FloatRect textRect = this->s_Scenery.getLocalBounds();
 	this->s_Scenery.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);

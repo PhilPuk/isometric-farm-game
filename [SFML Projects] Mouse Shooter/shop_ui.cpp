@@ -133,7 +133,7 @@ void Shop_UI::renderBankText(sf::RenderTarget& target)
 void Shop_UI::render(sf::RenderTarget& target, bool& activated)
 {
     this->renderBaseIcon(target);
-    if (activated)
+    if (activated && !this->SeedCloneActivated)
     {
         this->renderItems(target);
         this->renderTexts(target);
