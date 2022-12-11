@@ -4,23 +4,6 @@ void TextureManager::initVariables()
 {
 }
 
-int TextureManager::getFileAmountOfFolder(std::string Path)
-{
-	auto dirIter = std::filesystem::directory_iterator(Path);
-	int fileCount = 0;
-	
-	for (auto& entry : dirIter)
-	{
-    	if (entry.is_regular_file())
-    	{
-	        ++fileCount;
-			//std::cout << entry.path() << "\n";
-	    }
-	}
-	std::cout << " - INITCHECK::TEXTUREMANAGER::GETFILEAMOUNTOFFOLDER::Files loaded: " << fileCount << " at: " << Path << "\n";
-	return fileCount;
-}
-
 void TextureManager::AutoTextureLoader(std::string Path, int key)
 {
 	auto dirIter = std::filesystem::directory_iterator(Path);
@@ -47,22 +30,6 @@ void TextureManager::initSceneryTextures()
 	this->AutoTextureLoader("Textures/scenery", sceneries);
 }
 
-void TextureManager::initCropTextures()
-{
-	this->AutoTextureLoader("Textures/crops", crops);
-}
-
-void TextureManager::initSeedTextures()
-{
-	//To-do: Create onCrop seed textures! just one to test first!
-	//this->AutoTextureLoader("Textures/seeds/onField", seeds);
-}
-
-void TextureManager::initFieldTextures()
-{
-	this->AutoTextureLoader("Textures/fields", fields);
-}
-
 void TextureManager::initUITextures()
 {
 	//Base layer stuff
@@ -78,15 +45,18 @@ void TextureManager::initPopBoxes()
 	this->AutoTextureLoader("Textures/ui/popBox", popBoxes);
 }
 
+void TextureManager::initIsometricSquares()
+{
+	this->AutoTextureLoader("Textures/isometric_squares", isometric_squares);
+}
+
 void TextureManager::initTextures()
 {
 	this->initLightTextures();
 	this->initSceneryTextures();
-	this->initCropTextures();
-	this->initSeedTextures();
-	this->initFieldTextures();
 	this->initUITextures();
 	this->initPopBoxes();
+	this->initIsometricSquares();
 }
 
 TextureManager::TextureManager()
