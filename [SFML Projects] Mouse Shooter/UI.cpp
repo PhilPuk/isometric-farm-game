@@ -107,7 +107,8 @@ void UI::renderSeedClone(sf::RenderTarget& target)
 //Render all UI Layers
 void UI::render(sf::RenderTarget& target)
 {
-	this->base->render(target, this->shop->SeedCloneActivated);
+	bool basetrue = this->shop->SeedCloneActivated || this->baseUIActive;
+	this->base->render(target, basetrue);
 	this->selected.render(target);
 	this->shop->render(target, UI::shopActive);
 	this->build->render(target, UI::buildActive);
