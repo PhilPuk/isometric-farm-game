@@ -7,8 +7,7 @@
 #include"UI.h"
 #include"Shop_Engine.h"
 #include"Scenery.h"
-#include"Field.h"
-#include"FieldManager.h"
+#include"Isometric_Square.h"
 #include"Mouse.h"
 #include"Navigation.h"
 #include"Timer.h"
@@ -52,7 +51,7 @@ private:
 	Navigation nav;
 
 	//FieldManager
-	FieldManager* f_Manager;
+	//FieldManager* f_Manager;
 
 	//End logic
 	bool endGame;
@@ -62,13 +61,16 @@ private:
 	void initVariables(sf::RenderWindow* window);
 	void initUI(sf::Font& font);
 	void initScenery();
-	void initf_Manager();
+	//void initf_Manager();
 public:
 	Game(sf::RenderWindow* window, sf::Font& font);
 	virtual ~Game();
 
 	//Scenery
 	Scenery* scenery;
+
+	//Isometric square (FOR TESTING ONLY!!!)
+	Isometric_Square* iso_square;
 
 	void CloseApplication();
 	void resetVariables();

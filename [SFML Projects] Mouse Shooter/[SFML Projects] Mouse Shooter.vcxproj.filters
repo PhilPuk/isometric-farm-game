@@ -13,14 +13,8 @@
     <Filter Include="UI">
       <UniqueIdentifier>{6e5c1f07-8857-4184-92fd-bb0f0f449f1b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Crops">
-      <UniqueIdentifier>{9595d56e-b3c4-4d12-bb6e-adbad2ef494b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Seed">
       <UniqueIdentifier>{0e1f49c5-93aa-424b-9ac4-f9679ee40af2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FieldManager">
-      <UniqueIdentifier>{841dd81a-9c67-45f1-ad04-1caf323c6874}</UniqueIdentifier>
     </Filter>
     <Filter Include="Scenery">
       <UniqueIdentifier>{8e27a8dd-2789-49cc-9d8e-89adbf0506ff}</UniqueIdentifier>
@@ -68,15 +62,6 @@
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Crops.cpp">
-      <Filter>Crops</Filter>
-    </ClCompile>
-    <ClCompile Include="Field.cpp">
-      <Filter>FieldManager</Filter>
-    </ClCompile>
-    <ClCompile Include="FieldManager.cpp">
-      <Filter>FieldManager</Filter>
     </ClCompile>
     <ClCompile Include="Light.cpp">
       <Filter>Graphics</Filter>
@@ -138,17 +123,9 @@
     <ClCompile Include="SeedManager.cpp">
       <Filter>Seed</Filter>
     </ClCompile>
+    <ClCompile Include="Isometric_Square.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Crops.h">
-      <Filter>Crops</Filter>
-    </ClInclude>
-    <ClInclude Include="Field.h">
-      <Filter>FieldManager</Filter>
-    </ClInclude>
-    <ClInclude Include="FieldManager.h">
-      <Filter>FieldManager</Filter>
-    </ClInclude>
     <ClInclude Include="Light.h">
       <Filter>Graphics</Filter>
     </ClInclude>
@@ -209,5 +186,6 @@
     <ClInclude Include="SeedManager.h">
       <Filter>Seed</Filter>
     </ClInclude>
+    <ClInclude Include="Isometric_Square.h" />
   </ItemGroup>
 </Project>

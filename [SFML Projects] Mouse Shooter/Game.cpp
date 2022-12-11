@@ -29,15 +29,15 @@ void Game::initScenery()
     );
 }
 
-void Game::initf_Manager()
-{
-    this->f_Manager = new FieldManager
-    (
-        this->winSize,
-        this->textures.tex[TextureManager::fields][0],
-        this->textures.tex[TextureManager::crops][0]
-    );
-}
+//void Game::initf_Manager()
+//{
+//    this->f_Manager = new FieldManager
+//    (
+//        this->winSize,
+//        this->textures.tex[TextureManager::fields][0],
+//        this->textures.tex[TextureManager::crops][0]
+//    );
+//}
 
 Game::Game(sf::RenderWindow* window, sf::Font& font)
 {
@@ -45,14 +45,18 @@ Game::Game(sf::RenderWindow* window, sf::Font& font)
     this->initVariables(window);
     this->initUI(font);
     this->initScenery();
-    this->initf_Manager();
+    //this->initf_Manager();
+
+    //FOR TESTING !!!!
+    this->iso_square = new Isometric_Square(*this->textures.tex[TextureManager::isometric_squares][0], sf::Vector2f(500.f, 500.f), sf::Vector2f(1.f, 1.f));
 }
 
 Game::~Game()
 {
     delete this->ui;
 
-    delete this->f_Manager;
+    //FOR TESTING !!!!
+    delete this->iso_square;
     
     delete this->scenery;
 }
@@ -115,13 +119,13 @@ void Game::update()
 
     this->mouse.update(*this->window, false);
 
-    this->nav.update(this->mouse, *this->ui, this->timer, this->textures.tex[TextureManager::shop_icons], *this->f_Manager, this->shop_e);
+    this->nav.update(this->mouse, *this->ui, this->timer, this->textures.tex[TextureManager::shop_icons], this->shop_e);
 
     this->shop_e.update();
 
     this->scenery->update();
 
-    this->f_Manager->update();
+    //this->f_Manager->update();
 
     this->ui->update(mouse, shop_e);
 }
@@ -132,7 +136,8 @@ void Game::render()
     
     this->scenery->render(*this->window);
 
-    this->f_Manager->render(*this->window);
+    //FOR TESTING !!!!
+    this->iso_square->render(*this->window);
 
     this->ui->render(*this->window);
 
