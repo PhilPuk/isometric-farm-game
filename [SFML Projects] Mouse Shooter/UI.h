@@ -1,7 +1,6 @@
 #pragma once
 
 #include"TextureManager.h"
-#include"FieldManager.h"
 #include"shop_ui.h"
 #include"building_ui.h"
 #include"base.h"

@@ -139,6 +139,7 @@
     <ClCompile Include="building_ui.cpp" />
     <ClCompile Include="FileManagement.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="IsometricSquareCHATGPT.cpp" />
     <ClCompile Include="Isometric_Square.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LightManager.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="building_ui.h" />
     <ClInclude Include="FileManagement.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="IsometricSquareCHATGPT.h" />
     <ClInclude Include="Isometric_Square.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="LightManager.h" />
