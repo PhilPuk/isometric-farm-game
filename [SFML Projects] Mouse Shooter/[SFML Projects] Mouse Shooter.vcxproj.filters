@@ -124,6 +124,7 @@
       <Filter>Seed</Filter>
     </ClCompile>
     <ClCompile Include="Isometric_Square.cpp" />
+    <ClCompile Include="IsometricSquareCHATGPT.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Light.h">
@@ -187,5 +188,6 @@
       <Filter>Seed</Filter>
     </ClInclude>
     <ClInclude Include="Isometric_Square.h" />
+    <ClInclude Include="IsometricSquareCHATGPT.h" />
   </ItemGroup>
 </Project>

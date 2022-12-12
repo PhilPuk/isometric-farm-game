@@ -12,6 +12,7 @@
 #include"Navigation.h"
 #include"Timer.h"
 #include"FileManagement.h"
+#include"IsometricSquareCHATGPT.h"
 
 /*
 * Class Info:
@@ -70,7 +71,7 @@ public:
 	Scenery* scenery;
 
 	//Isometric square (FOR TESTING ONLY!!!)
-	Isometric_Square* iso_square;
+	Isometric_Square* iso_square[2];
 
 	void CloseApplication();
 	void resetVariables();
