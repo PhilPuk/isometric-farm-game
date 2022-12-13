@@ -25,9 +25,15 @@ public:
 
 	sf::Sprite s_Square;
 
+
 	void update();
 
 	void renderSquare(sf::RenderTarget& target);
 	void render(sf::RenderTarget& target);
+
+	// For testing!!!
+	sf::Sprite s_new;
+	void initTestingSquare();
+	void renderNew(sf::RenderTarget& target);
 };
 

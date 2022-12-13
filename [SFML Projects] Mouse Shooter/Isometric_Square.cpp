@@ -31,6 +31,7 @@ Isometric_Square::Isometric_Square(sf::Texture& texture_of_square, sf::Vector2f 
 {
 	this->initVariables();
 	this->initSprite(texture_of_square, scaleOfSprite, spawn_position);
+	this->initTestingSquare();
 }
 
 Isometric_Square::~Isometric_Square()
@@ -51,4 +52,29 @@ void Isometric_Square::renderSquare(sf::RenderTarget& target)
 void Isometric_Square::render(sf::RenderTarget& target)
 {
 	this->renderSquare(target);
+	this->renderNew(target);
+}
+
+//For testing!!! WORKS! tested in school
+void Isometric_Square::initTestingSquare()
+{
+	this->s_new = s_Square;
+	this->s_new.setPosition(100.f,100.f);
+
+	s_new.setRotation(45.f);
+	//adjust the position for new screen coordinates (once)
+	s_new.setPosition(s_new.getPosition().x, s_new.getPosition().y * 2);
+
+}
+
+//For testing!!! | WORKS! tested in school
+void Isometric_Square::renderNew(sf::RenderTarget& target)
+{
+	sf::View v = target.getDefaultView();
+	v.setSize(v.getSize().x, v.getSize().y * 2);
+	v.setCenter(v.getSize() *.5f);
+
+	target.setView(v);
+	target.draw(my_sprite);
+	target.setView(target.getDefaultView());
 }
