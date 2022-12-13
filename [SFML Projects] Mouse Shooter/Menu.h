@@ -38,6 +38,7 @@ private:
 		//Menu_Navigation
 	void navigateUP();
 	void navigateDOWN();
+	void navigateWithMouse();
 	 
 		//Initilalization
 	void initVariables();
@@ -52,6 +53,12 @@ public:
 	//Constructor / Destructor
 	Menu();
 	~Menu();
+
+	//Poll Event main functions
+	void pollGame();
+	void pollSettings();
+	void pollStop();
+	void pollMainActions();
 
 	//Functions
 	void run();

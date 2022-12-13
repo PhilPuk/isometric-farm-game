@@ -72,6 +72,7 @@ public:
 
 	//Isometric square (FOR TESTING ONLY!!!)
 	Isometric_Square* iso_square[2];
+	Cube cube;
 
 	void CloseApplication();
 	void resetVariables();

@@ -100,6 +100,23 @@ void Menu::navigateDOWN()
 	}
 }
 
+void Menu::navigateWithMouse()
+{
+	for (int i = 0; i < sizeof(this->Text_Menu_Options) / sizeof(this->Text_Menu_Options[0]); i++)
+	{
+		if (this->Text_Menu_Options[i].getGlobalBounds().contains(this->mouse.getMousePosView()))
+		{
+			this->Menu_Navigation_Index = i;
+			this->Navigation_Index_Changed = true;
+
+			if (mouse.getMouseLeftClicked())
+			{
+				this->pollMainActions();
+			}
+		}
+	}
+}
+
 
 //Constructor / Destructor
 Menu::Menu()
@@ -119,6 +136,42 @@ Menu::~Menu()
 	delete this->game;
 }
 
+void Menu::pollGame()
+{
+	//Start button action
+	this->game->run();
+	this->game->resetVariables();
+}
+
+void Menu::pollSettings()
+{
+
+}
+
+void Menu::pollStop()
+{
+	//Stop button action
+	this->window->close();
+}
+
+void Menu::pollMainActions()
+{
+	//Menu_Options function called here
+	if (this->Menu_Navigation_Index == 0)
+	{
+		this->pollGame();
+	}
+	else if (this->Menu_Navigation_Index == 1)
+	{
+		//Settings button action
+		this->pollSettings();
+	}
+	else if (this->Menu_Navigation_Index == 2)
+	{
+		this->pollStop();
+	}
+}
+
 //Functions
 void Menu::run()
 {
@@ -135,22 +188,7 @@ void Menu::EventEnterPressed(sf::Event& ev)
 {
 	if (ev.key.code == sf::Keyboard::Enter)
 	{
-		//Menu_Options function called here
-		if (this->Menu_Navigation_Index == 0)
-		{
-			//Start button action
-			this->game->run();
-			this->game->resetVariables();
-		}
-		else if (this->Menu_Navigation_Index == 1)
-		{
-			//Settings button action
-		}
-		else if (this->Menu_Navigation_Index == 2)
-		{
-			//Stop button action
-			this->window->close();
-		}
+		this->pollMainActions();
 	}
 }
 
@@ -217,6 +255,10 @@ void Menu::udpate()
 
 	//Text updating
 	this->updateText();
+
+	mouse.update(*this->window, false);
+
+	this->navigateWithMouse();
 }
 
 //render
