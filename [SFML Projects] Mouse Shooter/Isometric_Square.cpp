@@ -25,6 +25,15 @@ void Isometric_Square::initSprite(sf::Texture& texture, sf::Vector2f scale, sf::
 	this->initTexture(texture);
 	this->initSpriteScale(scale);
 	this->initSpritePos(pos);
+	for(int i = 0; i < 4; i++)
+	{
+		this->visible[i] = true;
+		this->s_Square[i].setTexture(texture);
+		this->s_Square[i].setScale(scale);
+		this->s_Square[i].setPosition(pos);
+	}
+	this->s_Square[0].setRotation(45.f);
+	this->s_Square.setPosition(s_Square[0].getPosition().x, s_Square[0].getPosition().y * 2);
 }
 
 Isometric_Square::Isometric_Square(sf::Texture& texture_of_square, sf::Vector2f spawn_position, sf::Vector2f scaleOfSprite)
