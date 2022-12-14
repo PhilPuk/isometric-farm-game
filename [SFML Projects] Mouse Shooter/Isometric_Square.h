@@ -19,9 +19,6 @@ class Isometric_Square
 {
 private:
 	void initVariables();
-	void initTexture(sf::Texture& texture);
-	void initSpriteScale(sf::Vector2f scale);
-	void initSpritePos(sf::Vector2f pos);
 	void initSprite(sf::Texture& texture, sf::Vector2f scale, sf::Vector2f pos);
 public:
 	Isometric_Square(sf::Texture& texture_of_square, sf::Vector2f spawn_position, sf::Vector2f scaleOfSprite);
@@ -32,14 +29,12 @@ public:
 	//Ordered by: 0 = BOTTOM , 1 = TOP, 2 = LEFT, 3 = RIGHT.
 	bool side_visible[4];
 
+	unsigned char r, g, b;
+
 	void update();
 
+	void renderBottom(sf::RenderTarget& target);
 	void renderSides(sf::RenderTarget& target);
 	void render(sf::RenderTarget& target);
-
-	// For testing!!!
-	sf::Sprite s_new;
-	void initTestingSquare();
-	void renderNew(sf::RenderTarget& target);
 };
 
