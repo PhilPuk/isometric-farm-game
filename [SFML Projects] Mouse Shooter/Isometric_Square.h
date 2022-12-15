@@ -19,9 +19,9 @@ class Isometric_Square
 {
 private:
 	void initVariables();
-	void initSprite(sf::Texture& texture, sf::Vector2f scale, sf::Vector2f pos);
+	void initSprite(std::vector<sf::Texture*>& texture, sf::Vector2f scale, sf::Vector2f pos);
 public:
-	Isometric_Square(sf::Texture& texture_of_square, sf::Vector2f spawn_position, sf::Vector2f scaleOfSprite);
+	Isometric_Square(std::vector<sf::Texture*>& textures, sf::Vector2f spawn_position, sf::Vector2f scaleOfSprite);
 	virtual ~Isometric_Square();
 
 	//Ordered by: 0 = BOTTOM , 1 = TOP, 2 = LEFT, 3 = RIGHT.
