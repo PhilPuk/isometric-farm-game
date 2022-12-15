@@ -33,16 +33,6 @@ Isometric_Square::~Isometric_Square()
 
 void Isometric_Square::update()
 {
-	r += 1;
-	g += 1;
-	b += 1;
-	//if (r < 255)
-	//	r = 0;
-	//if (g < 255)
-	//	g = 0;
-	//if (b < 255)
-	//	b = 0;
-	this->s_Square[0].setColor(sf::Color(r, g, b, 255));
 
 }
 

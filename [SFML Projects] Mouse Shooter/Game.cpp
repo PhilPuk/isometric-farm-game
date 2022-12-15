@@ -37,7 +37,9 @@ Game::Game(sf::RenderWindow* window, sf::Font& font)
     this->initScenery();
 
     //FOR TESTING !!!!
-    this->iso_square = new Isometric_Square(*this->textures.tex[TextureManager::isometric_squares][0], sf::Vector2f(500.f, 350.f), sf::Vector2f(1.f, 1.f));
+    this->iso_square[0] = new Isometric_Square(*this->textures.tex[TextureManager::isometric_squares][0], sf::Vector2f(500.f, 350.f), sf::Vector2f(0.5f, 0.5f));
+    //this->iso_square[1] = new Isometric_Square(*this->textures.tex[TextureManager::isometric_squares][0], sf::Vector2f(this->iso_square[0]->s_Square[0].getPosition().x + this->iso_square[0]->s_Square[0].getGlobalBounds().width + 100.f, this->iso_square[0]->s_Square[0].getPosition().y + this->iso_square[0]->s_Square[0].getGlobalBounds().height), sf::Vector2f(1.f, 1.f));
+    this->iso_square[1] = new Isometric_Square(*this->textures.tex[TextureManager::isometric_squares][0], sf::Vector2f(500.f,300.f), sf::Vector2f(0.5f, 0.5f));
 }
 
 Game::~Game()
@@ -45,8 +47,10 @@ Game::~Game()
     delete this->ui;
 
     //FOR TESTING !!!!
-    delete this->iso_square;
-    
+    delete this->iso_square[1];
+
+    delete this->iso_square[0];
+
     delete this->scenery;
 }
 
@@ -115,7 +119,7 @@ void Game::update()
     this->scenery->update();
 
     //this->f_Manager->update();
-    this->iso_square->update();
+    this->iso_square[0]->update();
 
     this->ui->update(mouse, shop_e);
 }
@@ -127,7 +131,8 @@ void Game::render()
     this->scenery->render(*this->window);
 
     //FOR TESTING !!!!
-    this->iso_square->render(*this->window);
+    this->iso_square[0]->render(*this->window);
+    this->iso_square[1]->render(*this->window);
 
     this->ui->render(*this->window);
 

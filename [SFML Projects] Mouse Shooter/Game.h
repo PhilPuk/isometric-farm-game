@@ -70,7 +70,7 @@ public:
 	Scenery* scenery;
 
 	//Isometric square (FOR TESTING ONLY!!!)
-	Isometric_Square* iso_square;
+	Isometric_Square* iso_square[2];
 
 	void CloseApplication();
 	void resetVariables();
