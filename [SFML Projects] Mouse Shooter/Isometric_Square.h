@@ -34,6 +34,7 @@ public:
 	void update();
 
 	void renderBottom(sf::RenderTarget& target);
+	void renderTop(sf::RenderTarget& target);
 	void renderSides(sf::RenderTarget& target);
 	void render(sf::RenderTarget& target);
 };

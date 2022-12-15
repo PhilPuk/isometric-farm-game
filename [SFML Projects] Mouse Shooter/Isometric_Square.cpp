@@ -57,6 +57,12 @@ void Isometric_Square::renderBottom(sf::RenderTarget& target)
 	target.draw(this->s_Square[2]);
 }
 
+
+void Isometric_Square::renderTop(sf::RenderTarget& target)
+{
+	this->
+}
+
 void Isometric_Square::renderSides(sf::RenderTarget& target)
 {
 	this->renderBottom(target);
