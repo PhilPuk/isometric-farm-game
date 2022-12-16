@@ -59,7 +59,11 @@ void TileManager::updateFrontVisibility()
 
 void TileManager::updateVisibility()
 {
-
+    /*Main Ideas:
+    *Check if there is another one the the left or/and right
+    *Check if one above or/and below
+    *
+    */
 }
 
 void TileManager::renderManipulateView(sf::RenderTarget& target)
@@ -98,9 +102,11 @@ void TileManager::renderFrontSides(sf::RenderTarget& target)
 
 void TileManager::renderAllTiles(sf::RenderTarget& target)
 {
+    this->renderManipulateView(target);
     this->renderAllBottomsSides(target);
-    this->renderFrontSides(target);
     this->renderAllTopSides(target);
+    this->renderResetView(target);
+    this->renderFrontSides(target);
 }
 
 void TileManager::render(sf::RenderTarget& target)

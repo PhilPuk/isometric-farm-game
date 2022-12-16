@@ -29,7 +29,13 @@ public:
 	//Ordered by: 0 = BOTTOM , 1 = TOP, 2 = LEFT, 3 = RIGHT.
 	bool side_visible[4];
 
-	unsigned char r, g, b;
+	void activateFrontVisibility();
+	void activateTopVisibility();
+	void activateBottomVisibility()
+
+	void deActivateFrontVisibility();
+	void deActivateTopVisibility();
+	void deActivateBottomVisibility()
 
 	void update();
 
