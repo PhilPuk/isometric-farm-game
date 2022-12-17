@@ -95,10 +95,7 @@ void Isometric_Square::renderSides(sf::RenderTarget& target)
 
 void Isometric_Square::render(sf::RenderTarget& target)
 {
-	if(this->side_visible[0])
-		this->renderBottom();
-	if(this->side_visible[1])
-		this->renderTop();
-	if(this->side_visible[2])
-		this->renderSides();
+		this->renderBottom(target);
+		this->renderTop(target);
+		this->renderSides(target);
 }

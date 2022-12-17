@@ -155,6 +155,7 @@
     <ClCompile Include="Shop_Engine.cpp" />
     <ClCompile Include="shop_ui.cpp" />
     <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="TileManager.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Tracing.cpp" />
     <ClCompile Include="UI.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="Shop_Engine.h" />
     <ClInclude Include="shop_ui.h" />
     <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="TileManager.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Tracing.h" />
     <ClInclude Include="UI.h" />

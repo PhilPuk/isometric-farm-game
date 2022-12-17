@@ -31,11 +31,11 @@ public:
 
 	void activateFrontVisibility();
 	void activateTopVisibility();
-	void activateBottomVisibility()
+	void activateBottomVisibility();
 
 	void deActivateFrontVisibility();
 	void deActivateTopVisibility();
-	void deActivateBottomVisibility()
+	void deActivateBottomVisibility();
 
 	void update();
 

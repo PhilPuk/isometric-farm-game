@@ -1,19 +1,22 @@
 #pragma once
 
 #include"Isometric_Square.h"
+#include"TextureManager.h"
 
 class TileManager
 {
 private:
     void initVariables();
-    void initTiles(std::map<int, std::vector<sf::Texture*>>& texture_map)
+    void initTiles(std::map<int, std::vector<sf::Texture*>>& texture_map);
     void initStartWorld(int start_world_size);
     void initViews(sf::RenderTarget& target);
-    sf::View v_Manupilated_to_Isometric;
+    sf::View v_Manipulated_to_Isometric;
 public:
     std::vector<Isometric_Square*> tiles; 
     TileManager(std::map<int, std::vector<sf::Texture*>>& texture_map, int start_world_size, sf::RenderTarget& target);
     virtual~TileManager();
+
+    void addNewTile(std::vector<sf::Texture* >& textures, sf::Vector2f pos);
 
     /*Algorithms thoughts:
     *Check sorrounding tiles 
