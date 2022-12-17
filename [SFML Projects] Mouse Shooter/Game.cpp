@@ -139,8 +139,8 @@ void Game::render()
     this->scenery->render(*this->window);
 
     //FOR TESTING !!!!
-    this->iso_square[0]->render(*this->window);
-    this->iso_square[1]->render(*this->window);
+    //this->iso_square[0]->render(*this->window);
+    //this->iso_square[1]->render(*this->window);
 
     this->t_Manager->render(*this->window);
 

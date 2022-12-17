@@ -7,7 +7,7 @@ void TileManager::initVariables()
 
 void TileManager::initTiles(std::map<int, std::vector<sf::Texture*>>& texture_map)
 {
-    this->addNewTile(texture_map[TextureManager::isometric_squares], sf::Vector2f(200.f, 250.f));
+    this->addNewTile(texture_map[TextureManager::isometric_squares], sf::Vector2f(500.f, 250.f));
 }
 
 void TileManager::initStartWorld(int start_world_size)

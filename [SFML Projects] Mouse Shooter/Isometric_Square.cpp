@@ -2,7 +2,7 @@
 
 void Isometric_Square::initVariables()
 {
-	for(int i = 0; i < 3; i++)
+	for(int i = 0; i < 4; i++)
 		this->side_visible[i] = true;
 }
 
@@ -15,16 +15,20 @@ void Isometric_Square::initSprite(std::vector<sf::Texture*>& texture, sf::Vector
 		this->s_Square[i].setPosition(pos);
 	}
 
-	this->s_Square[1].setPosition(pos.x, pos.y - (0.2f * this->s_Square[0].getGlobalBounds().height));
+	this->s_Square[1].setPosition(pos.x, pos.y - 200.f);
 
 	this->s_Square[0].setTexture(*texture[0]);
 	this->s_Square[0].setRotation(45.f);
 	this->s_Square[0].setPosition(s_Square[0].getPosition().x, s_Square[0].getPosition().y * 2);
 
 	this->s_Square[1].setTexture(*texture[0]);
+	this->s_Square[1].setColor(sf::Color(50, 50, 255, 255));
+	this->s_Square[1].setRotation(45.f);
 	this->s_Square[1].setPosition(s_Square[1].getPosition().x, s_Square[1].getPosition().y * 2);
 
 	this->s_Square[2].setTexture(*texture[1]);
+	this->s_Square[2].setScale(scale.x * 0.7f, scale.y * 0.7f);
+	this->s_Square[2].setColor(sf::Color(200, 100, 300, 255));
 }
 
 Isometric_Square::Isometric_Square(std::vector<sf::Texture*>& textures, sf::Vector2f spawn_position, sf::Vector2f scaleOfSprite)
