@@ -8,6 +8,7 @@ void Base_UI::initCreateSprites(std::vector<sf::Texture*> textures)
         this->sprites[i]->setTexture(*textures[i]);
     }
     std::cout << "Size of base sprites: " << this->sprites.size() << "\n";
+    this->sprites[0]->setColor(sf::Color(225, 155, 155, 255));
 }
 
 void Base_UI::initSpritePositions(sf::Vector2u winSize)
