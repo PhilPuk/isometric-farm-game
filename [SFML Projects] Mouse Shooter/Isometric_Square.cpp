@@ -22,7 +22,7 @@ void Isometric_Square::initSprite(std::vector<sf::Texture*>& texture, sf::Vector
 	this->s_Square[0].setRotation(45.f);
 	this->s_Square[0].setPosition(s_Square[0].getPosition().x, s_Square[0].getPosition().y * 2);
 
-	this->s_Square[1].setColor(sf::Color(50, 50, 255, 255));
+	this->s_Square[1].setColor(sf::Color(255, 255, 255, 255));
 	this->s_Square[1].setRotation(45.f);
 	this->s_Square[1].setPosition(s_Square[1].getPosition().x, s_Square[1].getPosition().y * 2);
 
