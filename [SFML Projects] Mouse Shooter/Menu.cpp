@@ -9,7 +9,7 @@ void Menu::initVariables()
 	this->videoMode.width = 1600;
 	this->videoMode.height = 900;
 		//Framerate
-	this->Framerate = 30;
+	this->Framerate = 60;
 
 	//Texts
 	this->Application_Title = "Gardenia";

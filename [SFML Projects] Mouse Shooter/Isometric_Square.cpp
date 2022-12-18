@@ -4,6 +4,8 @@ void Isometric_Square::initVariables()
 {
 	for(int i = 0; i < 4; i++)
 		this->side_visible[i] = true;
+
+	this->side_visible[0] = false;
 }
 
 void Isometric_Square::initSprite(std::vector<sf::Texture*>& texture, sf::Vector2f scale, sf::Vector2f pos)
