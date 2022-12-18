@@ -75,9 +75,24 @@ void Isometric_Square::deActivateBottomVisibility()
 	this->side_visible[0] = false;
 }
 
+const bool& Isometric_Square::getBoundsContain(const sf::Vector2f* pos)
+{
+	for (auto& i : this->s_Square)
+		if (i.getGlobalBounds().contains(*pos))
+			return true;
+
+	return false;
+}
+
+void Isometric_Square::setPosition(const sf::Vector2f& pos)
+{
+	for (auto& i : this->s_Square)
+		i.setPosition(pos);
+}
+
 void Isometric_Square::update()
 {
-
+	
 }
 
 void Isometric_Square::renderBottom(sf::RenderTarget& target)

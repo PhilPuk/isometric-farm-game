@@ -37,6 +37,10 @@ public:
 	void deActivateTopVisibility();
 	void deActivateBottomVisibility();
 
+	const bool& getBoundsContain(const sf::Vector2f* pos);
+
+	void setPosition(const sf::Vector2f& pos);
+
 	void update();
 
 	void renderBottom(sf::RenderTarget& target);

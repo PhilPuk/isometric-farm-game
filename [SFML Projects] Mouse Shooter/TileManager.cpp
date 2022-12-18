@@ -45,6 +45,17 @@ void TileManager::addNewTile(std::vector<sf::Texture* >& textures, sf::Vector2f 
     tiles.push_back(new Isometric_Square(textures, pos, sf::Vector2f(1.f, 1.f)));
 }
 
+void TileManager::updateTileMovement(Mouse& mouse)
+{
+    if(mouse.getMouseLeftClicked())
+    for (auto& i : this->tiles)
+    {
+        sf::Vector2f pos = mouse.getMousePosView();
+        if (i->getBoundsContain(&pos))
+            i->setPosition(pos);
+    }
+}
+
 //To-do
 //Algorithm to get if the part of the tile is visible or not.
 void TileManager::updateBottomVisibility()
@@ -69,6 +80,11 @@ void TileManager::updateVisibility()
     *Check if one above or/and below
     *
     */
+}
+
+void TileManager::update(Mouse& mouse)
+{
+    this->updateTileMovement(mouse);
 }
 
 void TileManager::renderManipulateView(sf::RenderTarget& target)

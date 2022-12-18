@@ -126,6 +126,8 @@ void Game::update()
 
     this->scenery->update();
 
+    this->t_Manager->update(this->mouse);
+
     //this->f_Manager->update();
     this->iso_square[0]->update();
 

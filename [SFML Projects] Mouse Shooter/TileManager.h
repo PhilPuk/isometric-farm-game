@@ -2,6 +2,7 @@
 
 #include"Isometric_Square.h"
 #include"TextureManager.h"
+#include"Mouse.h"
 
 class TileManager
 {
@@ -22,10 +23,15 @@ public:
     *Check sorrounding tiles 
     *
     */
+
+    void updateTileMovement(Mouse& mouse);
+
     void updateBottomVisibility();
     void updateTopVisibility();
     void updateFrontVisibility();
     void updateVisibility();
+
+    void update(Mouse& mouse);
     
     void renderManipulateView(sf::RenderTarget& target);
     void renderResetView(sf::RenderTarget& target);
