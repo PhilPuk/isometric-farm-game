@@ -5,7 +5,7 @@ void Selection::initVariables()
 	this->Active = false;
 	this->activatedShape = this->keys[0];
 
-	this->color_selection = sf::Color(255, 0, 255, 110);
+	this->color_selection = sf::Color(94, 126, 230, 110);
 }
 
 void Selection::initBaseCircle()

@@ -125,6 +125,7 @@
     </ClCompile>
     <ClCompile Include="Isometric_Square.cpp" />
     <ClCompile Include="IsometricSquareCHATGPT.cpp" />
+    <ClCompile Include="TileManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Light.h">
@@ -189,5 +190,6 @@
     </ClInclude>
     <ClInclude Include="Isometric_Square.h" />
     <ClInclude Include="IsometricSquareCHATGPT.h" />
+    <ClInclude Include="TileManager.h" />
   </ItemGroup>
 </Project>

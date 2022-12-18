@@ -8,11 +8,11 @@
 #include"Shop_Engine.h"
 #include"Scenery.h"
 #include"Isometric_Square.h"
+#include"TileManager.h"
 #include"Mouse.h"
 #include"Navigation.h"
 #include"Timer.h"
 #include"FileManagement.h"
-#include"IsometricSquareCHATGPT.h"
 
 /*
 * Class Info:
@@ -51,8 +51,8 @@ private:
 	//User navigation system
 	Navigation nav;
 
-	//FieldManager
-	//FieldManager* f_Manager;
+	//Isometric tiles
+	TileManager* t_Manager;
 
 	//End logic
 	bool endGame;
@@ -62,7 +62,7 @@ private:
 	void initVariables(sf::RenderWindow* window);
 	void initUI(sf::Font& font);
 	void initScenery();
-	//void initf_Manager();
+	void initTileManager();
 public:
 	Game(sf::RenderWindow* window, sf::Font& font);
 	virtual ~Game();
