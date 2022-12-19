@@ -20,6 +20,9 @@ class Isometric_Square
 private:
 	void initVariables();
 	void initSprite(std::vector<sf::Texture*>& texture, sf::Vector2f scale, sf::Vector2f pos);
+
+	sf::Vector2f leftSideSubstractor;
+	sf::Vector2f rightSideSubstractor;
 public:
 	Isometric_Square(std::vector<sf::Texture*>& textures, sf::Vector2f spawn_position, sf::Vector2f scaleOfSprite);
 	virtual ~Isometric_Square();

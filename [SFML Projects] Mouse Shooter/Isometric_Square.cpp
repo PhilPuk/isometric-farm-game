@@ -28,9 +28,14 @@ void Isometric_Square::initSprite(std::vector<sf::Texture*>& texture, sf::Vector
 	this->s_Square[1].setRotation(45.f);
 	this->s_Square[1].setPosition(s_Square[1].getPosition().x, s_Square[1].getPosition().y * 2);
 
+	this->leftSideSubstractor.x = -this->s_Square[2].getGlobalBounds().width;
+	this->leftSideSubstractor.y = -this->s_Square[2].getGlobalBounds().height * 0.17f;
+	this->rightSideSubstractor.x = 0.f;
+	this->rightSideSubstractor.y = -this->s_Square[3].getGlobalBounds().height * 0.17f;
+
 	//this->s_Square[2].setScale(scale.x * 0.7f, scale.y * 0.7f);
-	this->s_Square[2].setPosition(sf::Vector2f(this->s_Square[2].getPosition().x - this->s_Square[2].getGlobalBounds().width, this->s_Square[2].getPosition().y - this->s_Square[2].getGlobalBounds().height * 0.17f));
-	this->s_Square[3].setPosition(sf::Vector2f(this->s_Square[3].getPosition().x, this->s_Square[3].getPosition().y - this->s_Square[3].getGlobalBounds().height * 0.17f));
+	this->s_Square[2].setPosition(sf::Vector2f(this->s_Square[2].getPosition().x + this->leftSideSubstractor.x, this->s_Square[2].getPosition().y + this->leftSideSubstractor.y));
+	this->s_Square[3].setPosition(sf::Vector2f(this->s_Square[3].getPosition().x, this->s_Square[3].getPosition().y + this->rightSideSubstractor.y));
 }
 
 Isometric_Square::Isometric_Square(std::vector<sf::Texture*>& textures, sf::Vector2f spawn_position, sf::Vector2f scaleOfSprite)
@@ -77,9 +82,8 @@ void Isometric_Square::deActivateBottomVisibility()
 
 const bool& Isometric_Square::getBoundsContain(const sf::Vector2f* pos)
 {
-	for (int i = 0; i < 4; i++)
-		if(this->side_visible[i])
-		if (this->s_Square[i].getGlobalBounds().contains(*pos))
+		if(this->side_visible[1])
+		if (this->s_Square[1].getGlobalBounds().contains(*pos))
 			return true;
 
 	return false;
@@ -87,8 +91,10 @@ const bool& Isometric_Square::getBoundsContain(const sf::Vector2f* pos)
 
 void Isometric_Square::setPosition(const sf::Vector2f& pos)
 {
-	for (auto& i : this->s_Square)
-		i.setPosition(pos);
+	this->s_Square[0].setPosition(pos.x, pos.y);
+	this->s_Square[1].setPosition(pos.x, pos.y - 200.f);
+	this->s_Square[2].setPosition(this->s_Square[1].getPosition().x + this->leftSideSubstractor.x, this->s_Square[1].getPosition().y + this->leftSideSubstractor.y);
+	this->s_Square[3].setPosition(this->s_Square[1].getPosition().x, this->s_Square[1].getPosition().y + this->rightSideSubstractor.y);
 }
 
 void Isometric_Square::update()
