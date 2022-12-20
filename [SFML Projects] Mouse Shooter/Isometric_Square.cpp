@@ -127,7 +127,11 @@ void Isometric_Square::renderSides(sf::RenderTarget& target)
 
 void Isometric_Square::render(sf::RenderTarget& target)
 {
-		this->renderBottom(target);
-		this->renderTop(target);
-		this->renderSides(target);
+	this->renderSides(target);
+	sf::View v = target.getDefaultView();
+	v.setSize(v.getSize().x, v.getSize().y * 2);
+	v.setCenter(v.getSize() * .5f);
+	target.setView(v);
+	this->renderTop(target);
+	target.setView(target.getDefaultView());
 }

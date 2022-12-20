@@ -146,6 +146,12 @@ void TileManager::renderAllTiles(sf::RenderTarget& target)
     //this->renderAllBottomsSides(target);
     this->renderAllTopSides(target);
     this->renderResetView(target);
+
+    //Renders tile that is getting moved above all other ones
+    if (this->indexOfTile >= 0)
+    {
+        this->tiles[this->indexOfTile]->render(target);
+    }
 }
 
 void TileManager::render(sf::RenderTarget& target)
