@@ -12,6 +12,8 @@ private:
     void initStartWorld(int start_world_size);
     void initViews(sf::RenderTarget& target);
     sf::View v_Manipulated_to_Isometric;
+
+    int indexOfTile;
 public:
     std::vector<Isometric_Square*> tiles; 
     TileManager(std::map<int, std::vector<sf::Texture*>>& texture_map, int start_world_size, sf::RenderTarget& target);

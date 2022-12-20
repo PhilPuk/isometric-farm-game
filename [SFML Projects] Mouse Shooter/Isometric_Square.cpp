@@ -92,9 +92,11 @@ const bool& Isometric_Square::getBoundsContain(const sf::Vector2f* pos)
 void Isometric_Square::setPosition(const sf::Vector2f& pos)
 {
 	this->s_Square[0].setPosition(pos.x, pos.y);
-	this->s_Square[1].setPosition(pos.x, pos.y - 200.f);
-	this->s_Square[2].setPosition(this->s_Square[1].getPosition().x + this->leftSideSubstractor.x, this->s_Square[1].getPosition().y + this->leftSideSubstractor.y);
-	this->s_Square[3].setPosition(this->s_Square[1].getPosition().x, this->s_Square[1].getPosition().y + this->rightSideSubstractor.y);
+	//this->s_Square[2].setPosition(this->s_Square[1].getPosition().x + this->leftSideSubstractor.x, this->s_Square[1].getPosition().y + this->leftSideSubstractor.y);
+	//this->s_Square[3].setPosition(this->s_Square[1].getPosition().x, this->s_Square[1].getPosition().y + this->rightSideSubstractor.y);
+	this->s_Square[2].setPosition(pos.x + this->leftSideSubstractor.x, pos.y - this->leftSideSubstractor.y /1.42f);
+	this->s_Square[3].setPosition(pos.x + this->rightSideSubstractor.x, pos.y - this->rightSideSubstractor.y /1.42f);
+	this->s_Square[1].setPosition(pos.x, pos.y*2.f - 200.f);
 }
 
 void Isometric_Square::update()

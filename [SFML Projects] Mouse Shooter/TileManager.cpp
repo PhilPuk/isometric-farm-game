@@ -2,12 +2,13 @@
 
 void TileManager::initVariables()
 {
-
+    this->indexOfTile = -1;
 }
 
 void TileManager::initTiles(std::map<int, std::vector<sf::Texture*>>& texture_map)
 {
     this->addNewTile(texture_map[TextureManager::isometric_squares], sf::Vector2f(500.f, 250.f));
+    this->addNewTile(texture_map[TextureManager::isometric_squares], sf::Vector2f(this->tiles[0]->s_Square[1].getPosition().x + this->tiles[0]->s_Square[1].getGlobalBounds().width / 2.f, this->tiles[0]->s_Square[1].getPosition().y + this->tiles[0]->s_Square[1].getGlobalBounds().height / 2.f + 9.f));
 }
 
 void TileManager::initStartWorld(int start_world_size)
@@ -47,12 +48,29 @@ void TileManager::addNewTile(std::vector<sf::Texture* >& textures, sf::Vector2f 
 
 void TileManager::updateTileMovement(Mouse& mouse)
 {
-    if(mouse.getMouseLeftClicked())
-    for (auto& i : this->tiles)
+    if (mouse.getMouseLeftClicked())
     {
         sf::Vector2f pos = mouse.getMousePosView();
-        if (i->getBoundsContain(&pos))
-            i->setPosition(pos);
+        if (this->indexOfTile == -1)
+        {
+
+            for (int i = 0; i < this->tiles.size(); i++)
+            {
+                if (this->tiles[i]->getBoundsContain(&pos))
+                {
+                    this->tiles[i]->setPosition(pos);
+                    this->indexOfTile = i;
+                    mouse.set_Mouse_Held();
+                }
+            }
+        }
+        else
+        {
+            if (mouse.getMouseHeld())
+                this->tiles[this->indexOfTile]->setPosition(pos);
+            else
+                this->indexOfTile = -1;
+        }
     }
 }
 
@@ -123,11 +141,11 @@ void TileManager::renderFrontSides(sf::RenderTarget& target)
 
 void TileManager::renderAllTiles(sf::RenderTarget& target)
 {
+    this->renderFrontSides(target);
     this->renderManipulateView(target);
-    this->renderAllBottomsSides(target);
+    //this->renderAllBottomsSides(target);
     this->renderAllTopSides(target);
     this->renderResetView(target);
-    this->renderFrontSides(target);
 }
 
 void TileManager::render(sf::RenderTarget& target)
