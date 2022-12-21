@@ -1,6 +1,7 @@
 #pragma once
 
 #include<iostream>
+#include<memory
 #include"time.h"
 
 #include"TextureManager.h"
@@ -13,11 +14,17 @@
 #include"Navigation.h"
 #include"Timer.h"
 #include"FileManagement.h"
+#include"Grid.h"
 
 /*
 * Class Info:
 * Used as wrapper class for the whole game.
 * Only the menu is above this class.
+*/
+
+/*To-do:
+*	Change up normal pointers to smart pointers
+		Testing this with grid system
 */
 
 class Game
@@ -63,6 +70,7 @@ private:
 	void initUI(sf::Font& font);
 	void initScenery();
 	void initTileManager();
+	void initGrid();
 public:
 	Game(sf::RenderWindow* window, sf::Font& font);
 	virtual ~Game();
@@ -70,8 +78,8 @@ public:
 	//Scenery
 	Scenery* scenery;
 
-	//Isometric square (FOR TESTING ONLY!!!)
-	Isometric_Square* iso_square[2];
+	//Grid system
+	std::unique_ptr<Grid> grid;
 
 	void CloseApplication();
 	void resetVariables();
