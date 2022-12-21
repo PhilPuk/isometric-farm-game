@@ -11,9 +11,11 @@
 #include<SFML/Audio.hpp>
 #include<SFML/Network.hpp>
 
-//Update to the new tile system
-//Build it like a cube two times the s_new sprite for top and bottom.
-//Two squares tiles for the left and right face
+
+/*To-do:
+*	check if bottom side is neccessary
+*	adjust hitbox of top side(rn the normal square turned by 45°)	
+*/
 
 class Isometric_Square
 {

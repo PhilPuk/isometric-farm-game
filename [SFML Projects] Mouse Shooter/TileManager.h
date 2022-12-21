@@ -19,11 +19,11 @@ public:
     TileManager(std::map<int, std::vector<sf::Texture*>>& texture_map, int start_world_size, sf::RenderTarget& target);
     virtual~TileManager();
 
-    void addNewTile(std::vector<sf::Texture* >& textures, sf::Vector2f pos);
+    void addNewTile(std::vector<sf::Texture*>& textures, sf::Vector2f pos);
 
     /*Algorithms thoughts:
     *Check sorrounding tiles 
-    *
+    *Implement grid system
     */
 
     void updateTileMovement(Mouse& mouse);
@@ -40,6 +40,7 @@ public:
     void renderAllBottomsSides(sf::RenderTarget& target);
     void renderAllTopSides(sf::RenderTarget& target);
     void renderFrontSides(sf::RenderTarget& target);
+    void renderMovedTile(sf::RenderTarget& target);
     void renderAllTiles(sf::RenderTarget& target);
     void render(sf::RenderTarget& target);
 };

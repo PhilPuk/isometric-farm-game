@@ -139,14 +139,8 @@ void TileManager::renderFrontSides(sf::RenderTarget& target)
     }
 }
 
-void TileManager::renderAllTiles(sf::RenderTarget& target)
+void TileManager::renderMovedTile(sf::RenderTarget& target)
 {
-    this->renderFrontSides(target);
-    this->renderManipulateView(target);
-    //this->renderAllBottomsSides(target);
-    this->renderAllTopSides(target);
-    this->renderResetView(target);
-
     //Renders tile that is getting moved above all other ones
     if (this->indexOfTile >= 0)
     {
@@ -154,7 +148,17 @@ void TileManager::renderAllTiles(sf::RenderTarget& target)
     }
 }
 
+void TileManager::renderAllTiles(sf::RenderTarget& target)
+{
+    this->renderFrontSides(target);
+    this->renderManipulateView(target);
+    //this->renderAllBottomsSides(target); 
+    this->renderAllTopSides(target);
+    this->renderResetView(target);
+    this->renderMovedTile(target);
+}
+
 void TileManager::render(sf::RenderTarget& target)
 {
     this->renderAllTiles(target);
-}
+} 
